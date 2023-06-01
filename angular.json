@@ -24,18 +24,23 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss", "src/assets/css/style.min.css"],
+            "styles": [
+              "src/styles.scss",
+              "src/assets/css/fonts.css",
+              "src/assets/css/login-register.css",
+              "src/assets/css/main.css",
+              "src/assets/css/nice-select2.css",
+              "src/assets/css/normalize.css",
+              "src/assets/css/swiper-bundle.css"
+            ],
             "scripts": [
-              "src/assets/libs/jquery/dist/jquery.min.js",
-              "src/assets/libs/simplebar/dist/simplebar.min.js",
-              "src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "src/assets/js/app.min.js",
-              "src/assets/js/app.init.js",
-              "src/assets/js/app-style-switcher.js",
-              "src/assets/js/sidebarmenu.js",
-              "src/assets/js/custom.js",
-              "src/assets/libs/owl.carousel/dist/owl.carousel.min.js",
-              "src/assets/js/dashboard.js"
+              "src/assets/js/countdown.js",
+              "src/assets/js/fslightbox.js",
+              "src/assets/js/main.js",
+              "src/assets/js/nice-select2.js",
+              "src/assets/js/svg-loader.js",
+              "src/assets/js/swiper-bundle.min.js",
+              "src/assets/js/waves.min.js"
             ]
           },
           "configurations": {
