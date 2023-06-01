@@ -9,7 +9,6 @@ import { RouterModule } from '@angular/router';
 
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AuthorizationInterceptor } from './interceptors/authorization.interceptor';
-import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { MissingDataModule } from '../helpers/missing-data/missing-data.module';
 
 @NgModule({
@@ -29,7 +28,6 @@ import { MissingDataModule } from '../helpers/missing-data/missing-data.module';
   imports: [
     CommonModule,
     HttpClientModule,
-    AngularMultiSelectModule,
     MissingDataModule,
     FormsModule,
     ReactiveFormsModule,
@@ -45,7 +43,6 @@ import { MissingDataModule } from '../helpers/missing-data/missing-data.module';
     RouterModule,
     ModalModule,
     LoadingModule,
-    AngularMultiSelectModule,
     ReadMoreComponent,
     MissingDataModule,
   ],

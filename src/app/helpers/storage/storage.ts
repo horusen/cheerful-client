@@ -25,10 +25,10 @@ export class Storage {
     localStorage.removeItem(key);
   }
 
-  public getBusiness(): any {
-    return localStorage.getItem('business') &&
-      localStorage.getItem('business') != 'undefined'
-      ? JSON.parse(localStorage.getItem('business')!)
+  public getUser(): any {
+    return localStorage.getItem('user') &&
+      localStorage.getItem('user') != 'undefined'
+      ? JSON.parse(localStorage.getItem('user')!)
       : null;
   }
 

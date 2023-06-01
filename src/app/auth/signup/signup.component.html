@@ -1,0 +1,184 @@
+<div class="primary-content-area container content-padding">
+  <div class="section-small">
+    <div class="page-title text-center">
+      <h2><span class="gradient-text">Register</span> Account</h2>
+    </div>
+    <form class="cryptoki-form validation"
+          id="contact-form"
+          [formGroup]="form"
+          *ngIf="form"
+          (submit)="signup()"
+          novalidate="">
+      <input type="hidden"
+             name="recaptcha_site_key"
+             value="">
+      <input type="hidden"
+             name="recaptcha_token"
+             value="">
+      <!-- Name and email -->
+      <div class="form-group">
+        <!-- Name -->
+        <div class="form-field">
+          <label for="name">Your name</label>
+          <input type="text"
+                 name="name"
+                 formControlName="name"
+                 id="name"
+                 data-val="\S"
+                 data-val-msg="* This is a required field."
+                 data-val-msg-id="textMessage"
+                 required="">
+          <span class="input_error-message"
+                id="textMessage"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-field">
+          <label for="email">Your email</label>
+          <input type="email"
+                 name="email"
+                 id="email"
+                 formControlName="email"
+                 data-val="\b[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}\b"
+                 data-val-msg="* Please enter a valid email address."
+                 data-val-msg-id="emailMessage"
+                 required="">
+          <span class="input_error-message"
+                id="emailMessage"></span>
+        </div>
+      </div>
+
+      <!-- password and confirmation -->
+      <div class="form-group">
+        <!-- Password & confirmation -->
+        <div class="form-field">
+          <label for="password">Your password</label>
+          <input type="password"
+                 name="password"
+                 id="password"
+                 formControlName="password"
+                 data-val="\S"
+                 data-val-msg="* This is a required field."
+                 data-val-msg-id="textMessage"
+                 required="">
+          <span class="input_error-message"
+                id="textMessage"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-field">
+          <label for="password_confirmation">Confirm your password</label>
+          <input type="password"
+                 name="password_confirmation"
+                 id="password_confirmation"
+                 formControlName="password_confirmation"
+                 data-val="\S"
+                 data-val-msg="* This is a required field."
+                 data-val-msg-id="textMessage"
+                 required="">
+          <span class="input_error-message"
+                id="textMessage"></span>
+        </div>
+      </div>
+
+      <!-- Phone number, GEnder  location -->
+      <div class="form-group">
+        <!-- Gender -->
+        <div class="form-field">
+          <label for="subject">Gender</label>
+          <select class="select-nice"
+                  name="email_subject"
+                  (change)="selectFormHandler('gender', $event.target)"
+                  id="subject"
+                  data-val="\S"
+                  data-val-msg="* Please, select an option."
+                  data-val-msg-id="selectMessage"
+                  required="">
+            <option value="">Select an Option</option>
+            <option [value]="gender.name"
+                    *ngFor="let gender of genderList">{{ gender.name }}</option>
+          </select>
+          <span class="input_error-message"
+                id="selectMessage"></span>
+        </div>
+
+
+        <!-- Location -->
+        <div class="form-field">
+          <label for="subject">Location</label>
+          <select class="select-nice"
+                  name="email_subject"
+                  (change)="selectFormHandler('location', $event.target)"
+                  id="subject"
+                  data-val="\S"
+                  data-val-msg="* Please, select an option."
+                  data-val-msg-id="selectMessage"
+                  required="">
+            <option value="">Select an Option</option>
+            <option [value]="country.name"
+                    *ngFor="let country of countryList">{{ country.name }}</option>
+          </select>
+          <span class="input_error-message"
+                id="selectMessage"></span>
+        </div>
+
+        <!-- Phone number -->
+        <div class="form-field">
+          <label for="name">Your Phone number</label>
+          <input type="tel"
+                 name="name"
+                 formControlName="phone_number"
+                 id="name"
+                 data-val="\S"
+                 data-val-msg="* This is a required field."
+                 data-val-msg-id="textMessage"
+                 required="">
+          <span class="input_error-message"
+                id="textMessage"></span>
+        </div>
+      </div>
+
+
+
+      <!-- <div class="form-field">
+        <label for="subject">Subject</label>
+        <select class="select-nice"
+                name="email_subject"
+                id="subject"
+                data-val="\S"
+                data-val-msg="* Please, select an option."
+                data-val-msg-id="selectMessage"
+                required="">
+          <option value="">Select an Option</option>
+          <option value="technical-support-general-help">Techhnical Support and/or General Help</option>
+          <option value="pre-sale">Pre-Sale Question</option>
+          <option value="partnership-request">Partnership Request</option>
+        </select>
+        <span class="input_error-message"
+              id="selectMessage"></span>
+      </div>
+      <div class="form-field comment-area">
+        <label for="message">Your comment</label>
+        <textarea id="message"
+                  name="message"
+                  class="comment-form message"
+                  cols="30"
+                  rows="10"
+                  data-val="\S"
+                  data-val-msg="* Please, type a message."
+                  data-val-msg-id="textareaMessage"
+                  required=""></textarea>
+        <span class="input_error-message"
+              id="textareaMessage"></span>
+      </div> -->
+
+      <button type="submit"
+              style="display: block"
+              class="btn  btn-fullwidth btn-dark"
+              data-badge="inline">Send</button>
+    </form>
+    <!-- <div class="register-notice">
+      You’ll receive a confirmation email in your inbox with a link to activate your account.
+    </div> -->
+  </div>
+</div>

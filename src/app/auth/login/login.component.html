@@ -1,0 +1,63 @@
+<div class="primary-content-area container content-padding">
+  <div class="section-small">
+    <div class="page-title text-center">
+      <h2><span class="gradient-text">Sign</span> in</h2>
+    </div>
+    <form class="cryptoki-form validation"
+          id="contact-form"
+          [formGroup]="form"
+          *ngIf="form"
+          (submit)="login()"
+          novalidate="">
+      <input type="hidden"
+             name="recaptcha_site_key"
+             value="">
+      <input type="hidden"
+             name="recaptcha_token"
+             value="">
+
+      <!-- Phone number -->
+      <div class="form-field">
+        <label for="name">Your email</label>
+        <input type="email"
+               name="name"
+               formControlName="email"
+               id="name"
+               data-val="\S"
+               data-val-msg="* This is a required field."
+               data-val-msg-id="textMessage"
+               required="">
+        <span class="input_error-message"
+              id="textMessage"></span>
+      </div>
+
+      <!-- Password  -->
+      <div class="form-field">
+        <label for="password">Your password</label>
+        <input type="password"
+               name="password"
+               id="password"
+               formControlName="password"
+               data-val="\S"
+               data-val-msg="* This is a required field."
+               data-val-msg-id="textMessage"
+               required="">
+        <span class="input_error-message"
+              id="textMessage"></span>
+      </div>
+
+
+
+
+
+
+      <button type="submit"
+              style="display: block"
+              class="btn  btn-fullwidth btn-dark"
+              data-badge="inline">Send</button>
+    </form>
+    <!-- <div class="register-notice">
+      You’ll receive a confirmation email in your inbox with a link to activate your account.
+    </div> -->
+  </div>
+</div>
