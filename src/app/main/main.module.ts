@@ -8,6 +8,8 @@ import { ExploreComponent } from './explore/explore.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileItemsComponent } from './profile-items/profile-items.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,14 @@ const routes: Routes = [
         path: 'checkout',
         component: CheckoutComponent,
       },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+      },
+      {
+        path: 'profile/items/:itemId',
+        component: ProfileItemsComponent,
+      },
     ],
   },
 ];
@@ -46,6 +56,8 @@ const routes: Routes = [
     ProductDetailComponent,
     CartComponent,
     CheckoutComponent,
+    ProfileComponent,
+    ProfileItemsComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
 })

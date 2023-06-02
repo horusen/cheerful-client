@@ -541,15 +541,12 @@
         <!--user-meta-->
         <div class="user-meta">
           <div class="user_name">Patience Ayeni</div>
-          <div class="user_score">
-            <span><svg class="crumina-icon">
-                <use xlink:href="#circle-icon"></use>
-              </svg></span>GHC 2000
-          </div>
+
         </div>
         <!--/user-meta-->
         <!--user-avatar-->
-        <div class="avatar box-42">
+        <a [routerLink]="['profile']"
+           class="avatar box-42">
           <picture>
             <source type="image/avif"
                     srcset="./assets/avif/avatar.avif" />
@@ -563,7 +560,7 @@
           <span class="verified"><svg class="crumina-icon">
               <use xlink:href="#check-icon"></use>
             </svg></span>
-        </div>
+        </a>
         <!--/user-avatar-->
         <!--close-icon-->
         <div class="closing-icon">

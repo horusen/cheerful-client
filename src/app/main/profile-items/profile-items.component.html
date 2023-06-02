@@ -1,0 +1,90 @@
+<div class="primary-content-area container content-padding">
+
+
+  <!-- FEATURED ITEMS V3 -->
+  <div class="section-padding">
+    <div class="section-title-wrapper">
+      <div class="section-title">Gift <span class="gradient-text">Purchased</span></div>
+    </div>
+    <div class="featured-box grid-4-columns">
+      <div class="featured-item v3"
+           *ngFor="let item of cardService.data">
+        <div class="featured-item-wrapper">
+          <div class="featured-item-image-wrapper">
+            <div class="featured-item-image">
+              <a href="05-product-page.html"><img [src]="item.card.imageUrl"
+                     alt=""></a>
+            </div>
+          </div>
+          <div class="featured-countdown"><span class="clock"><svg class="crumina-icon">
+                <use xlink:href="#clock-icon"></use>
+              </svg></span><span class="js-countdown"
+                  data-timer="66400"
+                  data-labels="d : , h : , m : , s"></span>
+          </div>
+          <div class="item-meta-wrapper">
+            <div class="title"><a href="05-product-page.html">{{ item.card.name }}</a></div>
+
+          </div>
+
+          <div class="item-meta-wrapper">
+            <div class="item-meta">
+              <div class="creator-box">
+                <div class="creator-info">
+                  <div class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar.png"
+                           alt=""></a><span class="verified"><svg class="crumina-icon">
+                        <use xlink:href="#check-icon"></use>
+                      </svg></span>
+                  </div>
+                  <div class="creator-meta">
+                    <div class="creator-label">PROVIDER</div>
+                    <div class="creator-name"><a href="08-profile-page.html">{{ item.card.provider }}</a></div>
+                  </div>
+                </div>
+                <div class="featured-item-pricebox">
+                  <div class="price-caption">PRICE </div>
+                  <div class="price">{{ item.card.price }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="item-meta">
+            <div class="creator-box">
+              <div class="place-bid">
+                <div class="gradient-border_white-bg"><button class="btn btn-small-fullwidth">Transfer</button></div>
+              </div>
+              <div class="place-bid">
+                <div class="gradient-border_white-bg"><button class="btn btn-small-fullwidth">Redeem</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="featured-item-post-content">
+            <div class="social-share-box">
+              <div class="share-icons">
+                <a href="#">
+                  <svg class="crumina-icon">
+                    <use xlink:href="#facebook-icon"></use>
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg class="crumina-icon">
+                    <use xlink:href="#twitter-icon"></use>
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg class="crumina-icon">
+                    <use xlink:href="#instagram-icon"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FEATURED ITEMS V3 -->
+
+</div>
