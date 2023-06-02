@@ -64,17 +64,13 @@
           <p>{{ productService.singleData.description }}}
           </p>
         </div>
-        <!-- <div class="product-description"> -->
-        <!-- <div class="small-title">Additional Details</div> -->
-        <!-- <ul class="details-list">
-            <li><svg class="crumina-icon bullet-icon">
-                <use xlink:href="#circle-icon"></use>
-              </svg><span class="detail-label">Content</span><span class="bold">Baby's Clothing</span></li>
-            <li><svg class="crumina-icon bullet-icon">
-                <use xlink:href="#circle-icon"></use>
-              </svg><span class="detail-label">Age</span><span class="bold">1-5 Years</span></li>
-          </ul> -->
-        <!-- </div> -->
+
+        <div class="product-description">
+          <div class="small-title">Edition</div>
+          <div class="value">May/June</div>
+          <div class="caption">Edition</div>
+        </div>
+
       </div>
       <div class="product-media">
         <a class="expand-icon"
@@ -95,11 +91,7 @@
           <div class="value">GHC {{ productService.singleData.minPrice }}</div>
           <div class="caption">Two Thousand Ghana Cedis</div>
         </div>
-        <div class="product-meta-item">
-          <div class="small-title">Edition</div>
-          <div class="value">May/June</div>
-          <div class="caption">Edition</div>
-        </div>
+
         <div class="product-meta-item">
           <div class="small-title">Discount ending in</div>
           <div class="countdown">
@@ -108,7 +100,82 @@
                  data-labels="Days , Hours , Mins , Secs"></div>
           </div>
         </div>
-        <div class="place-bid"><button class="btn btn-wide btn-dark">Proceed to Cart</button></div>
+
+
+        <div class="product-description">
+          <div class="small-title">Amount</div>
+          <ul class="details-list">
+            <!-- <li><svg class="crumina-icon bullet-icon">
+                            <use xlink:href="#circle-icon"></use>
+                          </svg><span class="detail-label">Content</span><span class="bold">Baby's Clothing</span></li>
+                        <li><svg class="crumina-icon bullet-icon">
+                            <use xlink:href="#circle-icon"></use>
+                          </svg><span class="detail-label">Age</span><span class="bold">1-5 Years</span></li> -->
+            <!-- <div style="display: flex; justify-content: space-between;">
+
+              <div class="placed-bid">
+                <div class="bid-placer">
+
+                  <div class="bid-info">
+                    <div class="bid-title"> <span class="gradient-"><a href="08-profile-page.html">200
+                        </a></span></div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="placed-bid">
+                <div class="bid-placer">
+
+                  <div class="bid-info">
+                    <div class="bid-title"> <span class="gradient-"><a href="08-profile-page.html">200
+                        </a></span></div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="placed-bid">
+                <div class="bid-placer">
+
+                  <div class="bid-info">
+                    <div class="bid-title"> <span class="gradient-"><a href="08-profile-page.html">200
+                        </a></span></div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="placed-bid">
+                <div class="bid-placer">
+
+                  <div class="bid-info">
+                    <div class="bid-title"> <span class="gradient-"><a href="08-profile-page.html">200
+                        </a></span></div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div> -->
+
+            <ul class="db-tabs-list">
+
+              <li class="active"
+                  [ngClass]="{'active': amount === selectedAmount}"
+                  (click)="changeAmount(amount)"
+                  *ngFor="let amount of amounts"><a routerLink="./">
+                  <div class="purchase-type-symbol"><svg class="crumina-icon">
+                      <use xlink:href="#dollar-icon"></use>
+                    </svg></div>
+                  <div class="purchase-type-info">
+                    <div class="purchase-type-title">{{ amount }}</div>
+
+                  </div>
+                </a></li>
+
+            </ul>
+          </ul>
+        </div>
+        <div class="place-bid"
+             (click)="addToCart()"><button class="btn btn-wide btn-dark">Proceed to Cart</button></div>
       </div>
     </div>
     <!--  PRODUCT MAIN INFO -->

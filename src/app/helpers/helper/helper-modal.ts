@@ -5,4 +5,16 @@ declare var $: any;
 @Injectable({
   providedIn: 'root',
 })
-export class HelperModal {}
+export class HelperModal {
+  toggle(id: string): void {
+    $('#' + id).modal('toggle');
+  }
+
+  show(id: string): void {
+    $('#' + id).modal('show');
+  }
+
+  hide(id: string): void {
+    $('#' + id).modal('hide');
+  }
+}

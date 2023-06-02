@@ -11,7 +11,7 @@
             <th scope="col"
                 class="heading-label">Item details</th>
             <th scope="col"
-                class="heading-label">License</th>
+                class="heading-label">Card design</th>
             <th scope="col"
                 class="heading-label">Price</th>
             <th scope="col"
@@ -19,20 +19,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let item of cartService.data">
             <td data-label="Item details">
               <div class="product-info">
-                <div class="product-thumb"><a href="07-product-page.html">
-                    <img src="./assets/img/content/previews/project-thumb-37.png"
+                <div class="product-thumb"><a [routerLink]="['/', 'products', item.product.id, 'details']">
+                    <img [src]="item.product.imageUrl"
                          alt=""></a>
                 </div>
                 <div class="product-details">
-                  <div class="product-name"><a href="07-product-page.html">Cryptoki NFT and
-                      DIgital Market PSD Template</a></div>
+                  <div class="product-name"><a href="07-product-page.html">{{ item.product.name }}</a></div>
                   <div class="product-meta">
-                    <div class="item-category ui-templates">UI TEMPLATES</div>
+                    <!-- <div class="item-category ui-templates">{{ item.product.provider }}</div> -->
                     <div class="product-seller">
-                      @DexterStark<span class="verified"><svg class="crumina-icon">
+                      @{{ item.product.provider }}<span class="verified"><svg class="crumina-icon">
                           <use xlink:href="#check-icon"></use>
                         </svg></span>
                     </div>
@@ -44,13 +43,13 @@
               <form>
                 <select class="select-nice">
                   <option value="regular">Regular</option>
-                  <option value="commercial">Commercial</option>
+                  <option value="commercial">Custom</option>
                   <option value="extended">Extended</option>
                 </select>
               </form>
             </td>
             <td data-label="price"
-                class="price">$12.00</td>
+                class="price">{{ item.amount }}</td>
             <td><button class="close"><svg class="crumina-icon">
                   <use xlink:href="#close-circle-icon"></use>
                 </svg></button></td>
@@ -74,8 +73,8 @@
       <div class="cart-total-box">
         <div class="cart-total-wrapper">
           <div class="small-title">Order Total</div>
-          <div class="total-price">$115.00</div>
-          <div class="total-price-details">
+          <div class="total-price"> GHC {{ cartService.totalAmount }}</div>
+          <!-- <div class="total-price-details">
             <div class="field">
               <div class="label">Cart</div>
               <div class="value">$120.00</div>
@@ -88,10 +87,10 @@
               <div class="label">Total</div>
               <div class="value">$115.00</div>
             </div>
-          </div>
+          </div> -->
           <div class="to-checkout-button">
             <a class="btn btn-fullwidth gradient-background"
-               href="28-checkout.html">Proceed to
+               [routerLink]="['/', 'checkout']">Proceed to
               Checkout</a>
           </div>
 

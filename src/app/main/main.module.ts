@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
         path: 'cart',
         component: CartComponent,
       },
+      {
+        path: 'checkout',
+        component: CheckoutComponent,
+      },
     ],
   },
 ];
@@ -40,6 +45,7 @@ const routes: Routes = [
     ExploreComponent,
     ProductDetailComponent,
     CartComponent,
+    CheckoutComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
 })

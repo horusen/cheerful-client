@@ -297,18 +297,17 @@
       <div class="collection-box">
         <a class="btn btn-normal btn-dark create-collection"
            href="26-upload-artwork.html">Search</a>
-        <div class="collection-title">
-          <a href="08-profile-page.html">My Collection<span class="count colored">12</span></a>
-        </div>
+
       </div>
       <!--/HEADER BUTTON-->
       <!--HEADER ICONS-->
       <div class="user-activity-buttons">
         <!--CART BUTTON-->
         <div class="cart-button-cont">
-          <button class="cart-button cryptoki-notif-bttn"
+          <button [routerLink]="['cart']"
+                  class="cart-button cryptoki-notif-bttn"
                   data-target="cart-dropdown">
-            <span class="counter">3</span>
+            <span class="counter">{{ cartService.data.length }}</span>
             <svg class="crumina-icon">
               <use xlink:href="#bag-icon"></use>
             </svg>
@@ -317,7 +316,7 @@
           <div id="cart-dropdown"
                class="cryptoki-notif-target">
             <div class="title">
-              Your Cart <span class="colored">3</span>
+              Your Cart <span class="colored">{{ cartService.data.length }}</span>
             </div>
             <div class="cart-wrapper">
               <!--cart product-->
@@ -415,7 +414,7 @@
           <button class="notifications-button cryptoki-notif-bttn"
                   data-target="notifications-dropdown">
             <!--notifications icon-->
-            <span class="counter">10</span>
+            <!-- <span class="counter">10</span> -->
             <svg class="crumina-icon">
               <use xlink:href="#bell-icon"></use>
             </svg>

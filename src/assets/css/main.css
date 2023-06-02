@@ -29,7 +29,7 @@
 
   4. PRINT STYLES
 
-  5. TYPOGRAPHY 
+  5. TYPOGRAPHY
 
   6. BUTTONS
     6.1 Buttons Material effect
@@ -46,7 +46,7 @@
     8.4. Lists
       8.4.1. Styled list
       8.4.2. Social styled list
-  
+
   9. HEADER
     9.1. Header General
     9.2. Topbar
@@ -62,7 +62,7 @@
     9.7. Header User Profile
       9.7.1. Profile dropdown
       9.7.2. Digital Store User Profile
-    
+
   10. PRIMARY NAVIGATION
     10.1. Submenu
     10.2. Megamenu
@@ -109,7 +109,7 @@
     14.3. Archives Widget
     14.4. Latest Comments Widget
     14.5. Calendar Widget
-  
+
   15. FOOTER
     15.1. Footer menu
     15.2. Footer widgets
@@ -164,8 +164,8 @@
 
   22. ARTWORKS
     22.1. Artworks
-    22.2. Collections 
-    
+    22.2. Collections
+
   23. ACTIVITY
 
   24. USER DASHBOARD
@@ -4091,6 +4091,7 @@ body.dark-mode .search-form-with-text .main-search .search-button {
 .cryptoki-form input[type="number"],
 .cryptoki-form input[type="email"],
 .cryptoki-form input[type="button"],
+.cryptoki-form input[type="datetime-local"],
 .cryptoki-form input[type="password"],
 .cryptoki-form input[type="tel"],
 .cryptoki-form input[type="url"],
