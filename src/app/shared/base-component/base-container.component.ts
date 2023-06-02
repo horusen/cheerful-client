@@ -35,40 +35,40 @@ export class BaseContainerComponent<T>
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.route.fragment.subscribe((fragment) => {
-      if (fragment === `add-${this.element}`) {
-        this.create = true;
-        this.helper.modal.show(`${this.element}-create-modal`);
-      } else if (fragment === `edit-${this.element}`) {
-        if (this.service.singleData) {
-          this.edit = true;
-          this.helper.modal.hide(`${this.element}-edit-modal`);
-        } else {
-          this.router.navigate(['./'], {
-            relativeTo: this.route,
-            queryParamsHandling: 'preserve',
-          });
-        }
-      } else {
-        // this.helper.modal.hide(`${this.element}-create-modal`);
-      }
-    });
+    // this.route.fragment.subscribe((fragment) => {
+    //   if (fragment === `add-${this.element}`) {
+    //     this.create = true;
+    //     this.helper.modal.show(`${this.element}-create-modal`);
+    //   } else if (fragment === `edit-${this.element}`) {
+    //     if (this.service.singleData) {
+    //       this.edit = true;
+    //       this.helper.modal.hide(`${this.element}-edit-modal`);
+    //     } else {
+    //       this.router.navigate(['./'], {
+    //         relativeTo: this.route,
+    //         queryParamsHandling: 'preserve',
+    //       });
+    //     }
+    //   } else {
+    //     // this.helper.modal.hide(`${this.element}-create-modal`);
+    //   }
+    // });
   }
 
   onCreated(): void {
-    this.helper.modal.hide(`${this.element}-create-modal`);
-    this.router.navigate(['./'], {
-      relativeTo: this.route,
-      queryParamsHandling: 'preserve',
-    });
+    // this.helper.modal.hide(`${this.element}-create-modal`);
+    // this.router.navigate(['./'], {
+    //   relativeTo: this.route,
+    //   queryParamsHandling: 'preserve',
+    // });
   }
 
   onEdited(): void {
-    this.helper.modal.show(`${this.element}-edit-modal`);
-    this.router.navigate(['./'], {
-      relativeTo: this.route,
-      queryParamsHandling: 'preserve',
-    });
+    // this.helper.modal.show(`${this.element}-edit-modal`);
+    // this.router.navigate(['./'], {
+    //   relativeTo: this.route,
+    //   queryParamsHandling: 'preserve',
+    // });
   }
 
   async supprimer(item: T & { id?: string }) {

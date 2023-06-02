@@ -40,7 +40,8 @@
               "src/assets/js/nice-select2.js",
               "src/assets/js/svg-loader.js",
               "src/assets/js/swiper-bundle.min.js",
-              "src/assets/js/waves.min.js"
+              "src/assets/js/waves.min.js",
+              "src/assets/forms/js/scripts.js"
             ]
           },
           "configurations": {
