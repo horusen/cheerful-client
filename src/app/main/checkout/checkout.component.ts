@@ -26,6 +26,7 @@ export class CheckoutComponent extends BaseCreateComponent<any> {
   ngOnInit(): void {
     this.form = this.fb.group({
       card: [this.cartService.data[0]?.product, [Validators.required]],
+      amount: [this.cartService.totalAmount, [Validators.required]],
       recipient_name: ['', [Validators.required]],
       recipient_phone_number: ['', [Validators.required]],
       recipient_country: ['', [Validators.required]],
