@@ -10,36 +10,33 @@ export interface Product {
 export const products: Product[] = [
   {
     id: '839238',
-    name: 'Melcom VoucherCard',
-    description:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    name: 'Sahmini VoucherCard',
+    description: `Our gold necklace features a delicate chain crafted from lustrous 14K gold, known for its enduring beauty and exceptional quality. The chain gracefully drapes around the neck, enhancing the wearer's natural beauty and adding a touch of luxury to any outfit.`,
     minPrice: 200,
     imageUrl: './assets/img/content/items/featured-item-1.png',
     provider: 'Melcom',
   },
   {
     id: '599437',
-    name: 'Kiki Clothing Gift Card',
-    description:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    name: 'Sahmini Special earing Card',
+    description: `Introducing our latest collection of trendy and fashionable clothing that will elevate your style game to new heights! Whether you're looking for casual comfort or elegant sophistication, our clothing line has something for everyone.`,
     minPrice: 200,
     imageUrl: './assets/img/content/items/featured-item-2.png',
     provider: 'Kiki Clothing',
   },
   {
     id: '098738',
-    name: 'Accra Baby Store Sweety Gift Card',
-    description:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    name: 'Melcome Gift voucher',
+    description: `Delightful baby store, where we cater to all your little one's needs with love and care. From adorable clothing to essential accessories, we have everything you require to create a safe, comfortable, and stylish environment for your precious bundle of joy.
+`,
     minPrice: 200,
     imageUrl: './assets/img/content/items/featured-item-3.png',
     provider: 'Accra Baby Store',
   },
   {
     id: '123238',
-    name: 'The barchop Golden Gift Card',
-    description:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    name: 'Melcom Gold Card',
+    description: `Keep your baby entertained and engaged with our selection of toys and developmental aids. From plush cuddly friends to colorful rattles and teething toys, our products are designed to promote cognitive development and sensory exploration. Explore our range of educational toys and books that will nurture your baby's curiosity and early learning..`,
     minPrice: 200,
     imageUrl: './assets/img/content/items/featured-item-4.png',
     provider: 'The barchop',
