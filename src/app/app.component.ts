@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cardup-client';
+
+  onActivate(event: Event) {
+    window.scrollTo(0, 0);
+  }
 }

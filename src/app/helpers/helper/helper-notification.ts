@@ -5,12 +5,17 @@ import Swal, { SweetAlertOptions } from 'sweetalert2';
   providedIn: 'root',
 })
 export class HelperNotification {
-  alertSuccess(): void {
+  alertSuccess(
+    title: string = 'Done successfully',
+    text = '',
+    timer = 1500
+  ): void {
     Swal.fire({
       icon: 'success',
-      title: 'Done successfully',
+      title,
+      text,
       showConfirmButton: false,
-      timer: 1500,
+      timer,
     });
   }
 

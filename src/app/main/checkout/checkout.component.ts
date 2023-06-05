@@ -56,7 +56,14 @@ export class CheckoutComponent extends BaseCreateComponent<any> {
     // if (this.form.invalid) return;
 
     this.cardService.data.push(this.form.value);
-    this.helper.notification.toastSuccess();
-    this.router.navigate(['/']);
+    this.helper.notification.alertSuccess(
+      'Congratulations!',
+      'You card has been successfully sent.',
+      3000
+    );
+    this.cartService.data = [];
+    setTimeout(() => {
+      this.router.navigate(['/']);
+    }, 2000);
   }
 }

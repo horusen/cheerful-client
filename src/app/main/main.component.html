@@ -767,7 +767,8 @@
 </nav>
 <!--/NAVIGATION PANEL-->
 <!-- MAIN CONTENT AREA -->
-<router-outlet></router-outlet>
+<router-outlet *ngIf="!loading"></router-outlet>
+<app-loading *ngIf="loading"></app-loading>
 <!-- MAIN CONTENT AREA -->
 
 <!-- FOOTER -->
