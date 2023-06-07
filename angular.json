@@ -35,6 +35,8 @@
             ],
             "scripts": [
               "src/assets/js/countdown.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/js/fslightbox.js",
               "src/assets/js/main.js",
               "src/assets/js/nice-select2.js",

@@ -10,9 +10,10 @@ import { RouterModule } from '@angular/router';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AuthorizationInterceptor } from './interceptors/authorization.interceptor';
 import { MissingDataModule } from '../helpers/missing-data/missing-data.module';
+import { AddRecipientDetailsComponent } from '../add-recipient-details/add-recipient-details.component';
 
 @NgModule({
-  declarations: [ReadMoreComponent],
+  declarations: [ReadMoreComponent, AddRecipientDetailsComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -45,6 +46,7 @@ import { MissingDataModule } from '../helpers/missing-data/missing-data.module';
     LoadingModule,
     ReadMoreComponent,
     MissingDataModule,
+    AddRecipientDetailsComponent,
   ],
 })
 export class SharedModule {}

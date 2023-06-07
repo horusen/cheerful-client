@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="product-title">
-        <h1>{{ productService.singleData.name }}</h1>
+        <h1>{{ productService.singleData.cardName }}</h1>
       </div>
       <div class="favourite-section">
         <div class="product-fav-counter"><svg class="crumina-icon">
@@ -55,13 +55,14 @@
               </svg></span>
           </div>
           <div class="avatar-meta">
-            <div class="avatar-title"><span class="gradient-text"><a href="08-profile-page.html">Melcom </a></span></div>
-            <div class="avatar-meta">@melcom</div>
+            <div class="avatar-title"><span class="gradient-text"><a href="08-profile-page.html">{{ productService.singleData.store }} </a></span>
+            </div>
+            <div class="avatar-meta">@{{ productService.singleData.store }}</div>
           </div>
         </div>
         <div class="product-description">
           <div class="small-title">Description</div>
-          <p>{{ productService.singleData.description }}}
+          <p>{{ productService.singleData.description }}
           </p>
         </div>
 
@@ -75,13 +76,13 @@
       <div class="product-media">
         <a class="expand-icon"
            data-fslightbox="gallery"
-           [routerLink]="['/', productService.singleData.imageUrl]">
+           [routerLink]="['/', productService.singleData.cardImage]">
           <svg class="crumina-icon">
             <use xlink:href="#maximize-icon"></use>
           </svg>
         </a>
         <div class="product-img">
-          <img [src]="productService.singleData.imageUrl"
+          <img [src]="productService.singleData.cardImage"
                alt="">
         </div>
       </div>
@@ -89,7 +90,7 @@
         <div class="product-meta-item">
           <div class="small-title">Minimum Price</div>
           <div class="value">GHC {{ productService.singleData.minPrice }}</div>
-          <div class="caption">Two Thousand Ghana Cedis</div>
+          <!-- <div class="caption">Two Thousand Ghana Cedis</div> -->
         </div>
 
         <div class="product-meta-item">
@@ -174,8 +175,15 @@
             </ul>
           </ul>
         </div>
-        <div class="place-bid"
-             (click)="addToCart()"><button class="btn btn-wide btn-dark">Proceed to Cart</button></div>
+        <div class="place-bid">
+          <button class="btn btn-wide btn-dark me-2"
+                  (click)="addToCart()">Add to Cart</button>
+          <button class="btn btn-wide btn-dark"
+                  (click)="buyCard(content)">Buy now</button>
+        </div>
+        <!-- <div class="place-bid"
+             (click)="addToCart()"><button class="btn btn-wide btn-dark">Buy now</button>
+        </div> -->
       </div>
     </div>
     <!--  PRODUCT MAIN INFO -->
@@ -473,3 +481,24 @@
   </div>
   <!--  RELATED SECTION -->
 </div>
+
+
+<ng-template #content
+             let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title"
+        id="buy-now">Enter recipient details</h4>
+    <button type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <app-add-recipient-details (recipientDetails)="buyNow($event)"></app-add-recipient-details>
+  </div>
+  <div class="modal-footer">
+    <button type="button"
+            class="btn btn-outline-dark"
+            (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>

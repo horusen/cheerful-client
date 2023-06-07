@@ -23,15 +23,15 @@
             <td data-label="Item details">
               <div class="product-info">
                 <div class="product-thumb"><a [routerLink]="['/', 'products', item.product.id, 'details']">
-                    <img [src]="item.product.imageUrl"
+                    <img [src]="item.product.cardImage"
                          alt=""></a>
                 </div>
                 <div class="product-details">
-                  <div class="product-name"><a href="07-product-page.html">{{ item.product.name }}</a></div>
+                  <div class="product-name"><a href="07-product-page.html">{{ item.product.cardName }}</a></div>
                   <div class="product-meta">
                     <!-- <div class="item-category ui-templates">{{ item.product.provider }}</div> -->
                     <div class="product-seller">
-                      @{{ item.product.provider }}<span class="verified"><svg class="crumina-icon">
+                      @{{ item.product.store }}<span class="verified"><svg class="crumina-icon">
                           <use xlink:href="#check-icon"></use>
                         </svg></span>
                     </div>

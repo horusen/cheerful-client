@@ -1,0 +1,182 @@
+<form class="cryptoki-form grid-2-columns"
+      [formGroup]="form"
+      (submit)="add()"
+      id="checkout-form">
+  <div class="form-column">
+    <div class="form-group">
+      <div class="form-field">
+        <label for="name">Recipient Name</label>
+        <input type="text"
+               formControlName="recipient_name"
+               id="name">
+      </div>
+      <div class="form-field">
+        <label for="email">Phone Number</label>
+        <input type="tel"
+               formControlName="recipient_phone_number"
+               id="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-field">
+        <label for="country">Country</label>
+        <select id="country"
+                (change)="selectFormHandler('recipient_country', $event.target)">
+          <option value="your-country">--- Select ---</option>
+          <option [value]="country.name"
+                  *ngFor="let country of countryList">{{ country.name }}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="state">State</label>
+        <select id="state"
+                (change)="selectFormHandler('recipient_state', $event.target)">
+          <option value="your-country">--- Select ---</option>
+          <option [value]="state.name"
+                  *ngFor="let state of stateList">{{ state.name }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="address">Full address</label>
+      <input type="text"
+             formControlName="recipient_address"
+             id="address">
+    </div>
+
+
+    <div class="form-group">
+      <div class="form-field">
+        <label for="city">City</label>
+        <select id="city"
+                (change)="selectFormHandler('recipient_city', $event.target)">
+          <option value="your-country">--- Select ---</option>
+          <option [value]="city.name"
+                  *ngFor="let city of cityList">{{ city.name }}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="Postal-Code">Postal Code</label>
+        <input type="text"
+               formControlName="recipient_postal"
+               id="address">
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="state">Additonal comments</label>
+      <textarea cols="30"
+                formControlName="additional_comments"
+                rows="6"></textarea>
+    </div>
+    <div class="artwork-upload-box">
+
+      <div class="upload-container">
+        <div class="artwork-upload">
+          <div class="label">Attach a Video/Audio Wish</div>
+          <div class="upload-box"><svg class="crumina-icon">
+              <use xlink:href="#upload-icon"></use>
+            </svg>
+            <div class="upload-notice"> Max 120MB, PNG, JPEG, MP3, MP4</div>
+            <button class="btn btn-normal btn-dark browse-btn">Browse File</button>
+          </div>
+        </div>
+        <div class="artwork-preview">
+          <div class="label">File Preview</div>
+          <div class="preview-box"></div>
+        </div>
+      </div>
+      <div class="label">Schedule Time and Date</div>
+      <div class="form-field">
+
+        <input type="datetime-local"
+               formControlName="scheduled_time"
+               id="address">
+      </div>
+    </div>
+
+
+
+
+    <!-- <div class="form-group">
+                            <div class="form-field">
+                                <label for="city">Month</label>
+                                <select id="city">
+                                    <option value="city">January</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="Day">Day</label>
+                                <select id="city">
+                                    <option value="city">20</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="Day">Year</label>
+                                <select id="city">
+                                    <option value="city">20</option>
+                                </select>
+                            </div>
+                        </div> -->
+  </div>
+  <div class="form-column">
+    <div class="summary-section">
+      <div class="small-title">Summary</div>
+      <div class="products-in-cart">
+        <div class="product-in-cart"
+             *ngFor="let cartItem of cartService.data">
+          <div class="product-info">
+            <div class="product-thumb"><a [routerLink]="['/', 'products', cartItem.product.id]"><img [src]="cartItem.product.cardImage"
+                     alt=""></a></div>
+            <div class="product-details">
+              <div class="product-name"><a [routerLink]="['/', 'products', cartItem.product.id]">
+                  {{ cartItem.product.cardName }}</a></div>
+              <div class="license-type">Regular</div>
+              <div class="license-type">@{{ cartItem.product.store }}<span class="verified"><svg class="crumina-icon">
+                    <use xlink:href="#check-icon"></use>
+                  </svg></span></div>
+            </div>
+          </div>
+          <div class="product-price">GHC {{ cartItem.amount }}</div>
+        </div>
+      </div>
+      <div class="total-price-section">
+        <div class="total-price-details">
+          <!-- <div class="field">
+                <div class="label">Cart</div>
+                <div class="value">$120.00</div>
+              </div>
+              <div class="field">
+                <div class="label">Code</div>
+                <div class="value">-$5.00</div>
+              </div> -->
+          <div class="field">
+            <div class="label">Total</div>
+            <div class="value total-price gradient-text">GHC {{ cartService.totalAmount }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="payment-method-section">
+        <div class="small-title">Payment Method</div>
+        <div class="payment-method">
+          <input type="radio"
+                 name="payment-method"
+                 id="paypal">
+          <label for="paypal">Mobile money</label>
+          <div class="payment-description">We accept MTN, Vodafone Cash, Airtel tigo!</div>
+        </div>
+        <div class="payment-method">
+          <input type="radio"
+                 name="payment-method"
+                 id="credit-card">
+          <label for="credit-card">Credit or Debit Card</label>
+        </div>
+      </div>
+      <div class="complete-order-button">
+        <input class="btn gradient-background"
+               type="submit"
+               value="Complete Order!">
+      </div>
+    </div>
+  </div>
+
+</form>

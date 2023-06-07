@@ -3,6 +3,8 @@ import { ProductService } from '../product.service';
 import { BaseSingleComponent } from 'src/app/shared/base-component';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../cart.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CardsService } from '../cards.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -18,7 +20,9 @@ export class ProductDetailComponent
   constructor(
     public productService: ProductService,
     public cartService: CartService,
-    public override route: ActivatedRoute
+    public cardService: CardsService,
+    public override route: ActivatedRoute,
+    public modalService: NgbModal
   ) {
     super(productService);
   }
@@ -44,5 +48,27 @@ export class ProductDetailComponent
       amount: this.selectedAmount,
     });
     this.helper.notification.toastSuccess();
+  }
+
+  async buyCard(content: any) {
+    this.cartService.cart = {
+      product: this.productService.singleData,
+      amount: this.selectedAmount,
+    };
+
+    await this.modalService.open(content, {
+      ariaLabelledBy: 'buy-now',
+      size: 'xl',
+      scrollable: true,
+    });
+
+    this.helper.modal.show('buy-card-modal');
+  }
+
+  async buyNow(recipientDetails: any) {
+    this.cardService.data.push();
+    this.helper.modal.hide('buy-card-modal');
+    this.helper.notification.alertSuccess('Card purchased successfully');
+    this.cartService.cart = null;
   }
 }

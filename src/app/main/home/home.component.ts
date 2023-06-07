@@ -10,6 +10,6 @@ import { BaseComponent } from 'src/app/shared/base-component';
 export class HomeComponent extends BaseComponent<any> {
   constructor(public productService: ProductService) {
     super();
-    this.data = productService.data.slice(0, 6);
+    this.data = productService.data.slice(0, 4);
   }
 }

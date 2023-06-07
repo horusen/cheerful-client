@@ -13,9 +13,6 @@ import { states } from 'src/app/mocks/states.mock';
   styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent extends BaseCreateComponent<any> {
-  countryList: any[] = [];
-  stateList: any[] = [];
-  cityList: any[] = [];
   constructor(
     public cardService: CardsService,
     public cartService: CartService
@@ -23,39 +20,9 @@ export class CheckoutComponent extends BaseCreateComponent<any> {
     super(cardService);
   }
 
-  ngOnInit(): void {
-    this.form = this.fb.group({
-      card: [this.cartService.data[0]?.product, [Validators.required]],
-      amount: [this.cartService.totalAmount, [Validators.required]],
-      recipient_name: ['', [Validators.required]],
-      recipient_phone_number: ['', [Validators.required]],
-      recipient_country: ['', [Validators.required]],
-      recipient_state: ['', [Validators.required]],
-      recipient_address: ['', [Validators.required]],
-      recipient_city: ['', [Validators.required]],
-      recipient_postal: ['', [Validators.required]],
-      additional_comments: ['', [Validators.required]],
-      scheduled_time: ['', [Validators.required]],
-    });
-
-    this.countryList = countries;
-
-    this.form.get('recipient_country')?.valueChanges.subscribe((value) => {
-      this.stateList = states.filter((state) => state.country == value);
-    });
-
-    this.form.get('recipient_state')?.valueChanges.subscribe((value) => {
-      this.cityList = cities.filter((city) => city.state == value);
-      console.log(this.cityList);
-    });
-  }
-
-  add() {
-    console.log(this.form.value);
-
+  add(recipientDetails: any) {
     // if (this.form.invalid) return;
-
-    this.cardService.data.push(this.form.value);
+    this.cardService.data.push(recipientDetails);
     this.helper.notification.alertSuccess(
       'Congratulations!',
       'You card has been successfully sent.',

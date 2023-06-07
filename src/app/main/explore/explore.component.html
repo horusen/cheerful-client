@@ -135,15 +135,7 @@
           <option value="all-artworks">Legon</option>
         </select>
       </div>
-      <div class="filter-item">
-        <select class="select-nice">
-          <option value="verified-creators"
-                  selected>Melcom</option>
-          <option value="all-creators">Jumia</option>
-          <option value="all-creators">Konga</option>
-          <option value="all-creators">KFC</option>
-        </select>
-      </div>
+
       <div class="filter-item">
         <select class="select-nice">
           <option value="ending-soon"
@@ -170,27 +162,21 @@
          *ngFor="let product of productService.data">
       <div class="featured-item-wrapper">
         <div class="featured-item-content">
-          <div class="fav-counter"><svg class="crumina-icon">
-              <use xlink:href="#heart-icon"></use>
-            </svg><span class="count">22</span></div>
+
           <div class="featured-item-image">
-            <a [routerLink]="['/', 'products', product.id, 'details']"><img [src]="product.imageUrl"
+            <a [routerLink]="['/', 'products', product.id, 'details']"><img [src]="product.storeLogo"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
-            <div class="featured-countdown"><span class="clock"><svg class="crumina-icon">
-                  <use xlink:href="#clock-icon"></use>
-                </svg></span><span class="js-countdown"
-                    data-timer="86400"
-                    data-labels="d : , h : , m : , s"></span></div>
-            <div class="title"> <a [routerLink]="['/', 'products', product.id, 'details']">{{ product.name }}</a></div>
-            <div class="item-meta"><span class="avatar box-26"> <a href="08-profile-page.html"><img src="./assets/img/avatar.png"
+
+            <div class="title text-center"> <a [routerLink]="['/', 'products', product.id, 'details']">{{ product.store }}</a> </div>
+            <!-- <div class="item-meta"><span class="avatar box-26"> <a href="08-profile-page.html"><img src="./assets/img/avatar.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
-                  </svg></span></span>@{{ product.provider }}</div>
+                  </svg></span></span>@{{ product.provider }}</div> -->
           </div>
         </div>
-        <div class="featured-item-post-content">
+        <div class="featured-item-post-content d-flex justify-content-between">
           <div class="featured-item-pricebox">
             <div class="price-caption">Min Price</div>
             <div class="price">{{product.minPrice}} GHS</div>
