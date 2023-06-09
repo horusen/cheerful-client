@@ -34,7 +34,6 @@
               "src/assets/css/swiper-bundle.css"
             ],
             "scripts": [
-              "src/assets/js/countdown.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/js/fslightbox.js",
@@ -51,8 +50,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
