@@ -12,7 +12,7 @@ import { AddRecipientDetailsComponent } from './add-recipient-details/add-recipi
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, SharedModule, NgbModule],
-  providers: [],
+  providers: [{ provide: 'mockData', useValue: [] }],
   bootstrap: [AppComponent],
 })
 export class AppModule {

@@ -88,14 +88,14 @@
           <label for="subject">Gender</label>
           <select class="select-nice"
                   name="email_subject"
-                  (change)="selectFormHandler('gender', $event.target)"
+                  (change)="selectFormHandler('gender_id', $event.target)"
                   id="subject"
                   data-val="\S"
                   data-val-msg="* Please, select an option."
                   data-val-msg-id="selectMessage"
                   required="">
             <option value="">Select an Option</option>
-            <option [value]="gender.name"
+            <option [value]="gender.id"
                     *ngFor="let gender of genderList">{{ gender.name }}</option>
           </select>
           <span class="input_error-message"
@@ -103,19 +103,19 @@
         </div>
 
 
-        <!-- Location -->
+        <!-- Country -->
         <div class="form-field">
-          <label for="subject">Location</label>
+          <label for="subject">Country</label>
           <select class="select-nice"
                   name="email_subject"
-                  (change)="selectFormHandler('location', $event.target)"
+                  (change)="selectFormHandler('country_id', $event.target)"
                   id="subject"
                   data-val="\S"
                   data-val-msg="* Please, select an option."
                   data-val-msg-id="selectMessage"
                   required="">
             <option value="">Select an Option</option>
-            <option [value]="country.name"
+            <option [value]="country.id"
                     *ngFor="let country of countryList">{{ country.name }}</option>
           </select>
           <span class="input_error-message"

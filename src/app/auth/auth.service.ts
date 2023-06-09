@@ -52,7 +52,7 @@ export class AuthService extends BaseService<any> {
   private storeLoginInformation(data: any) {
     this.storage.clear();
     this.storage.set('accessToken', data.accessToken);
-    this.storage.set('business', data.user);
+    this.storage.set('user', data.user);
   }
 
   isLoggedIn() {
