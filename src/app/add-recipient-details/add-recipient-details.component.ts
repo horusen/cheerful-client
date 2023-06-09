@@ -33,24 +33,9 @@ export class AddRecipientDetailsComponent extends BaseCreateComponent<any> {
       amount: [this.cartService.totalAmount, [Validators.required]],
       recipient_name: ['', [Validators.required]],
       recipient_phone_number: ['', [Validators.required]],
-      recipient_country: ['', [Validators.required]],
-      recipient_state: ['', [Validators.required]],
-      recipient_address: ['', [Validators.required]],
-      recipient_city: ['', [Validators.required]],
-      recipient_postal: ['', [Validators.required]],
+      recipient_email: ['', [Validators.required]],
       additional_comments: ['', [Validators.required]],
       scheduled_time: ['', [Validators.required]],
-    });
-
-    this.countryList = countries;
-
-    this.form.get('recipient_country')?.valueChanges.subscribe((value) => {
-      this.stateList = states.filter((state) => state.country == value);
-    });
-
-    this.form.get('recipient_state')?.valueChanges.subscribe((value) => {
-      this.cityList = cities.filter((city) => city.state == value);
-      console.log(this.cityList);
     });
   }
 
