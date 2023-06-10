@@ -28,10 +28,10 @@
               "src/styles.scss",
               "src/assets/css/fonts.css",
               "src/assets/css/login-register.css",
-              "src/assets/css/main.css",
               "src/assets/css/nice-select2.css",
               "src/assets/css/normalize.css",
-              "src/assets/css/swiper-bundle.css"
+              "src/assets/css/swiper-bundle.css",
+              "src/assets/css/main.css"
             ],
             "scripts": [
               "src/assets/js/countdown.js",

@@ -9,9 +9,9 @@ import { AuthMockService } from '../auth-mock.service';
 import { TypeUsersService } from 'src/app/users/type-users/type-users.service';
 import { TypeUsers } from 'src/app/users/type-users/type-users.model';
 import { GenderService } from 'src/app/users/gender/gender.service';
-import { CountryService } from 'src/app/users/country/country.service';
 import { Gender } from 'src/app/users/gender/gender.model';
 import { ActivatedRoute } from '@angular/router';
+import { CountryService } from 'src/app/common/country/country.service';
 
 @Component({
   selector: 'app-signup',
@@ -22,8 +22,8 @@ export class SignupComponent
   extends BaseCreateComponent<User>
   implements OnInit
 {
-  @Input() typeUserId!: number;
-  typeUser: number = 1;
+  typeUser: 'Merchant' | 'Customer' | null = null;
+  typeUserId: number = 1;
   countryList: Country[] = [];
   genderList: Gender[] = [];
   typeUsers: TypeUsers[] = [];
@@ -39,8 +39,9 @@ export class SignupComponent
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-      this.typeUser =
+      this.typeUserId =
         params['type-user'] && params['type-user'] == 'customer' ? 2 : 1;
+      this.typeUser = this.typeUserId == 1 ? 'Merchant' : 'Customer';
     });
 
     this.countryList = countries;

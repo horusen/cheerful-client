@@ -11,6 +11,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AuthorizationInterceptor } from './interceptors/authorization.interceptor';
 import { MissingDataModule } from '../helpers/missing-data/missing-data.module';
 import { AddRecipientDetailsComponent } from '../add-recipient-details/add-recipient-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [ReadMoreComponent, AddRecipientDetailsComponent],
@@ -35,6 +36,7 @@ import { AddRecipientDetailsComponent } from '../add-recipient-details/add-recip
     RouterModule,
     ModalModule,
     LoadingModule,
+    NgbModule,
   ],
   exports: [
     HttpClientModule,
@@ -47,6 +49,7 @@ import { AddRecipientDetailsComponent } from '../add-recipient-details/add-recip
     ReadMoreComponent,
     MissingDataModule,
     AddRecipientDetailsComponent,
+    NgbModule,
   ],
 })
 export class SharedModule {}

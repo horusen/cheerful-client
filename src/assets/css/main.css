@@ -2845,7 +2845,9 @@ nav {
 }
 
 .navigation-menu .menu-item .menu-link:hover,
-.navigation-menu .menu-item .menu-link:active {
+.navigation-menu .menu-item .menu-link:active
+.navigation-menu .menu-item .menu-link.active
+ {
   background-color: var(--main-font-color);
   background-image: var(--cryptoki-gradient);
   background-size: 100%;

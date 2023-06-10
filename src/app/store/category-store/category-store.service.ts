@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Gender } from './gender.model';
 import { BaseService } from 'src/app/shared/services';
+import { CategoryStore } from './category-store.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GenderService extends BaseService<Gender> {
+export class CategoryStoreService extends BaseService<CategoryStore> {
   constructor() {
-    super('gender');
+    super('category-store');
   }
 }
