@@ -1,0 +1,72 @@
+<!-- <div class="page-title text-center">
+  <h2><span class="gradient-text">Add your </span> store information</h2>
+</div> -->
+<form class="cryptoki-form validation"
+      id="contact-form"
+      [formGroup]="form"
+      *ngIf="form"
+      (submit)="create()"
+      novalidate="">
+  <input type="hidden"
+         name="recaptcha_site_key"
+         value="">
+  <input type="hidden"
+         name="recaptcha_token"
+         value="">
+
+  <!-- Social media and link -->
+  <div class="form-group mb-3">
+    <!-- Social media -->
+    <div class="form-field">
+      <label for="subject">Social media</label>
+      <select class="select-nice"
+              name="email_subject"
+              (change)="selectFormHandler('social_media_id', $event.target)"
+              id="subject"
+              data-val="\S"
+              data-val-msg="* Please, select an option."
+              data-val-msg-id="selectMessage"
+              required="">
+        <option value="">Select an Option</option>
+        <option [value]="socialMedia.id"
+                *ngFor="let socialMedia of socialMediaList">{{ socialMedia.name }}</option>
+      </select>
+      <span class="input_error-message"
+            id="selectMessage"></span>
+    </div>
+
+    <!-- Link -->
+    <div class="form-field">
+      <label for="name">Link to your profile</label>
+      <input type="url"
+             name="name"
+             formControlName="link"
+             id="name"
+             data-val="\S"
+             data-val-msg="* This is a required field."
+             data-val-msg-id="textMessage"
+             required="">
+      <span class="input_error-message"
+            id="textMessage"></span>
+    </div>
+
+
+  </div>
+
+
+
+
+  <button type="submit"
+          style="display: block"
+          class="btn  btn-fullwidth btn-dark"
+          data-badge="inline">Validate</button>
+
+  <!-- <button type="submit"
+              style="display: block"
+              class="btn  btn-fullwidth btn-dark"
+              data-badge="inline">Send</button> -->
+  <!-- </form> -->
+  <!-- <div class="register-notice">
+      You’ll receive a confirmation email in your inbox with a link to activate your account.
+    </div> -->
+</form>
