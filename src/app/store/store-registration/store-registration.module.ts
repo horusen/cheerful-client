@@ -25,6 +25,13 @@ const routes: Routes = [
           ).then((m) => m.StoreRegistrationAddressModule),
       },
       {
+        path: 'payment-methods',
+        loadChildren: () =>
+          import('./store-payment-method/store-payment-method.module').then(
+            (m) => m.StorePaymentMethodModule
+          ),
+      },
+      {
         path: '',
         redirectTo: 'basic-information',
         pathMatch: 'full',
@@ -32,9 +39,6 @@ const routes: Routes = [
 
       // {
       //   path: 'social-media',
-      // },
-      // {
-      //   path: 'payment-methods',
       // },
     ],
   },
