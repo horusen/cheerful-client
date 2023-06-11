@@ -210,6 +210,10 @@
   --secondary-accent-color: #0084ff;
   --primary-gradient-color: #ff394f;
   --secondary-gradient-color: #ffcf26;
+  /* --primary-accent-color: #ff6c0d;
+  --secondary-accent-color: #0084ff;
+  --primary-gradient-color: #ff394f;
+  --secondary-gradient-color: #ffcf26; */
   --cryptoki-gradient: linear-gradient(
     to right,
     var(--primary-gradient-color) 20%,
@@ -2845,9 +2849,12 @@ nav {
 }
 
 .navigation-menu .menu-item .menu-link:hover,
-.navigation-menu .menu-item .menu-link:active
-.navigation-menu .menu-item .menu-link.active
- {
+.navigation-menu
+  .menu-item
+  .menu-link:active
+  .navigation-menu
+  .menu-item
+  .menu-link.active {
   background-color: var(--main-font-color);
   background-image: var(--cryptoki-gradient);
   background-size: 100%;

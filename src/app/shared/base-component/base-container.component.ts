@@ -3,6 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BaseService } from '../services/base.service';
 import { BaseComponent } from './base.component';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: '',
@@ -18,6 +19,8 @@ export class BaseContainerComponent<T>
   filter = false;
 
   public router: Router;
+  public modalService: NgbModal;
+  public modalServiceConfig: NgbModalConfig;
 
   // A specifier à chaque fois que un component herite de  celui ci
   // Represent l'element sur lequel est s'appuie ce component: ex ministre, service, ministere
@@ -30,6 +33,10 @@ export class BaseContainerComponent<T>
   ) {
     super(service);
     this.router = AppInjector.injector.get(Router);
+    this.modalService = AppInjector.injector.get(NgbModal);
+    this.modalServiceConfig = AppInjector.injector.get(NgbModalConfig);
+    this.modalServiceConfig.backdrop = 'static';
+    this.modalServiceConfig.keyboard = false;
   }
 
   ngOnInit(): void {}
@@ -79,6 +86,19 @@ export class BaseContainerComponent<T>
 
       this.loading = false;
       this.helper.notification.alertSuccess();
+    });
+  }
+
+  openModal(
+    content: any,
+    size: 'sm' | 'lg' | 'xl' = 'xl',
+    centered: boolean = true,
+    scrollable: boolean = true
+  ) {
+    this.modalService.open(content, {
+      size,
+      centered,
+      scrollable,
     });
   }
 }

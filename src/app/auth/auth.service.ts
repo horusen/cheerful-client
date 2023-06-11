@@ -34,11 +34,20 @@ export class AuthService extends BaseService<any> {
     return {
       id: 1,
       name: 'Bella Store',
-      phone_number: '',
+      phone_number: '+2330102384789',
       type_store_id: 1,
+      type_store: {
+        id: 1,
+        name: 'Product',
+      },
+      category_store: {
+        id: 1,
+        name: 'Food',
+      },
       category_store_id: 1,
-      description: '',
-      store_online_link: '',
+      description:
+        'Ante aperiam quisque. Aenean, itaque, leo, arcu nam? Elementum litora, occaecati. Tempor sollicitudin parturient. Platea elit interdum hymenaeos risus iaculis lorem aliquip, sapien hendrerit sociis. Habitant penatibus ullam ab exercitationem? Ridiculus, felis. Laboriosam lacinia! Sint pretium soluta vel, lectus mi rem sapiente asperiores sodales amet pretium mollit reprehenderit. Mollitia excepturi exercitationem at ultricies est? Sollicitudin earum assumenda odio orci earum esse iusto hic corrupti, modi illum aliqua dolore lorem curabitur deserunt neque mollitia habitant ullam, fugit rem maiores! Omnis nunc ea aliqua rem aenean? Eros facere veniam ut interdum deserunt! Corporis eiusmod dis aliqua, harum diamlorem, malesuada blandit porta, ipsa.',
+      store_online_link: 'https://www.cheerful.co/bella-store',
     };
   }
 
