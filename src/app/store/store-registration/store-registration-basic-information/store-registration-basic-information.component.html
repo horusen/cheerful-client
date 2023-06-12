@@ -1,6 +1,6 @@
 <!-- <app-store-registration-basic-information-create></app-store-registration-basic-information-create> -->
 
-<ng-container *ngIf="store">
+<ng-container *ngIf="store && authService.isStoreSetup">
   <div class="row">
     <div class="col-12 text-end">
       <button class="btn btn-black"
@@ -59,6 +59,15 @@
     <div class="content"> {{ store.description }}</div>
   </div>
 </ng-container>
+
+
+<div class="row mt-5"
+     *ngIf="store && !authService.isStoreSetup"
+     (click)="openModal(content)">
+  <div class="col-12 text-center">
+    <button class="btn btn-wide btn-square btn-dark">Add your business information</button>
+  </div>
+</div>
 
 
 <ng-template #content

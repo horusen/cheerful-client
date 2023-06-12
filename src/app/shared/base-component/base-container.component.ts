@@ -78,7 +78,7 @@ export class BaseContainerComponent<T>
     // });
   }
 
-  async supprimer(item: T & { id?: string }) {
+  async supprimer(item: T & { id?: number }) {
     this.helper.notification.confirm(async () => {
       this.loading = true;
 

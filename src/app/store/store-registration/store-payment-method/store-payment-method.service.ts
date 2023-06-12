@@ -14,7 +14,7 @@ export class StorePaymentMethodService extends BaseService<StorePaymentMethod> {
   getByStoreId(storeId: number) {
     return this.factory.get(`${this.endPoint}/store/${storeId}`).pipe(
       tap((response) => {
-        this.data = response;
+        this.data = response.data;
       }),
       map((response) => response.data)
     );

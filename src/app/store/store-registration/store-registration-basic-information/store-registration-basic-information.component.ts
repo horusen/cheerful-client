@@ -25,11 +25,9 @@ export class StoreRegistrationBasicInformationComponent extends BaseContainerCom
   override ngOnInit(): void {
     super.ngOnInit();
 
-    if (this.authService.shop) {
-      this.store = this.authService.shop;
-    } else {
-      this.helper.notification.alertDanger('Register your store first');
-      this.router.navigate(['/']);
-    }
+    this.store = this.authService.shop;
+    this.authService.store$.subscribe((store) => {
+      this.store = store;
+    });
   }
 }

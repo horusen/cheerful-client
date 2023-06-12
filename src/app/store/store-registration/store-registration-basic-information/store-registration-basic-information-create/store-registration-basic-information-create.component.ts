@@ -15,6 +15,7 @@ import { TypeStoreService } from 'src/app/store/type-store/type-store.service';
   styleUrls: ['./store-registration-basic-information-create.component.scss'],
 })
 export class StoreRegistrationBasicInformationCreateComponent extends BaseCreateComponent<Store> {
+  store: Store;
   onlineLink: string = '';
   categories: CategoryStore[] = [];
   types: TypeStore[] = [];
@@ -26,18 +27,19 @@ export class StoreRegistrationBasicInformationCreateComponent extends BaseCreate
     public authService: AuthService
   ) {
     super(storeService);
+    this.store = this.authService.shop;
+    this.onlineLink = this.store.store_online_link;
   }
 
   initForm() {
     this.form = this.fb.group({
-      name: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      phone_number: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      store_online_link: ['', [Validators.required]],
-      type_store_id: ['', [Validators.required]],
-      category_store_id: ['', [Validators.required]],
-      user_id: [this.authService.user?.id || 1, [Validators.required]],
+      name: [this.store.name, [Validators.required]],
+      description: [this.store.description, [Validators.required]],
+      phone_number: [this.store.phone_number, [Validators.required]],
+      email: [this.store.email, [Validators.required]],
+      store_online_link: [this.store.store_online_link, [Validators.required]],
+      type_store_id: [this.store.type_store_id, [Validators.required]],
+      category_store_id: [this.store.category_store_id, [Validators.required]],
     });
 
     this.form.controls['store_online_link'].valueChanges.subscribe((value) => {
@@ -46,6 +48,8 @@ export class StoreRegistrationBasicInformationCreateComponent extends BaseCreate
   }
 
   ngOnInit(): void {
+    console.log(this.authService.isStoreSetup);
+
     this.typeStoreService.get().subscribe();
     this.categoryStoreService.get().subscribe();
 
@@ -77,14 +81,12 @@ export class StoreRegistrationBasicInformationCreateComponent extends BaseCreate
       type_store_id: Number(this.form.value.type_store_id),
       category_store_id: Number(this.form.value.category_store_id),
     };
-    this.service.store(data).subscribe(() => {
+    this.service.update(this.store.id!, data).subscribe(() => {
       this.loading = false;
-      this.helper.notification.alertSuccess('Store created successfully');
-      this.router.navigate([
-        '/store/store-registration/store-registration-basic-information',
-      ]);
+      this.helper.notification.alertSuccess('Information added successfully');
+      // this.router.navigate([
+      //   '/store/store-registration/store-registration-basic-information',
+      // ]);
     });
-
-    console.log(data);
   }
 }

@@ -40,8 +40,8 @@ export class SignupComponent
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.typeUserId =
-        params['type-user'] && params['type-user'] == 'customer' ? 2 : 1;
-      this.typeUser = this.typeUserId == 1 ? 'Merchant' : 'Customer';
+        params['type-user'] && params['type-user'] == 'customer' ? 1 : 2;
+      this.typeUser = this.typeUserId == 1 ? 'Customer' : 'Merchant';
     });
 
     this.countryList = countries;
@@ -74,7 +74,7 @@ export class SignupComponent
 
   initForm() {
     this.form = this.fb.group({
-      type_user_id: [this.typeUser, Validators.required],
+      type_user_id: [this.typeUserId, Validators.required],
       name: [null, Validators.required],
       email: [null, Validators.required],
       phone_number: [null, Validators.required],
@@ -108,7 +108,7 @@ export class SignupComponent
         this.initForm();
         this.created.emit();
         this.helper.notification.toastSuccess();
-        // this.router.navigate(['./']);
+        this.router.navigate(['/store/settings']);
       });
   }
 }

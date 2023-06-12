@@ -61,6 +61,7 @@
               required="">
         <option value="">Select an Option</option>
         <option [value]="type.id"
+                [selected]="formValue('type_store_id') == type.id"
                 *ngFor="let type of types">{{ type.name }}</option>
       </select>
       <span class="input_error-message"
@@ -80,6 +81,7 @@
               required="">
         <option value="">Select an Option</option>
         <option [value]="category.id"
+                [selected]="formValue('category_store_id') == category.id"
                 *ngFor="let category of categories">{{ category.name }}</option>
       </select>
       <span class="input_error-message"

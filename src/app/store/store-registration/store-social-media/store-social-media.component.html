@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-12 mb-2 text-end">
       <button class="btn btn-black"
-              (click)="openModal(content)"> <span><i class="fal fa-plus"></i></span> Add </button>
+              (click)="openModal(content, 'lg')"> <span><i class="fal fa-plus"></i></span> Add </button>
     </div>
   </div>
   <div class="col-4"
@@ -36,6 +36,14 @@
 
 
 
+</div>
+
+<div class="row mt-5"
+     *ngIf="!loading && !data.length"
+     (click)="openModal(content, 'lg')">
+  <div class="col-12 text-center">
+    <button class="btn btn-wide btn-square btn-dark">Add your store social media</button>
+  </div>
 </div>
 
 <app-loading *ngIf="loading"></app-loading>

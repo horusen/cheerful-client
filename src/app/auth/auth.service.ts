@@ -1,6 +1,6 @@
 import { ApiResponse } from './../shared/models/ApiResponse';
 import { tap, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Storage } from '../helpers/storage/storage';
 import { BaseService } from '../shared/services';
@@ -16,39 +16,51 @@ interface LoginInformation {
   providedIn: 'root',
 })
 export class AuthService extends BaseService<any> {
+  public store$ = new ReplaySubject<Store>(1);
+  public user$ = new ReplaySubject<User>(1);
+
   // TODO: revert this back to user
   get user(): User {
-    // return this.storage.get('user') as User;
-    return {
-      id: 1,
-      name: 'John Doe',
-      email: '',
-      phone_number: '',
-      type_user_id: 1,
-    };
+    return this.storage.get('user') as User;
   }
 
   // TODO: revert this back to store
   get shop(): Store {
-    // return this.storage.get('store') as User;
-    return {
-      id: 1,
-      name: 'Bella Store',
-      phone_number: '+2330102384789',
-      type_store_id: 1,
-      type_store: {
-        id: 1,
-        name: 'Product',
-      },
-      category_store: {
-        id: 1,
-        name: 'Food',
-      },
-      category_store_id: 1,
-      description:
-        'Ante aperiam quisque. Aenean, itaque, leo, arcu nam? Elementum litora, occaecati. Tempor sollicitudin parturient. Platea elit interdum hymenaeos risus iaculis lorem aliquip, sapien hendrerit sociis. Habitant penatibus ullam ab exercitationem? Ridiculus, felis. Laboriosam lacinia! Sint pretium soluta vel, lectus mi rem sapiente asperiores sodales amet pretium mollit reprehenderit. Mollitia excepturi exercitationem at ultricies est? Sollicitudin earum assumenda odio orci earum esse iusto hic corrupti, modi illum aliqua dolore lorem curabitur deserunt neque mollitia habitant ullam, fugit rem maiores! Omnis nunc ea aliqua rem aenean? Eros facere veniam ut interdum deserunt! Corporis eiusmod dis aliqua, harum diamlorem, malesuada blandit porta, ipsa.',
-      store_online_link: 'https://www.cheerful.co/bella-store',
-    };
+    return this.storage.get('store') as Store;
+  }
+
+  set shop(store: Store) {
+    if (store) {
+      this.storage.set('store', store);
+      this.store$.next(store);
+    }
+  }
+
+  set user(user: User) {
+    if (user) {
+      this.storage.set('user', user);
+      this.user$.next(user);
+    }
+  }
+
+  get isStoreSetup() {
+    // Return false if one field of shop is empty
+    let isShopSetup = true;
+    Object.keys(this.shop).forEach((key) => {
+      if (
+        key != 'deleted_at' &&
+        key != 'store_logo_image' &&
+        // @ts-expect-error
+        this.shop[key] == null
+      ) {
+        isShopSetup = false;
+      }
+    });
+    return isShopSetup;
+  }
+
+  updateStore(store: Store) {
+    this.storage.set('store', store);
   }
 
   constructor(public storage: Storage) {

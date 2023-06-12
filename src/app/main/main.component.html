@@ -536,11 +536,18 @@
       </div>
       <!--/HEADER ICONS-->
 
+      <div class=""
+           *ngIf="!authService.isLoggedIn()">
+        <!-- Sign in button -->
+        <a [routerLink]="['authentication', 'login']"
+           class="btn create-collection">Login</a>
+      </div>
       <div class="header-user-profile cryptoki-notif-bttn"
-           data-target="profile-dropdown">
+           data-target="profile-dropdown"
+           *ngIf="authService.isLoggedIn()">
         <!--user-meta-->
         <div class="user-meta">
-          <div class="user_name">Patience Ayeni</div>
+          <div class="user_name">{{ authService.user.name }}</div>
 
         </div>
         <!--/user-meta-->

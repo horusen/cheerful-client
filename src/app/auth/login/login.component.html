@@ -1,5 +1,5 @@
 <div class="primary-content-area container content-padding">
-  <div class="section-small">
+  <div class="extra-small-section">
     <div class="page-title text-center">
       <h2><span class="gradient-text">Sign</span> in</h2>
     </div>
@@ -48,13 +48,21 @@
 
 
 
-
+      <!-- <button type="button"
+        class="tk-lp-button tk-lp-button--grey tk-lp-w-full tk-lp-tabs-form-item"
+        data-id="sign-in">I have an account!</button> -->
 
 
       <button type="submit"
               style="display: block"
-              class="btn  btn-fullwidth btn-dark"
+              class="btn mb-3 btn-fullwidth btn-dark"
               data-badge="inline">Send</button>
+      <a type="submit"
+         style="display: block"
+         [routerLink]="['/authentication/signup']"
+         class="btn  btn-fullwidth  "
+         data-badge="inline">Not registered? Sign up here!</a>
+
     </form>
     <!-- <div class="register-notice">
       You’ll receive a confirmation email in your inbox with a link to activate your account.

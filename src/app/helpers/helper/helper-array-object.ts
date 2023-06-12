@@ -45,7 +45,6 @@ export class helperArrayObject {
       array.unshift(...element);
       return;
     }
-
     array.unshift(element);
     return;
   }

@@ -24,7 +24,7 @@ export class BaseMockService<T = any> extends BaseService<T> {
     return of(this.data);
   }
 
-  override update(id: string, elements: object) {
+  override update(id: number, elements: object) {
     //@ts-expect-error
     const index = this.data.findIndex((item) => item.id === id);
     this.data[index] = elements as T;

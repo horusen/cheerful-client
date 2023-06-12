@@ -11,4 +11,5 @@ export interface Store extends BaseModel {
   category_store_id: number;
   category_store?: CategoryStore;
   type_store?: TypeStore;
+  email?: string;
 }

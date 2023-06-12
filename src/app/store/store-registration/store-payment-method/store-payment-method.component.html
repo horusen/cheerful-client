@@ -46,6 +46,14 @@
 
 </div>
 
+<div class="row mt-5"
+     *ngIf="!loading && !data.length"
+     (click)="openModal(content, 'lg')">
+  <div class="col-12 text-center">
+    <button class="btn btn-wide btn-square btn-dark">Add your store payment method</button>
+  </div>
+</div>
+
 <app-loading *ngIf="loading"></app-loading>
 
 <ng-template #content

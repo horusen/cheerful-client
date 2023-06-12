@@ -26,6 +26,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/fonts.css",
               "src/assets/css/login-register.css",
               "src/assets/css/nice-select2.css",
