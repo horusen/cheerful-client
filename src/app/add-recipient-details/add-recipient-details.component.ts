@@ -55,12 +55,12 @@ export class AddRecipientDetailsComponent extends BaseCreateComponent<any> {
   }
 
   add() {
-    console.log(this.form.value);
+    // console.log(this.form.value);
 
-    if (this.form.invalid) {
-      this.helper.notification.alertDanger('Invalid form');
-      return;
-    }
+    // if (this.form.invalid) {
+    //   this.helper.notification.alertDanger('Invalid form');
+    //   return;
+    // }
     this.recipientDetails.emit(this.form.value);
     this.form.reset();
   }
