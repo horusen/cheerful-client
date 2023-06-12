@@ -8,7 +8,12 @@
 
 .logo .logo-img,
 .logo .logo-img svg {
-  width: 110px;
+  width: 148px;
+  height: auto;
   /* height: 0px; */
   margin-right: 10px;
+}
+
+.btn:hover {
+  border-color: none;
 }
