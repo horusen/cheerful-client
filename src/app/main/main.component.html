@@ -701,12 +701,6 @@
            routerLinkActive="active">Stores</a>
       </li>
 
-      <li class="menu-item">
-        <a class="menu-link"
-           routerLink="Spotlight"
-           routerLinkActive="active">Spotlight</a>
-        <!-- <span class="highlighted-item gradient-background">NEW</span> -->
-      </li>
 
 
       <li class="menu-item ">
@@ -714,6 +708,15 @@
            href="12-blog-grid.html">Spotlight</a>
 
       </li>
+
+      <li class="menu-item">
+        <a class="menu-link"
+           routerLink="./"
+           (click)="openModal(giftFinder, 'xl', false)"
+           routerLinkActive="active"> <i class="fas fa-gift  text-gradient me-2"></i> Gift finder</a>
+        <span class="highlighted-item gradient-background">HOT</span>
+      </li>
+
       <li class="menu-item hidden-menu">
         <a class="menu-link"
            href="#"><svg class="crumina-icon">
@@ -970,3 +973,23 @@
   </div>
 </footer>
 <!-- FOOTER -->
+
+
+<ng-template #giftFinder
+             let-d="dismiss"
+             let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-center w-100">
+      <span class="gradient-text"> <span class="me-2"><i class="fas fa-gift"></i></span> GIFT </span> FINDER
+    </h4>
+    <button type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body p-5">
+    <app-gift-finder></app-gift-finder>
+
+  </div>
+
+</ng-template>

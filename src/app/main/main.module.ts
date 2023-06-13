@@ -10,6 +10,7 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileItemsComponent } from './profile-items/profile-items.component';
+import { GiftFinderModule } from '../gift-finder/gift-finder.module';
 
 const routes: Routes = [
   {
@@ -59,6 +60,11 @@ const routes: Routes = [
     ProfileComponent,
     ProfileItemsComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    SharedModule,
+    GiftFinderModule,
+  ],
 })
 export class MainModule {}
