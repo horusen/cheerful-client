@@ -19,10 +19,11 @@ export class HelperNotification {
     });
   }
 
-  alertDanger(word: string = 'ERREUR'): void {
+  alertDanger(title: string = 'Error', text = '', timer = 1500): void {
     Swal.fire({
       icon: 'error',
-      title: word,
+      title: title,
+      text: text,
       showConfirmButton: false,
       timer: 1500,
     });

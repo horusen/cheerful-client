@@ -21,8 +21,7 @@ export class ProductDetailComponent
     public productService: ProductService,
     public cartService: CartService,
     public cardService: CardsService,
-    public override route: ActivatedRoute,
-    public modalService: NgbModal
+    public override route: ActivatedRoute
   ) {
     super(productService);
   }

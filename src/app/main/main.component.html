@@ -6,7 +6,7 @@
         <div class="mobile-nav-header">
           <!--MOBILE LOGO-->
           <div class="mobile-menu-logo logo">
-            <a href="cu-01-index.html"><img src="svg/cryptoki-logo.svg"
+            <a href="cu-01-index.html"><img src="assets/img/content/logo.png"
                    alt="" /></a>
           </div>
           <!--/MOBILE LOGO-->
@@ -245,10 +245,10 @@
         <a class="logo-link"
            href="cu-01-index.html">
           <div class="logo-img">
-            <img src="./assets/svg/cryptoki-logo.svg"
+            <img src="assets/img/content/logo.png"
                  alt="logo" />
           </div>
-          <div class="logo-text">Cardup Pro</div>
+          <!-- <div class="logo-text">Cardup Pro</div> -->
         </a>
       </div>
       <!--/LOGO-->
@@ -536,11 +536,18 @@
       </div>
       <!--/HEADER ICONS-->
 
+      <div class=""
+           *ngIf="!authService.isLoggedIn()">
+        <!-- Sign in button -->
+        <a [routerLink]="['authentication', 'login']"
+           class="btn create-collection">Login</a>
+      </div>
       <div class="header-user-profile cryptoki-notif-bttn"
-           data-target="profile-dropdown">
+           data-target="profile-dropdown"
+           *ngIf="authService.isLoggedIn()">
         <!--user-meta-->
         <div class="user-meta">
-          <div class="user_name">Patience Ayeni</div>
+          <div class="user_name">{{ authService.user.name }}</div>
 
         </div>
         <!--/user-meta-->
@@ -694,12 +701,6 @@
            routerLinkActive="active">Stores</a>
       </li>
 
-      <li class="menu-item">
-        <a class="menu-link"
-           routerLink="Spotlight"
-           routerLinkActive="active">Spotlight</a>
-        <!-- <span class="highlighted-item gradient-background">NEW</span> -->
-      </li>
 
 
       <li class="menu-item ">
@@ -707,6 +708,15 @@
            href="12-blog-grid.html">Spotlight</a>
 
       </li>
+
+      <li class="menu-item">
+        <a class="menu-link"
+           routerLink="./"
+           (click)="openModal(giftFinder, 'xl', false)"
+           routerLinkActive="active"> <i class="fas fa-gift  text-gradient me-2"></i> Gift finder</a>
+        <span class="highlighted-item gradient-background">HOT</span>
+      </li>
+
       <li class="menu-item hidden-menu">
         <a class="menu-link"
            href="#"><svg class="crumina-icon">
@@ -781,8 +791,9 @@
             <a class="logo-link"
                href="cu-01-index.html">
               <div class="logo-img">
-                <img src="./assets/svg/cryptoki-logo.svg"
-                     alt="logo" />
+                <img src="assets/img/content/logo.png"
+                     alt="
+                     logo" />
               </div>
               <div class="logo-text">Cardup Pro</div>
             </a>
@@ -962,3 +973,23 @@
   </div>
 </footer>
 <!-- FOOTER -->
+
+
+<ng-template #giftFinder
+             let-d="dismiss"
+             let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-center w-100">
+      <span class="gradient-text"> <span class="me-2"><i class="fas fa-gift"></i></span> GIFT </span> FINDER
+    </h4>
+    <button type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body p-5">
+    <app-gift-finder></app-gift-finder>
+
+  </div>
+
+</ng-template>

@@ -1,0 +1,43 @@
+<div class="section-title-wrapper">
+  <div class="section-title"><span class="gradient-text">Your business</span> information</div>
+
+</div>
+<div class="tabs-block swiper-container">
+  <ul class="nav tabs-list swiper-wrapper ">
+    <!-- Basic information -->
+    <li class="nav-item swiper-slide"
+        routerLinkActive="active">
+      <a class="nav-link"
+         routerLink="basic-information">Basic information</a>
+    </li>
+
+    <!-- Addresses -->
+    <li class="nav-item swiper-slide"
+        routerLinkActive="active">
+      <a class="nav-link"
+         routerLink="addresses">Addresses</a>
+    </li>
+
+    <!-- Social medias -->
+    <li class="nav-item swiper-slide"
+        routerLinkActive="active">
+      <a class="nav-link"
+         routerLink="social-medias">Social Medias</a>
+    </li>
+
+    <!-- Payment methods -->
+    <li class="nav-item swiper-slide"
+        routerLinkActive="active">
+      <a class="nav-link"
+         routerLink="payment-methods">Payment methods</a>
+    </li>
+
+  </ul>
+  <div class="tab active">
+    <div class="tab-content">
+      <div class="product-description">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

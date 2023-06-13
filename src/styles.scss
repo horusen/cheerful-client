@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+
+.modal-content {
+  border-radius: 20px;
+}
+
+.logo .logo-img,
+.logo .logo-img svg {
+  width: 148px;
+  height: auto;
+  /* height: 0px; */
+  margin-right: 10px;
+}
+
+.btn:hover {
+  border-color: none;
+}

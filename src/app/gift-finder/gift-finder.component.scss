@@ -1,0 +1,11 @@
+.nav-link.nav-item {
+  color: inherit;
+  font-weight: bolder;
+}
+
+.nav-link.nav-item.active {
+  background: var(--cryptoki-gradient);
+  color: var(--contrast-text-color);
+}
+
+

@@ -1,0 +1,74 @@
+<div class="row"
+     *ngIf="!loading && data.length">
+  <div class="row">
+    <div class="col-12 mb-2 text-end">
+      <button class="btn btn-black"
+              (click)="openModal(content, 'lg')"> <span><i class="fal fa-plus"></i></span> Add </button>
+    </div>
+  </div>
+  <div class="col-6"
+       *ngFor="let payment of data">
+    <!-- <div class="placed-bid">
+      <div class="bid-placer">
+        <div class="avatar box-42">
+          <span class=""><i class=" text-white fas fa-map-marker-alt"></i></span>
+        </div>
+        <div class="bid-info">
+          <div class="bid-title">{{ address.address }} <span class="gradient-text"> {{ address.city?.name }}
+            </span></div>
+          <div class="bid-date">{{ address.state?.name }}, {{ address.country?.name }}</div>
+        </div>
+      </div>
+
+    </div> -->
+
+    <div class="placed-bid">
+      <div class="bid-placer">
+        <div class="avatar box-42">
+          <span class=""><i class=" text-white fas fa-industry"
+               *ngIf="payment.payment_method_provider?.type_payment_method_provider?.id == 1"></i></span>
+          <span class=""><i class=" text-white fas fa-mobile-android-alt"
+               *ngIf="payment.payment_method_provider?.type_payment_method_provider?.id == 2"></i></span>
+        </div>
+        <div class="bid-info">
+          <div class="bid-title">{{ payment.payment_method_provider?.name }} </div>
+          <div class="bid-date">{{ payment.account_number }}</div>
+        </div>
+      </div>
+      <div class="bid-box">
+        <div class="crypto-value">{{ payment.payment_method_provider?.type_payment_method_provider?.name }}</div>
+        <!-- <div class="currency-value">12:19pm</div> -->
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<div class="row mt-5"
+     *ngIf="!loading && !data.length"
+     (click)="openModal(content, 'lg')">
+  <div class="col-12 text-center">
+    <button class="btn btn-wide btn-square btn-dark">Add your store payment method</button>
+  </div>
+</div>
+
+<app-loading *ngIf="loading"></app-loading>
+
+<ng-template #content
+             let-d="dismiss"
+             let-modal>
+  <div class="modal-header p-4">
+    <h4 class="modal-title text-center w-100">Add an <span class="gradient-text"> payment method</span> for your store</h4>
+    <button type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body p-5">
+    <app-store-payment-method-create></app-store-payment-method-create>
+
+  </div>
+
+</ng-template>

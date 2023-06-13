@@ -206,10 +206,10 @@
   /* ============================
        1.1. Primary template colors
        ============================ */
-  --primary-accent-color: #ff6c0d;
-  --secondary-accent-color: #0084ff;
-  --primary-gradient-color: #ff394f;
-  --secondary-gradient-color: #ffcf26;
+  --primary-accent-color: #c23fff;
+  --secondary-accent-color: #ef1f7e;
+  --primary-gradient-color: #6345ed;
+  --secondary-gradient-color: #e139fd;
   --cryptoki-gradient: linear-gradient(
     to right,
     var(--primary-gradient-color) 20%,
@@ -247,9 +247,9 @@
   --ds-red: #f32a63;
   --ds-green: #00bf8b;
   --btn-dark: #252831;
-  --ui-templates: var(--secondary-accent-color);
-  --social-graphics: var(--secondary-gradient-color);
-  --coded-templates: var(--primary-gradient-color);
+  --ui-templates: var(--cryptoki-blue);
+  --social-graphics: var(--secondary-accent-color);
+  --coded-templates: var(--primary-accent-color);
   --video-tutorials: var(--cryptoki-salmon);
   /* ===========================
        1.5. Typography sizes
@@ -277,8 +277,8 @@
   /* ===========================
        1.7. Border-radius
        ============================*/
-  --btn-border-radius: 30px;
-  --input-border-radius: 30px;
+  --btn-border-radius: 10px;
+  --input-border-radius: 12px;
 }
 
 /* ===========================
@@ -304,7 +304,6 @@ body.dark-mode {
     0 6px 10px 0 rgba(255, 255, 255, 0.14),
     0 1px 18px 0 rgba(255, 255, 255, 0.12);
 }
-
 /* ===========================
        2. DEFAULTS
        ============================*/
@@ -931,6 +930,10 @@ ol {
 
 .green-gradient {
   background: linear-gradient(to right, #0075a2, #00ef68);
+}
+
+.pink-gradient {
+  background: linear-gradient(to right, #ef1f7e, #ff00f1);
 }
 
 .turquoise-gradient-diagonal {
@@ -2845,7 +2848,12 @@ nav {
 }
 
 .navigation-menu .menu-item .menu-link:hover,
-.navigation-menu .menu-item .menu-link:active {
+.navigation-menu
+  .menu-item
+  .menu-link:active
+  .navigation-menu
+  .menu-item
+  .menu-link.active {
   background-color: var(--main-font-color);
   background-image: var(--cryptoki-gradient);
   background-size: 100%;
@@ -3927,7 +3935,7 @@ body.dark-mode .search-form-with-text .main-search .search-button {
 .load-more_bars {
   display: flex;
   justify-content: center;
-  height: 40px;
+  height: 90px;
 }
 
 .load-more_bars .load-more_bar {

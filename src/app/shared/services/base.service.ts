@@ -139,7 +139,7 @@ export abstract class BaseService<T = any> {
     );
   }
 
-  show(id: string, emitData = true) {
+  show(id: number, emitData = true) {
     return this.factory.get(`${this.endPoint}/${id}`).pipe(
       tap({
         next: (single) => {
@@ -166,7 +166,7 @@ export abstract class BaseService<T = any> {
     this.data$.next(this._data);
   }
 
-  update(id: string, data: {}) {
+  update(id: number, data: {}) {
     return this.factory.put(`${this.endPoint}/${id}`, data).pipe(
       tap({
         next: (response) => {
@@ -182,7 +182,7 @@ export abstract class BaseService<T = any> {
     );
   }
 
-  delete(id: string) {
+  delete(id: number) {
     return this.factory.delete(`${this.endPoint}/${id}`).pipe(
       tap({
         next: () => {
@@ -203,27 +203,27 @@ export abstract class BaseService<T = any> {
     this.data$.next(this._data);
   }
 
-  deleteItemInData(id: string, libelleID: string = 'id') {
+  deleteItemInData(id: number, libelleID: string = 'id') {
     this._data = this._data.filter((item) => {
-      return (item[libelleID as keyof T] as unknown as string) != id;
+      return (item[libelleID as keyof T] as unknown as number) != id;
     });
 
     this.data$.next(this._data);
   }
 
-  findItemInDataByID(id: string, libelleID: string = 'id') {
+  findItemInDataByID(id: number, libelleID: string = 'id') {
     return this._data.find(
-      (item) => (item[libelleID as keyof T] as unknown as string) == id
+      (item) => (item[libelleID as keyof T] as unknown as number) == id
     );
   }
 
-  findIndexItemInDataByID(id: string, libelleID: string = 'id') {
+  findIndexItemInDataByID(id: number, libelleID: string = 'id') {
     return this._data.findIndex((element) => {
-      return (element[libelleID as keyof T] as unknown as string) == id;
+      return (element[libelleID as keyof T] as unknown as number) == id;
     });
   }
 
-  updateItemInData(id: string, data: any) {
+  updateItemInData(id: number, data: any) {
     if (this._data.length) {
       const index = this.findIndexItemInDataByID(id);
       this._data[index] = data;

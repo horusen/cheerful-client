@@ -17,15 +17,54 @@
                id="email">
       </div>
     </div>
+    <!-- <div class="form-group">
+      <div class="form-field">
+        <label for="country">Country</label>
+        <select id="country"
+                (change)="selectFormHandler('recipient_country', $event.target)">
+          <option value="your-country">--- Select ---</option>
+          <option [value]="country.name"
+                  *ngFor="let country of countryList">{{ country.name }}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="state">State</label>
+        <select id="state"
+                (change)="selectFormHandler('recipient_state', $event.target)">
+          <option value="your-country">--- Select ---</option>
+          <option [value]="state.name"
+                  *ngFor="let state of stateList">{{ state.name }}</option>
+        </select>
+      </div>
+    </div> -->
+    <!-- <div class="form-field">
+      <label for="address">Full address</label>
 
     <div class="form-field">
       <label for="address">Email address</label>
       <input type="text"
              formControlName="recipient_email"
              id="address">
-    </div>
+    </div> -->
 
-
+    <!--
+    <div class="form-group">
+      <div class="form-field">
+        <label for="city">City</label>
+        <select id="city"
+                (change)="selectFormHandler('recipient_city', $event.target)">
+          <option value="your-country">--- Select ---</option>
+          <option [value]="city.name"
+                  *ngFor="let city of cityList">{{ city.name }}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="Postal-Code">Postal Code</label>
+        <input type="text"
+               formControlName="recipient_postal"
+               id="address">
+      </div>
+    </div> -->
     <div class="form-field">
       <label for="state">Additonal comments</label>
       <textarea cols="30"
@@ -41,7 +80,12 @@
               <use xlink:href="#upload-icon"></use>
             </svg>
             <div class="upload-notice"> Max 120MB, PNG, JPEG, MP3, MP4</div>
-            <button class="btn btn-normal btn-dark browse-btn">Browse File</button>
+            <button type="button"
+                    class="btn btn-normal btn-dark browse-btn"
+                    (click)="filewish.click()">Browse File</button>
+            <input [hidden]="true"
+                   type="file"
+                   #filewish>
           </div>
         </div>
         <div class="artwork-preview">

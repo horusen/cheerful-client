@@ -1,7 +1,7 @@
 <div class="primary-content-area container content-padding">
   <div class="section-small">
     <div class="page-title text-center">
-      <h2><span class="gradient-text">Register</span> Account</h2>
+      <h2><span class="gradient-text">Become a</span> {{ typeUser }}</h2>
     </div>
     <form class="cryptoki-form validation"
           id="contact-form"
@@ -88,14 +88,14 @@
           <label for="subject">Gender</label>
           <select class="select-nice"
                   name="email_subject"
-                  (change)="selectFormHandler('gender', $event.target)"
+                  (change)="selectFormHandler('gender_id', $event.target)"
                   id="subject"
                   data-val="\S"
                   data-val-msg="* Please, select an option."
                   data-val-msg-id="selectMessage"
                   required="">
             <option value="">Select an Option</option>
-            <option [value]="gender.name"
+            <option [value]="gender.id"
                     *ngFor="let gender of genderList">{{ gender.name }}</option>
           </select>
           <span class="input_error-message"
@@ -103,19 +103,19 @@
         </div>
 
 
-        <!-- Location -->
+        <!-- Country -->
         <div class="form-field">
-          <label for="subject">Location</label>
+          <label for="subject">Country</label>
           <select class="select-nice"
                   name="email_subject"
-                  (change)="selectFormHandler('location', $event.target)"
+                  (change)="selectFormHandler('country_id', $event.target)"
                   id="subject"
                   data-val="\S"
                   data-val-msg="* Please, select an option."
                   data-val-msg-id="selectMessage"
                   required="">
             <option value="">Select an Option</option>
-            <option [value]="country.name"
+            <option [value]="country.id"
                     *ngFor="let country of countryList">{{ country.name }}</option>
           </select>
           <span class="input_error-message"
@@ -176,6 +176,11 @@
               style="display: block"
               class="btn  btn-fullwidth btn-dark"
               data-badge="inline">Send</button>
+      <a type="submit"
+         style="display: block"
+         [routerLink]="['/authentication/signup']"
+         class="btn  btn-fullwidth  "
+         data-badge="inline">Have an account? Sign in here!</a>
     </form>
     <!-- <div class="register-notice">
       You’ll receive a confirmation email in your inbox with a link to activate your account.
