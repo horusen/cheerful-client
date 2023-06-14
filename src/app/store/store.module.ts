@@ -11,6 +11,13 @@ const routes: Routes = [
     component: StoreComponent,
     children: [
       {
+        path: 'cards',
+        loadChildren: () =>
+          import('./store-card/store-card.module').then(
+            (module) => module.StoreCardModule
+          ),
+      },
+      {
         path: 'settings',
         loadChildren: () =>
           import('./store-registration/store-registration.module').then(

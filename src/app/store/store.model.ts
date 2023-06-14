@@ -12,4 +12,12 @@ export interface Store extends BaseModel {
   category_store?: CategoryStore;
   type_store?: TypeStore;
   email?: string;
+  store_logo_image?: {
+    id: string;
+    url: string;
+  };
+  store_cover_image?: {
+    id: string;
+    url: string;
+  };
 }

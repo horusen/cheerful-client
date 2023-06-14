@@ -5,15 +5,22 @@
       <div class="user-db-header">
         <div class="user-db-cover-image profile-cover-image"></div>
         <div class="user-header-user-profile">
+          <!-- Logo -->
           <div class="avatar box-64">
             <a href="08-profile-page.html">
-              <img src="img/avatar.png"
-                   alt="avatar"><span class="verified"><svg class="crumina-icon">
+              <img src="assets/img/avatar.png"
+                   alt="avatar"
+                   *ngIf="!store.store_logo_image">
+              <img [src]="store.store_logo_image.url"
+                   alt="avatar"
+                   *ngIf="store.store_logo_image">
+              <span class="verified"><svg class="crumina-icon">
                   <use xlink:href="#check-icon"></use>
                 </svg></span></a>
           </div>
-          <div class="title"><a href="08-profile-page.html">Dexter Stark</a></div>
-          <div class="item-meta"><span class="gradient-text">@DexterStark</span></div>
+          <div class="title"><a href="08-profile-page.html">{{ authService.user.name }}</a></div>
+          <div class="item-meta"
+               *ngIf="store.name"><span class="gradient-text">@{{ store.name }}</span></div>
         </div>
       </div>
       <div class="user-db-body">

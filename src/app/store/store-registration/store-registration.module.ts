@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { StoreRegistrationComponent } from './store-registration.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { StoreRegistrationBasicInformationComponent } from './store-registration-basic-information/store-registration-basic-information.component';
 
 const routes: Routes = [
   {

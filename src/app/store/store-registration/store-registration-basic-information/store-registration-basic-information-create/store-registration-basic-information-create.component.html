@@ -13,6 +13,9 @@
   <input type="hidden"
          name="recaptcha_token"
          value="">
+
+
+  <div class="user-db-title">Business information</div>
   <!-- Name and email -->
   <div class="form-group mb-3">
     <!-- Name -->
@@ -144,6 +147,33 @@
     <span class="input_error-message"
           id="textareaMessage"></span>
   </div>
+
+  <div class="upload-photo-box w-100 my-5">
+    <div class="user-db-title">Logo and Cover</div>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="user-avatar"
+           (click)="logoPic.click()"><img [src]="logoImage"
+             alt=""></div>
+      <div class="user-cover-image"
+           (click)="coverPic.click()"><img [src]="coverImage"
+             alt=""></div>
+    </div>
+    <div class="upload-notice">Images must be .png or .jpg format. Min size 100x100px (avatar) and
+      1920x320px (cover) </div>
+
+    <input type="file"
+           [accept]="'image/*'"
+           hidden
+           #logoPic
+           (change)="onFileChanged($event, 'store_logo_image')">
+
+    <input type="file"
+           [accept]="'image/*'"
+           hidden
+           #coverPic
+           (change)="onFileChanged($event, 'store_cover_image')">
+  </div>
+
 
   <button type="submit"
           style="display: block"

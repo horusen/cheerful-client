@@ -28,24 +28,6 @@ export const products: Product[] = [
     name: 'Melcom',
   },
   {
-    id: '599437',
-    cardName: 'Maxmart Gift Card',
-    description: `Introducing our latest collection of trendy and fashionable clothing that will elevate your style game to new heights! Whether you're looking for casual comfort or elegant sophistication, our clothing line has something for everyone.`,
-    minPrice: 1000,
-    cardImage: './assets/img/content/brands/brand-max-mart.jpg',
-    storeLogo: './assets/img/content/brands/brand-max-mart.jpg',
-    name: 'Maxmart',
-  },
-  {
-    id: '599437',
-    cardName: 'Shoprite Gift Card',
-    description: `Introducing our latest collection of trendy and fashionable clothing that will elevate your style game to new heights! Whether you're looking for casual comfort or elegant sophistication, our clothing line has something for everyone.`,
-    minPrice: 1000,
-    cardImage: './assets/img/content/brands/brand-shoprite.jpg',
-    storeLogo: './assets/img/content/brands/brand-shoprite.jpg',
-    name: 'Shoprite',
-  },
-  {
     id: '098738',
     cardName: 'Melcome Gift voucher',
     description: `Delightful baby name, where we cater to all your little one's needs with love and care. From adorable clothing to essential accessories, we have everything you require to create a safe, comfortable, and stylish environment for your precious bundle of joy.

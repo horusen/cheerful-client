@@ -1,0 +1,93 @@
+<!-- <div class="page-title text-center">
+  <h2><span class="gradient-text">Add your business</span> address</h2>
+</div> -->
+<form class="cryptoki-form validation"
+      id="contact-form"
+      [formGroup]="form"
+      *ngIf="form"
+      (submit)="create()"
+      novalidate="">
+  <input type="hidden"
+         name="recaptcha_site_key"
+         value="">
+  <input type="hidden"
+         name="recaptcha_token"
+         value="">
+
+
+
+  <!-- Name and price  -->
+  <div class="form-group">
+    <!-- Name -->
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input type="text"
+             name="name"
+             formControlName="name"
+             id="name"
+             data-val="\S"
+             data-val-msg="* This is a required field."
+             data-val-msg-id="textMessage"
+             required="">
+      <span class="input_error-message"
+            id="textMessage"></span>
+    </div>
+
+    <!-- min_price -->
+    <div class="form-field">
+      <label for="name">Min. Price</label>
+      <input type="number"
+             name="name"
+             formControlName="min_price"
+             id="name"
+             data-val="\S"
+             data-val-msg="* This is a required field."
+             data-val-msg-id="textMessage"
+             required="">
+      <span class="input_error-message"
+            id="textMessage"></span>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="upload-container d-flex">
+    <div class="artwork-upload"
+         (click)="cardImageInput.click()">
+      <div class="label">Upload File</div>
+      <div class="upload-box"><svg class="crumina-icon">
+          <use xlink:href="#upload-icon"></use>
+        </svg>
+        <div class="upload-notice"> Max 120MB, PNG, JPEG, MP3, MP4</div>
+        <button type="button"
+                class="btn btn-normal btn-dark browse-btn">Browse File</button>
+        <input type="file"
+               [hidden]="true"
+               [accept]="'image/*'"
+               (change)="onFileChanged($event)"
+               #cardImageInput>
+      </div>
+    </div>
+    <div class="artwork-preview">
+      <div class="label">File Preview</div>
+      <div class="preview-box">
+        <img [src]="cardImageUrl"
+             *ngIf="cardImageUrl"
+             alt="">
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <button type="submit"
+          style="display: block"
+          class="btn  btn-fullwidth btn-dark"
+          data-badge="inline">Send</button>
+</form>
+<!-- <div class="register-notice">
+      You’ll receive a confirmation email in your inbox with a link to activate your account.
+    </div> -->

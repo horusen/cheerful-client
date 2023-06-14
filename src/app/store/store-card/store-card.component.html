@@ -1,0 +1,86 @@
+<div class="section-title-wrapper">
+  <div class="section-title"><span class="gradient-text">Your store's</span> gift cards</div>
+
+</div>
+
+<div class="row"
+     *ngIf="!loading && storeCardService.data.length">
+  <div class="row">
+    <div class="col-12 mb-2 text-end">
+      <button class="btn btn-black"
+              (click)="openModal(content, 'lg')"> <span><i class="fal fa-plus"></i></span> Add </button>
+    </div>
+  </div>
+  <div class="featured-item col-4"
+       *ngFor="let card of storeCardService.data">
+    <div class="featured-item-wrapper">
+      <div class="featured-item-content">
+
+        <div class="featured-item-image">
+          <a><img [src]="card.card_image.url"
+                 alt=""></a>
+        </div>
+        <div class="featured-item-info">
+
+          <div class="title text-center"> <a>{{ card.name }}</a> </div>
+          <!-- <div class="item-meta"><span class="avatar box-26"> <a href="08-profile-page.html"><img src="./assets/img/avatar.png"
+                           alt=""></a><span class="verified"><svg class="crumina-icon">
+                        <use xlink:href="#check-icon"></use>
+                      </svg></span></span>@{{ card.provider }}</div> -->
+        </div>
+      </div>
+      <div class="featured-item-post-content d-flex justify-content-between">
+        <div class="featured-item-pricebox">
+          <div class="price-caption">Min Price</div>
+          <div class="price">{{card.min_price}} GHS</div>
+        </div>
+        <div class="social-share-box">
+          <div class="social-caption">Share</div>
+          <div class="share-icons">
+            <a href="!#">
+              <svg class="crumina-icon">
+                <use xlink:href="#facebook-icon"></use>
+              </svg></a>
+            <a href="!#"><svg class="crumina-icon">
+                <use xlink:href="#twitter-icon"></use>
+              </svg></a>
+            <a href="!#"><svg class="crumina-icon">
+                <use xlink:href="#instagram-icon"></use>
+              </svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="row mt-5"
+     *ngIf="!loading && !data.length"
+     (click)="openModal(content, 'lg')">
+  <div class="col-12 text-center">
+    <button class="btn btn-wide btn-square btn-dark">Add a card for your store</button>
+  </div>
+</div>
+
+<app-loading *ngIf="loading"></app-loading>
+
+
+<ng-template #content
+             let-d="dismiss"
+             let-modal>
+  <div class="modal-header p-4">
+    <h4 class="modal-title text-center w-100">Add a <span class="gradient-text"> card for your store</span></h4>
+    <button type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body p-5">
+    <app-store-card-create></app-store-card-create>
+
+  </div>
+
+</ng-template>

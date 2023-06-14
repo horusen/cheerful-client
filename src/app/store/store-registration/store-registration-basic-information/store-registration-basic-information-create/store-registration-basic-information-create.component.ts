@@ -15,6 +15,9 @@ import { TypeStoreService } from 'src/app/store/type-store/type-store.service';
   styleUrls: ['./store-registration-basic-information-create.component.scss'],
 })
 export class StoreRegistrationBasicInformationCreateComponent extends BaseCreateComponent<Store> {
+  logoImage = 'assets/img/content/profile/avatar-upload.png';
+  coverImage = 'assets/img/content/profile/profile-cover-1.png';
+
   store: Store;
   onlineLink: string = '';
   categories: CategoryStore[] = [];
@@ -45,6 +48,32 @@ export class StoreRegistrationBasicInformationCreateComponent extends BaseCreate
     this.form.controls['store_online_link'].valueChanges.subscribe((value) => {
       this.onlineLink = value;
     });
+  }
+
+  displayImage(
+    image: File,
+    element: 'store_logo_image' | 'store_cover_image'
+  ): void {
+    let reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onload = () => {
+      element === 'store_logo_image'
+        ? (this.logoImage = reader.result as string)
+        : (this.coverImage = reader.result as string);
+    };
+  }
+
+  override onFileChanged(
+    event: any,
+    name: 'store_logo_image' | 'store_cover_image' = 'store_logo_image'
+  ) {
+    let fichier: File = event.target.files[0];
+    // if (fichier.type !== 'application/pdf') {
+    //   return this.helper.alertDanger('Format Invalide');
+    // }
+
+    this.formData.append(name, fichier);
+    this.displayImage(fichier, name);
   }
 
   ngOnInit(): void {
@@ -81,7 +110,9 @@ export class StoreRegistrationBasicInformationCreateComponent extends BaseCreate
       type_store_id: Number(this.form.value.type_store_id),
       category_store_id: Number(this.form.value.category_store_id),
     };
-    this.service.update(this.store.id!, data).subscribe(() => {
+
+    this.fillFormData(data);
+    this.service.update(this.store.id!, this.formData).subscribe(() => {
       this.loading = false;
       this.helper.notification.alertSuccess('Information added successfully');
       // this.router.navigate([
