@@ -1,6 +1,8 @@
 <div class="user-db-title mb-2">What is the occasion</div>
 <ul class="db-tabs-list mb-5">
-  <li class="active"><a href="">
+  <li (click)="giftFinderService.form.get('occasion')!.patchValue(typeOccasionEnum.HOLIDAY)"
+      [ngClass]="{'active': giftFinderService.form.get('occasion')!.value == typeOccasionEnum.HOLIDAY}">
+    <a>
       <div class="purchase-type-symbol">
         <span><i class="gradient-text fas fa-tree-christmas"></i></span>
       </div>
@@ -9,8 +11,11 @@
         <div class="purchase-type-description">Set a fixed price for people to buy
           your work instantly </div>
       </div>
-    </a></li>
-  <li><a href="">
+    </a>
+  </li>
+  <li (click)="giftFinderService.form.get('occasion')!.patchValue(typeOccasionEnum.BIRTHDAY)"
+      [ngClass]="{'active': giftFinderService.form.get('occasion')!.value == typeOccasionEnum.BIRTHDAY}">
+    <a>
       <div class="purchase-type-symbol">
         <span><i class="gradient-text fas fa-birthday-cake"></i></span>
       </div>
@@ -19,8 +24,11 @@
         <div class="purchase-type-description">Set a fixed price for people to buy
           your work instantly </div>
       </div>
-    </a></li>
-  <li><a href="">
+    </a>
+  </li>
+  <li (click)="giftFinderService.form.get('occasion')!.patchValue(typeOccasionEnum.APPRECIATION)"
+      [ngClass]="{'active': giftFinderService.form.get('occasion')!.value == typeOccasionEnum.APPRECIATION}">
+    <a>
       <div class="purchase-type-symbol">
         <span><i class="gradient-text fas fa-handshake-alt"></i></span>
       </div>
@@ -29,7 +37,8 @@
         <div class="purchase-type-description">Set a fixed price for people to buy
           your work instantly </div>
       </div>
-    </a></li>
+    </a>
+  </li>
 </ul>
 
 
@@ -38,27 +47,8 @@
 
 
   <ul class="db-tabs-list mb-2">
-    <li class="active"><a href="">
-        <div class="purchase-type-symbol">
-          <span><i class="gradient-text fas fa-hand-holding-box"></i></span>
-        </div>
-        <div class="purchase-type-info">
-          <div class="purchase-type-title">Product</div>
-          <div class="purchase-type-description">Set a fixed price for people to buy
-            your work instantly </div>
-        </div>
-      </a></li>
-    <li><a href="">
-        <div class="purchase-type-symbol">
-          <span><i class="gradient-text fas fa-campfire"></i></span>
-        </div>
-        <div class="purchase-type-info">
-          <div class="purchase-type-title">Experience</div>
-          <div class="purchase-type-description">Set a fixed price for people to buy
-            your work instantly </div>
-        </div>
-      </a></li>
-    <li><a href="">
+    <li (click)="giftFinderService.form.get('type_gift')!.patchValue(typeGiftEnum.ANY)"
+        [ngClass]="{'active': giftFinderService.form.get('type_gift')!.value == typeGiftEnum.ANY}"><a>
         <div class="purchase-type-symbol">
           <span><i class="gradient-text fas fa-handshake-alt"></i></span>
         </div>
@@ -68,6 +58,29 @@
             your work instantly </div>
         </div>
       </a></li>
+    <li (click)="giftFinderService.form.get('type_gift')!.patchValue(typeGiftEnum.PRODUCT)"
+        [ngClass]="{'active': giftFinderService.form.get('type_gift')!.value == typeGiftEnum.PRODUCT}"><a>
+        <div class="purchase-type-symbol">
+          <span><i class="gradient-text fas fa-hand-holding-box"></i></span>
+        </div>
+        <div class="purchase-type-info">
+          <div class="purchase-type-title">Product</div>
+          <div class="purchase-type-description">Set a fixed price for people to buy
+            your work instantly </div>
+        </div>
+      </a></li>
+    <li (click)="giftFinderService.form.get('type_gift')!.patchValue(typeGiftEnum.EXPERIENCE)"
+        [ngClass]="{'active': giftFinderService.form.get('type_gift')!.value == typeGiftEnum.EXPERIENCE}"><a>
+        <div class="purchase-type-symbol">
+          <span><i class="gradient-text fas fa-campfire"></i></span>
+        </div>
+        <div class="purchase-type-info">
+          <div class="purchase-type-title">Experience</div>
+          <div class="purchase-type-description">Set a fixed price for people to buy
+            your work instantly </div>
+        </div>
+      </a></li>
+
   </ul>
 
 </div>
@@ -75,7 +88,8 @@
 
 <div class="user-db-title mb-2">What would be your budget?</div>
 <ul class="db-tabs-list mb-5">
-  <li class="active"><a href="">
+  <li (click)="giftFinderService.form.get('budget')!.patchValue(ANY_AMOUNT)"
+      [ngClass]="{'active': giftFinderService.form.get('budget')!.value == ANY_AMOUNT}"><a>
       <div class="purchase-type-symbol">
         <svg class="crumina-icon">
           <use xlink:href="#dollar-icon"></use>
@@ -87,19 +101,23 @@
       </div>
     </a>
   </li>
-  <li class=""><a href="">
+  <li (click)="giftFinderService.form.get('budget')!.patchValue(LESS_THAN_200)"
+      [ngClass]="{'active': giftFinderService.form.get('budget')!.value == LESS_THAN_200}"><a>
       <div class="purchase-type-symbol">
         <svg class="crumina-icon">
           <use xlink:href="#dollar-icon"></use>
         </svg>
       </div>
       <div class="purchase-type-info">
-        <div class="purchase-type-title">200</div>
+        <div class="purchase-type-title">
+          < 200</div>
 
-      </div>
+        </div>
     </a>
   </li>
-  <li class=""><a href="">
+
+  <li (click)="giftFinderService.form.get('budget')!.patchValue(300)"
+      [ngClass]="{'active': giftFinderService.form.get('budget')!.value == 300}"><a>
       <div class="purchase-type-symbol">
         <svg class="crumina-icon">
           <use xlink:href="#dollar-icon"></use>
@@ -111,7 +129,8 @@
       </div>
     </a>
   </li>
-  <li class=""><a href="">
+  <li (click)="giftFinderService.form.get('budget')!.patchValue(400)"
+      [ngClass]="{'active': giftFinderService.form.get('budget')!.value == 400}"><a>
       <div class="purchase-type-symbol">
         <svg class="crumina-icon">
           <use xlink:href="#dollar-icon"></use>
@@ -123,7 +142,8 @@
       </div>
     </a>
   </li>
-  <li class=""><a href="">
+  <li (click)="giftFinderService.form.get('budget')!.patchValue(500)"
+      [ngClass]="{'active': giftFinderService.form.get('budget')!.value == 500}"><a>
       <div class="purchase-type-symbol">
         <svg class="crumina-icon">
           <use xlink:href="#dollar-icon"></use>
@@ -135,7 +155,8 @@
       </div>
     </a>
   </li>
-  <li class=""><a href="">
+  <li (click)="giftFinderService.form.get('budget')!.patchValue(600)"
+      [ngClass]="{'active': giftFinderService.form.get('budget')!.value == 600}"><a>
       <div class="purchase-type-symbol">
         <svg class="crumina-icon">
           <use xlink:href="#dollar-icon"></use>
@@ -147,7 +168,8 @@
       </div>
     </a>
   </li>
-  <li class=""><a href="">
+  <li (click)="giftFinderService.form.get('budget')!.patchValue(MORE_THAN_600)"
+      [ngClass]="{'active': giftFinderService.form.get('budget')!.value == MORE_THAN_600}"><a>
       <div class="purchase-type-symbol">
         <svg class="crumina-icon">
           <use xlink:href="#dollar-icon"></use>

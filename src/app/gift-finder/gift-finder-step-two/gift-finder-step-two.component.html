@@ -2279,37 +2279,50 @@
 
 <div class="row mb-2">
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
-      <span><i class="fas fa-volleyball-ball gradient-text icon"></i></span>
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('sport')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('sport')}">
+      <span><i class="fas fa-volleyball-ball gradient-text  icon"
+           [ngClass]="{'text-white': giftFinderService.form.get('interests')!.value.includes('sport')}"></i></span>
       <p>Sport</p>
     </div>
   </div>
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('cooking')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('cooking')}">
       <span><i class="fas fa-hat-chef gradient-text icon"></i></span>
       <p>Cooking </p>
     </div>
   </div>
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('painting')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('painting')}">
       <span><i class="fas fa-pencil-paintbrush gradient-text icon"></i></span>
       <p>Painting/Drawing</p>
     </div>
   </div>
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('music')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('music')}">
       <span><i class="fas fa-music gradient-text icon"></i></span>
       <p>Music</p>
     </div>
   </div>
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('exploration')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('exploration')}">
       <span><i class="fas fa-hiking gradient-text icon"></i></span>
       <p>Exploration</p>
     </div>
   </div>
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('yoga')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('yoga')}">
       <span><i class="fas fa-praying-hands gradient-text icon"></i></span>
       <p>Yoga or meditation</p>
     </div>
@@ -2317,37 +2330,49 @@
 </div>
 <div class="row mb-4">
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('reading')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('reading')}">
       <span><i class="fas fa-books gradient-text icon"></i></span>
       <p>Reading</p>
     </div>
   </div>
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('gardening')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('gardening')}">
       <span><i class="fas fa-hand-holding-seedling gradient-text icon"></i></span>
       <p>Gardening</p>
     </div>
   </div>
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('learning')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('learning')}">
       <span><i class="fas fa-chalkboard-teacher gradient-text icon"></i></span>
       <p>Learning</p>
     </div>
   </div>
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('craft')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('craft')}">
       <span><i class="fas fa-hands-heart gradient-text icon"></i></span>
       <p>DIY crafts</p>
     </div>
   </div>
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('electronic')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('electronic')}">
       <span><i class="fas fa-bolt gradient-text icon"></i></span>
       <p>Electronic</p>
     </div>
   </div>
   <div class="col-2">
-    <div class="d-flex p-3 align-items-center flex-column border option-container">
+    <div class="d-flex p-3 align-items-center flex-column border option-container"
+         (click)="toggleInterest('party')"
+         [ngClass]="{'active': giftFinderService.form.get('interests')!.value.includes('party')}">
       <span><i class="fas fa-glass-cheers gradient-text icon"></i></span>
       <p>Party</p>
     </div>

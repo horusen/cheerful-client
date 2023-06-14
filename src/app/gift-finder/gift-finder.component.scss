@@ -1,11 +1,18 @@
-.nav-link.nav-item {
-  color: inherit;
-  font-weight: bolder;
+::ng-deep {
+  .nav-link {
+    color: inherit;
+    font-weight: bolder;
+  }
+
+  .nav-link.active {
+    background: var(--cryptoki-gradient);
+    color: var(--contrast-text-color);
+  }
+
+  .nav-fill .nav-item .nav-link,
+  .nav-justified .nav-item .nav-link {
+    width: 100%;
+    padding: 20px;
+    font-size: 14px;
+  }
 }
-
-.nav-link.nav-item.active {
-  background: var(--cryptoki-gradient);
-  color: var(--contrast-text-color);
-}
-
-

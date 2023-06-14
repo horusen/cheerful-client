@@ -1,7 +1,9 @@
 <div class="user-db-title">What is this gift for</div>
 <div class="row mb-5">
   <div class="col-3 mb-3">
-    <div class="border select-item">
+    <div class="border select-item"
+         [ngClass]="{'active': giftFinderService.form.get('type_receiver')!.value === typeReceiverEnum.FAMILY}"
+         (click)="giftFinderService.form.get('type_receiver')!.patchValue(typeReceiverEnum.FAMILY)">
       <svg xmlns="http://www.w3.org/2000/svg"
            viewBox="0 0 500 500">
         <g id="freepik--Floor--inject-43">
@@ -605,7 +607,9 @@
     </div>
   </div>
   <div class="col-3 mb-3">
-    <div class="border select-item">
+    <div class="border select-item"
+         [ngClass]="{'active': giftFinderService.form.get('type_receiver')!.value === typeReceiverEnum.FRIEND}"
+         (click)="giftFinderService.form.get('type_receiver')!.patchValue(typeReceiverEnum.FRIEND)">
       <svg xmlns="http://www.w3.org/2000/svg"
            viewBox="0 0 500 500">
         <g id="freepik--background-complete--inject-5">
@@ -1045,7 +1049,9 @@
     </div>
   </div>
   <div class="col-3 mb-3">
-    <div class="border select-item">
+    <div class="border select-item"
+         [ngClass]="{'active': giftFinderService.form.get('type_receiver')!.value === typeReceiverEnum.COLLEAGUE}"
+         (click)="giftFinderService.form.get('type_receiver')!.patchValue(typeReceiverEnum.COLLEAGUE)">
       <svg xmlns="http://www.w3.org/2000/svg"
            viewBox="0 0 500 500">
         <g id="freepik--Floor--inject-8">
@@ -2495,7 +2501,9 @@
     </div>
   </div>
   <div class="col-3">
-    <div class="border select-item">
+    <div class="border select-item"
+         [ngClass]="{'active': giftFinderService.form.get('type_receiver')!.value === typeReceiverEnum.PARTNER}"
+         (click)="giftFinderService.form.get('type_receiver')!.patchValue(typeReceiverEnum.PARTNER)">
       <svg xmlns="http://www.w3.org/2000/svg"
            viewBox="0 0 500 500">
         <g id="freepik--background-complete--inject-5">
@@ -2982,15 +2990,14 @@
       </svg>
       <p class="text-center ">Partner</p>
     </div>
-
-
-
   </div>
 </div>
 
 <div class="user-db-title">Age range</div>
 <div class="custom-slider">
   <ngx-slider [(value)]="value"
+              (valueChange)="this.giftFinderService.form.get('min_age_receiver')!.patchValue($event)"
+              (highValueChange)="this.giftFinderService.form.get('max_age_receiver')!.patchValue($event)"
               [(highValue)]="maxValue"
               [options]="options"></ngx-slider>
 

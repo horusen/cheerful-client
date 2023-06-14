@@ -31,4 +31,16 @@
     font-weight: 700;
     text-align: center;
   }
+
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid var(--primary-accent-color) !important;
+  }
+
+  &.active {
+    transition: all 0.2s ease-in-out;
+    border: 2px solid var(--primary-accent-color) !important;
+    transform: scale(1.1);
+  }
 }

@@ -92,7 +92,7 @@ export abstract class BaseService<T = any> {
       .pipe(tap(this.listResponseHandler()));
   }
 
-  get(options: { emitData: boolean; params?: Params } = { emitData: true }) {
+  get(options: { emitData?: boolean; params?: Params } = { emitData: true }) {
     return this.factory
       .get(`${this.endPoint}`, { params: options?.params })
       .pipe(
