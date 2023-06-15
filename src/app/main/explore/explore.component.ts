@@ -18,7 +18,7 @@ export class ExploreComponent extends BaseComponent<Store> {
   ngOnInit(): void {
     // Subscribe to url
     this.router.events.subscribe((val) => {
-      if (this.router.url.includes('gift-finder-results')) {
+      if (!this.router.url.includes('explore')) {
         this.title = 'gift-finder-results';
       } else {
         this.title = 'explore';
