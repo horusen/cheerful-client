@@ -1,3 +1,3 @@
 export const environment = {
-  baseUrl: 'https://kooza-server.herokuapp.com',
+  baseUrl: 'https://getcheerful-api-71d60b42d43f.herokuapp.com/api/v1',
 };
