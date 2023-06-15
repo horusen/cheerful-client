@@ -3,28 +3,32 @@
     (navChange)="$event.preventDefault()"
     [(activeId)]="activeStep"
     class="nav-fill nav-pills">
-  <li [ngbNavItem]="1">
+  <li [ngbNavItem]="1"
+      [disabled]="true">
     <button class="btn-lg"
             ngbNavLink>1. Recipient information</button>
     <ng-template ngbNavContent>
       <app-gift-finder-step-one></app-gift-finder-step-one>
     </ng-template>
   </li>
-  <li [ngbNavItem]="2">
+  <li [ngbNavItem]="2"
+      [disabled]="true">
     <button class="btn-lg"
             ngbNavLink>2. Preference and interest</button>
     <ng-template ngbNavContent>
       <app-gift-finder-step-two></app-gift-finder-step-two>
     </ng-template>
   </li>
-  <li [ngbNavItem]="3">
+  <li [ngbNavItem]="3"
+      [disabled]="true">
     <button class="btn-lg"
             ngbNavLink>3. Occasion and constraint</button>
     <ng-template ngbNavContent>
       <app-gift-finder-step-three></app-gift-finder-step-three>
     </ng-template>
   </li>
-  <li [ngbNavItem]="4">
+  <li [ngbNavItem]="4"
+      [disabled]="true">
     <button class="btn-lg"
             ngbNavLink>4. Looking up for gift</button>
     <ng-template ngbNavContent>
@@ -71,7 +75,7 @@
 
 <div class="d-flex justify-content-end">
   <div class="d-flex justify-content-end me-2 mt-2"
-       *ngIf="activeStep > 1">
+       *ngIf="activeStep > 1 && activeStep < 4">
     <button class="btn btn-square btn-wide btn-dark"
             (click)="prev()">Previous</button>
   </div>

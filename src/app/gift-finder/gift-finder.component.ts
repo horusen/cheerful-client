@@ -1,5 +1,5 @@
 import { Validators } from '@angular/forms';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { BaseCreateComponent } from '../shared/base-component';
 import { GiftFinderService } from './gift-finder.service';
 import { GiftFinder } from './gift-finder.model';
@@ -11,6 +11,7 @@ import { GiftFinder } from './gift-finder.model';
 })
 export class GiftFinderComponent extends BaseCreateComponent<GiftFinder> {
   activeStep: 1 | 2 | 3 | 4 = 1;
+  @Output() done = new EventEmitter();
   constructor(public giftFinderService: GiftFinderService) {
     super(giftFinderService);
   }
@@ -38,16 +39,17 @@ export class GiftFinderComponent extends BaseCreateComponent<GiftFinder> {
   }
 
   override create(): void {
-    if (this.form.invalid) {
-      this.helper.notification.alertDanger('Please fill in all fields');
-      return;
-    }
-
-    console.log(this.form.value);
+    setTimeout(() => {
+      this.router.navigate(['/gift-finder-results']);
+      this.done.emit();
+    }, 3000);
   }
 
   next() {
     this.activeStep++;
+    if (this.activeStep == 4) {
+      this.create();
+    }
   }
 
   prev() {

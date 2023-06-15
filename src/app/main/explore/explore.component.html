@@ -1,6 +1,7 @@
 <div class="primary-content-area container content-padding">
   <div class="page-title-section">
-    <h2><span class="gradient-text">Explore</span> Gift Cards</h2>
+    <h2 *ngIf="title == 'explore'"><span class="gradient-text">Explore</span> Gift Cards</h2>
+    <h2 *ngIf="title == 'gift-finder-results'"><span class="gradient-text">Gift Finder</span> Result</h2>
     <div class="display-mode-links">
       <a href="#"><svg class="crumina-icon">
           <use xlink:href="#big-grid-icon"></use>
@@ -157,29 +158,29 @@
   </div>
   <!-- FILTERABLE PANEL -->
   <!-- FEATURED ITEMS -->
-  <div class="featured-box grid-4-columns">
-    <div class="featured-item"
-         *ngFor="let product of productService.data">
+  <div class="featured-box row">
+    <div class="featured-item col-3"
+         *ngFor="let store of storeService.data">
       <div class="featured-item-wrapper">
         <div class="featured-item-content">
 
           <div class="featured-item-image">
-            <a [routerLink]="['/', 'products', product.id, 'details']"><img [src]="product.cardImage"
+            <a [routerLink]="['/', 'products', store.id, 'details']"><img [src]="store.store_logo_image?.url"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
 
-            <div class="title text-center"> <a [routerLink]="['/', 'products', product.id, 'details']">{{ product.store }}</a> </div>
+            <div class="title text-center"> <a [routerLink]="['/', 'products', store.id, 'details']">{{ store.name }}</a> </div>
             <!-- <div class="item-meta"><span class="avatar box-26"> <a href="08-profile-page.html"><img src="./assets/img/avatar.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
-                  </svg></span></span>@{{ product.provider }}</div> -->
+                  </svg></span></span>@{{ store.provider }}</div> -->
           </div>
         </div>
         <div class="featured-item-post-content d-flex justify-content-between">
           <div class="featured-item-pricebox">
             <div class="price-caption">Min Price</div>
-            <div class="price">{{product.minPrice}} GHS</div>
+            <div class="price">{{store.card_min_price}} GHS</div>
           </div>
           <div class="social-share-box">
             <div class="social-caption">Share</div>
@@ -206,7 +207,7 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">68</span></div>
           <div class="featured-item-image">
-            <a href="06-product-page-v2.html"><img src="./assets/img/content/items/featured-item-2.png"
+            <a href="06-store-page-v2.html"><img src="./assets/img/content/items/featured-item-2.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
@@ -215,7 +216,7 @@
                 </svg></span><span class="js-countdown"
                     data-timer="76400"
                     data-labels="d : , h : , m : , s"></span></div>
-            <div class="title"><a href="06-product-page-v2.html">Social Blockz</a></div>
+            <div class="title"><a href="06-store-page-v2.html">Social Blockz</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-2.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -252,7 +253,7 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">105</span></div>
           <div class="featured-item-image">
-            <a href="cu-07-product-page-v3.html"><img src="./assets/img/content/items/featured-item-3.png"
+            <a href="cu-07-store-page-v3.html"><img src="./assets/img/content/items/featured-item-3.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
@@ -261,7 +262,7 @@
                 </svg></span><span class="js-countdown"
                     data-timer="456400"
                     data-labels="d : , h : , m : , s"></span></div>
-            <div class="title"> <a href="cu-07-product-page-v3.html">Breathing Nature</a></div>
+            <div class="title"> <a href="cu-07-store-page-v3.html">Breathing Nature</a></div>
             <div class="item-meta"><span class="avatar box-26"> <a href="08-profile-page.html"><img src="./assets/img/avatar.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -298,7 +299,7 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">60</span></div>
           <div class="featured-item-image">
-            <a [routerLink]="['/', 'products', product.id, 'details']"><img src="./assets/img/content/items/featured-item-4.png"
+            <a [routerLink]="['/', 'products', store.id, 'details']"><img src="./assets/img/content/items/featured-item-4.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
@@ -307,7 +308,7 @@
                 </svg></span><span class="js-countdown"
                     data-timer="96400"
                     data-labels="d : , h : , m : , s"></span></div>
-            <div class="title"><a href="05-product-page.html">Flow of Planets</a></div>
+            <div class="title"><a href="05-store-page.html">Flow of Planets</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-8.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -344,11 +345,11 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">23</span></div>
           <div class="featured-item-image">
-            <a href="06-product-page-v2.html"><img src="./assets/img/content/items/featured-item-5.png"
+            <a href="06-store-page-v2.html"><img src="./assets/img/content/items/featured-item-5.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
-            <div class="title"><a href="06-product-page-v2.html">MushRoom Popcorn</a></div>
+            <div class="title"><a href="06-store-page-v2.html">MushRoom Popcorn</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -385,11 +386,11 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">36</span></div>
           <div class="featured-item-image">
-            <a href="cu-07-product-page-v3.html"><img src="./assets/img/content/items/featured-item-6.png"
+            <a href="cu-07-store-page-v3.html"><img src="./assets/img/content/items/featured-item-6.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
-            <div class="title"><a href="cu-07-product-page-v3.html">Golden Expansion</a></div>
+            <div class="title"><a href="cu-07-store-page-v3.html">Golden Expansion</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -426,7 +427,7 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">36</span></div>
           <div class="featured-item-image">
-            <a href="05-product-page.html"><img src="./assets/img/content/items/featured-item-7.png"
+            <a href="05-store-page.html"><img src="./assets/img/content/items/featured-item-7.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
@@ -435,7 +436,7 @@
                 </svg></span><span class="js-countdown"
                     data-timer="56400"
                     data-labels="d : , h : , m : , s"></span></div>
-            <div class="title"><a href="05-product-page.html">Soul Picz Block</a></div>
+            <div class="title"><a href="05-store-page.html">Soul Picz Block</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-2.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -472,11 +473,11 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">98</span></div>
           <div class="featured-item-image">
-            <a href="06-product-page-v2.html"><img src="./assets/img/content/items/featured-item-8.png"
+            <a href="06-store-page-v2.html"><img src="./assets/img/content/items/featured-item-8.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
-            <div class="title"><a href="06-product-page-v2.html">Jellyfish Galaxy</a></div>
+            <div class="title"><a href="06-store-page-v2.html">Jellyfish Galaxy</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-8.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -513,11 +514,11 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">24</span></div>
           <div class="featured-item-image">
-            <a href="cu-07-product-page-v3.html"><img src="./assets/img/content/items/featured-item-9.png"
+            <a href="cu-07-store-page-v3.html"><img src="./assets/img/content/items/featured-item-9.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
-            <div class="title"><a href="cu-07-product-page-v3.html">Bubblegum Dream</a></div>
+            <div class="title"><a href="cu-07-store-page-v3.html">Bubblegum Dream</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-3.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -554,7 +555,7 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">32</span></div>
           <div class="featured-item-image">
-            <a href="05-product-page.html"><img src="./assets/img/content/items/featured-item-10.png"
+            <a href="05-store-page.html"><img src="./assets/img/content/items/featured-item-10.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
@@ -563,7 +564,7 @@
                 </svg></span><span class="js-countdown"
                     data-timer="476400"
                     data-labels="d : , h : , m : , s"></span></div>
-            <div class="title"><a href="05-product-page.html">Lost in Illustration</a></div>
+            <div class="title"><a href="05-store-page.html">Lost in Illustration</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-5.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -600,11 +601,11 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">39</span></div>
           <div class="featured-item-image">
-            <a href="06-product-page-v2.html"><img src="./assets/img/content/items/featured-item-11.png"
+            <a href="06-store-page-v2.html"><img src="./assets/img/content/items/featured-item-11.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
-            <div class="title"><a href="06-product-page-v2.html">Canary’s Kitchen</a></div>
+            <div class="title"><a href="06-store-page-v2.html">Canary’s Kitchen</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-3.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -641,11 +642,11 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">47</span></div>
           <div class="featured-item-image">
-            <a href="cu-07-product-page-v3.html"><img src="./assets/img/content/items/featured-item-12.png"
+            <a href="cu-07-store-page-v3.html"><img src="./assets/img/content/items/featured-item-12.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
-            <div class="title"><a href="cu-07-product-page-v3.html">Octo-Oceanic</a></div>
+            <div class="title"><a href="cu-07-store-page-v3.html">Octo-Oceanic</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-5.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -682,7 +683,7 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">14</span></div>
           <div class="featured-item-image">
-            <a href="05-product-page.html"><img src="./assets/img/content/items/featured-item-13.png"
+            <a href="05-store-page.html"><img src="./assets/img/content/items/featured-item-13.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
@@ -691,7 +692,7 @@
                 </svg></span><span class="js-countdown"
                     data-timer="86400"
                     data-labels="d : , h : , m : , s"></span></div>
-            <div class="title"><a href="05-product-page.html">Vengeful Stare</a></div>
+            <div class="title"><a href="05-store-page.html">Vengeful Stare</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-5.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -728,11 +729,11 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">41</span></div>
           <div class="featured-item-image">
-            <a href="06-product-page-v2.html"><img src="./assets/img/content/items/featured-item-14.png"
+            <a href="06-store-page-v2.html"><img src="./assets/img/content/items/featured-item-14.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
-            <div class="title"><a href="06-product-page-v2.html">Neon Stringers</a></div>
+            <div class="title"><a href="06-store-page-v2.html">Neon Stringers</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-10.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -769,7 +770,7 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">16</span></div>
           <div class="featured-item-image">
-            <a href="cu-07-product-page-v3.html"><img src="./assets/img/content/items/featured-item-15.png"
+            <a href="cu-07-store-page-v3.html"><img src="./assets/img/content/items/featured-item-15.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
@@ -778,7 +779,7 @@
                 </svg></span><span class="js-countdown"
                     data-timer="76400"
                     data-labels="d : , h : , m : , s"></span></div>
-            <div class="title"><a href="cu-07-product-page-v3.html">Quartz Fantasy</a></div>
+            <div class="title"><a href="cu-07-store-page-v3.html">Quartz Fantasy</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-10.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
@@ -815,11 +816,11 @@
               <use xlink:href="#heart-icon"></use>
             </svg><span class="count">38</span></div>
           <div class="featured-item-image">
-            <a href="05-product-page.html"><img src="./assets/img/content/items/featured-item-16.png"
+            <a href="05-store-page.html"><img src="./assets/img/content/items/featured-item-16.png"
                    alt=""></a>
           </div>
           <div class="featured-item-info">
-            <div class="title"><a href="05-product-page.html">Crimson Planks</a></div>
+            <div class="title"><a href="05-store-page.html">Crimson Planks</a></div>
             <div class="item-meta"><span class="avatar box-26"><a href="08-profile-page.html"><img src="./assets/img/avatar-3.png"
                        alt=""></a><span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>

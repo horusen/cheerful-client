@@ -59,7 +59,8 @@
   <button type="submit"
           style="display: block"
           class="btn  btn-fullwidth btn-dark"
-          data-badge="inline">Validate</button>
+          [disabled]="loading  || !form.valid"
+          data-badge="inline">Validate <app-loading *ngIf="loading"></app-loading></button>
 
   <!-- <button type="submit"
               style="display: block"

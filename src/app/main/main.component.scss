@@ -1,0 +1,13 @@
+.gift-finder {
+  cursor: pointer;
+  &:hover {
+    background-color: var(--main-font-color);
+    background-image: var(--cryptoki-gradient);
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
+}

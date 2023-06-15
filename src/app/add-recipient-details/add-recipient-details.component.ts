@@ -6,6 +6,7 @@ import { CartService } from '../main/cart.service';
 import { countries } from '../mocks/countries.mock';
 import { states } from '../mocks/states.mock';
 import { cities } from '../mocks/cities.mock';
+import { OrderService } from '../order/order.service';
 
 @Component({
   selector: 'app-add-recipient-details',
@@ -19,34 +20,39 @@ export class AddRecipientDetailsComponent extends BaseCreateComponent<any> {
   @Output() recipientDetails = new EventEmitter<any>();
   constructor(
     public cardService: CardsService,
-    public cartService: CartService
+    public cartService: CartService,
+    public orderService: OrderService
   ) {
     super(cardService);
   }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      card: [
-        this.cartService.cart || this.cartService.data[0]?.product,
-        [Validators.required],
-      ],
+      store_id: [this.cartService.data[0]?.product.id, [Validators.required]],
       amount: [this.cartService.totalAmount, [Validators.required]],
       recipient_name: ['', [Validators.required]],
       recipient_phone_number: ['', [Validators.required]],
-      recipient_email: ['', [Validators.required]],
+      // recipient_email: ['', [Validators.required]],
       additional_comments: ['', [Validators.required]],
       scheduled_time: ['', [Validators.required]],
     });
+
+    this.subscriptions['orderProcessing'] =
+      this.orderService.processing$.subscribe((processing) => {
+        this.loading = processing;
+        if (processing == false) {
+          this.form.reset();
+        }
+      });
   }
 
   add() {
-    // console.log(this.form.value);
+    if (this.form.invalid) {
+      this.helper.notification.alertDanger('Invalid form');
+      return;
+    }
 
-    // if (this.form.invalid) {
-    //   this.helper.notification.alertDanger('Invalid form');
-    //   return;
-    // }
-    this.recipientDetails.emit(this.form.value);
-    this.form.reset();
+    this.fillFormData(this.form.value);
+    this.recipientDetails.emit(this.formData);
   }
 }

@@ -9686,13 +9686,15 @@ table .item-price {
   margin-bottom: 20px;
 }
 
-.complete-order-button input[type="submit"] {
+.complete-order-button input[type="submit"],
+.complete-order-button button {
   color: var(--contrast-text-color);
   width: 100%;
   margin-bottom: 0;
 }
 
-.complete-order-button input[type="submit"]:hover {
+.complete-order-button input[type="submit"]:hover,
+.complete-order-button button:hover {
   color: var(--contrast-text-color);
 }
 

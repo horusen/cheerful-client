@@ -142,11 +142,12 @@ export abstract class BaseService<T = any> {
   show(id: number, emitData = true) {
     return this.factory.get(`${this.endPoint}/${id}`).pipe(
       tap({
-        next: (single) => {
-          if (emitData) this.singleData = single;
+        next: (response) => {
+          if (emitData) this.singleData = response.data;
         },
         error: (error) => this.errorResponseHandler(error),
-      })
+      }),
+      map((response: any) => response.data)
     );
   }
 

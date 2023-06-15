@@ -26,7 +26,11 @@ const routes: Routes = [
         component: ExploreComponent,
       },
       {
-        path: 'products/:productId/details',
+        path: 'gift-finder-results',
+        component: ExploreComponent,
+      },
+      {
+        path: 'products/:id/details',
         component: ProductDetailComponent,
       },
       {

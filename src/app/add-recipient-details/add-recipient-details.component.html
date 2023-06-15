@@ -84,14 +84,15 @@
                     class="btn btn-normal btn-dark browse-btn"
                     (click)="filewish.click()">Browse File</button>
             <input [hidden]="true"
+                   (change)="onFileChanged($event, 'attachment')"
                    type="file"
                    #filewish>
           </div>
         </div>
-        <div class="artwork-preview">
+        <!-- <div class="artwork-preview">
           <div class="label">File Preview</div>
           <div class="preview-box"></div>
-        </div>
+        </div> -->
       </div>
       <div class="label">Schedule Time and Date</div>
       <div class="form-field">
@@ -133,13 +134,14 @@
         <div class="product-in-cart"
              *ngFor="let cartItem of cartService.data">
           <div class="product-info">
-            <div class="product-thumb"><a [routerLink]="['/', 'products', cartItem.product.id]"><img [src]="cartItem.product.cardImage"
+            <div class="product-thumb"><a [routerLink]="['/', 'products', cartItem.product.id]">
+                <img [src]="cartItem.product.card.card_image.url"
                      alt=""></a></div>
             <div class="product-details">
               <div class="product-name"><a [routerLink]="['/', 'products', cartItem.product.id]">
-                  {{ cartItem.product.cardName }}</a></div>
+                  {{ cartItem.product.card.name }}</a></div>
               <div class="license-type">Regular</div>
-              <div class="license-type">@{{ cartItem.product.store }}<span class="verified"><svg class="crumina-icon">
+              <div class="license-type">@{{ cartItem.product.name }}<span class="verified"><svg class="crumina-icon">
                     <use xlink:href="#check-icon"></use>
                   </svg></span></div>
             </div>
@@ -179,10 +181,10 @@
           <label for="credit-card">Credit or Debit Card</label>
         </div>
       </div>
-      <div class="complete-order-button">
-        <input class="btn gradient-background"
-               type="submit"
-               value="Complete Order!">
+      <div class="complete-order-button d-flex">
+        <button class="btn btn-wide gradient-background"
+                type="submit"
+                [disabled]="loading">Complete Order! <app-loading *ngIf="loading"></app-loading></button>
       </div>
     </div>
   </div>

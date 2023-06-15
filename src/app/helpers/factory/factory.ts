@@ -21,7 +21,7 @@ export class Factory {
     this.baseUrl = environment.baseUrl;
   }
 
-  public get(endPoint: string, options?: object): Observable<any> {
+  public get<Type = any>(endPoint: string, options?: object): Observable<Type> {
     return this.http.get<any>(`${this.baseUrl}/${endPoint}`, {
       headers: {
         Authorization: `Bearer ${this.storage.getAccessToken()}`,

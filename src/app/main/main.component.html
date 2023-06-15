@@ -710,8 +710,7 @@
       </li>
 
       <li class="menu-item">
-        <a class="menu-link"
-           routerLink="./"
+        <a class="menu-link gift-finder"
            (click)="openModal(giftFinder, 'xl', false)"
            routerLinkActive="active"> <i class="fas fa-gift  text-gradient me-2"></i> Gift finder</a>
         <span class="highlighted-item gradient-background">HOT</span>
@@ -778,7 +777,7 @@
 <!--/NAVIGATION PANEL-->
 <!-- MAIN CONTENT AREA -->
 <router-outlet *ngIf="!loading"></router-outlet>
-<app-loading *ngIf="loading"></app-loading>
+<app-page-loading *ngIf="loading"></app-page-loading>
 <!-- MAIN CONTENT AREA -->
 
 <!-- FOOTER -->
@@ -988,7 +987,7 @@
             (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body py-4 px-5">
-    <app-gift-finder></app-gift-finder>
+    <app-gift-finder (done)="closeModal()"></app-gift-finder>
 
   </div>
 

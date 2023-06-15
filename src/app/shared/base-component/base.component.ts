@@ -51,7 +51,7 @@ export abstract class BaseComponent<T> implements OnDestroy {
     centered: boolean = true,
     scrollable: boolean = true
   ) {
-    this.modalService.open(content, {
+    return this.modalService.open(content, {
       size,
       centered,
       scrollable,
