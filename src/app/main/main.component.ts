@@ -43,10 +43,4 @@ export class MainComponent extends BaseComponent<any> implements OnInit {
     this.giftFinderModal = super.openModal(content, size, centered, scrollable);
     return this.giftFinderModal;
   }
-
-  closeModal() {
-    if (this.giftFinderModal) {
-      this.giftFinderModal.close();
-    }
-  }
 }

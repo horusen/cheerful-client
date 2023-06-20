@@ -57,4 +57,10 @@ export abstract class BaseComponent<T> implements OnDestroy {
       scrollable,
     });
   }
+
+  closeModal(content: any) {
+    if (content) {
+      content.close();
+    }
+  }
 }

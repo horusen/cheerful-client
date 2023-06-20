@@ -10316,3 +10316,7 @@ td[data-label="Date"] {
   color: var(--contrast-text-color);
   margin-bottom: 0;
 }
+
+.modal-backdrop {
+  height: 100% !important;
+}

@@ -17,3 +17,14 @@
 .btn:hover {
   border-color: none;
 }
+
+::ng-deep {
+  .modal-backdrop {
+    height: 100% !important;
+  }
+}
+
+.logo .logo-img2 {
+  width: 68px;
+  margin-right: 0px;
+}
