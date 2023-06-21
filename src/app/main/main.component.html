@@ -6,7 +6,7 @@
         <div class="mobile-nav-header">
           <!--MOBILE LOGO-->
           <div class="mobile-menu-logo logo">
-            <a href="cu-01-index.html"><img src="assets/img/content/logo.png"
+            <a routerLink="./"><img src="assets/img/content/logo.png"
                    alt="" /></a>
           </div>
           <!--/MOBILE LOGO-->
@@ -22,8 +22,7 @@
         <div class="mobile-menu-wrapper">
           <ul class="mobile-menu">
             <li class="menu-item">
-              <a class="menu-link"
-                 href="cu-01-index.html">Home</a>
+              <a class="menu-link">Home</a>
             </li>
             <li class="menu-item">
               <a class="menu-link"
@@ -35,10 +34,6 @@
                  href="10-creators.html">Stores</a>
             </li>
 
-            <li class="menu-item">
-              <a class="menu-link"
-                 href="16-spotlight.html">Spotlight</a>
-            </li>
 
 
 
@@ -50,18 +45,13 @@
                   <div>
                     <ul class="submenu-column">
                       <li class="menu-item">
-                        <a href="cu-01-index.html"
-                           class="menu-link">Home</a>
+                        <a class="menu-link">Home</a>
                       </li>
                       <li class="menu-item">
                         <a href="cu-02-explore.html"
                            class="menu-link">Explore</a>
                       </li>
 
-                      <li class="menu-item">
-                        <a href="16-spotlight.html"
-                           class="menu-link">Spotlight</a>
-                      </li>
                       <li class="menu-item">
                         <a href="05-product-page.html"
                            class="menu-link">Product page</a>
@@ -71,7 +61,7 @@
                            class="menu-link">Product page v2</a>
                       </li>
                     </ul>
-                    <ul class="submenu-column">
+                    <!-- <ul class="submenu-column">
                       <li class="menu-item">
                         <a href="cu-07-product-page-v3.html"
                            class="menu-link">Product page v3</a>
@@ -100,7 +90,7 @@
                         <a href="20-contact.html"
                            class="menu-link">Contact</a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                 </div>
                 <div class="megamenu-column">
@@ -243,7 +233,7 @@
       <!--LOGO-->
       <div class="logo">
         <a class="logo-link"
-           href="cu-01-index.html">
+           [routerLink]="['./']">
           <div class="logo-img">
             <img src="assets/img/content/logo.png"
                  alt="logo" />
@@ -260,12 +250,12 @@
                  type="hidden"
                  name="params"
                  value="all" />
-          <button class="search-params">
+          <!-- <button class="search-params">
             <span class="search-param-title">All items</span>
             <svg class="crumina-icon">
               <use xlink:href="#arrow-down-icon"></use>
             </svg>
-          </button>
+          </button> -->
           <ul class="search-dropdown">
             <li data-param="all">All items</li>
             <li data-param="auctions">Auctions</li>
@@ -402,33 +392,30 @@
         <!--/cart dropdown-->
         <!--/CART BUTTON-->
         <!--NOTIFICATION BUTTON-->
-        <div class="favourites-button-cont">
+        <!-- <div class="favourites-button-cont">
           <button class="favourites-button cryptoki-notif-bttn"
                   data-target="">
             <svg class="crumina-icon">
               <use xlink:href="#heart-icon"></use>
             </svg>
           </button>
-        </div>
-        <div class="notifications-button-cont">
+        </div> -->
+        <!-- <div class="notifications-button-cont">
           <button class="notifications-button cryptoki-notif-bttn"
                   data-target="notifications-dropdown">
-            <!--notifications icon-->
-            <!-- <span class="counter">10</span> -->
+            <span class="counter">10</span>
             <svg class="crumina-icon">
               <use xlink:href="#bell-icon"></use>
             </svg>
-            <!--/notifications icon-->
           </button>
-          <!--notification dropdown-->
           <div id="notifications-dropdown"
                class="cryptoki-notif-target">
             <div class="title">
               Notifications <span class="colored">10</span>
-            </div>
-            <div class="notifications-wrapper cryptoki-scrollbar">
-              <!--notification-item-->
-              <div class="notification">
+            </div> -->
+        <!-- <div class="notifications-wrapper cryptoki-scrollbar"> -->
+        <!--notification-item-->
+        <!-- <div class="notification">
                 <div class="thumb-box">
                   <img src="./assets/img/content/notifications/notif-thumb-1.png"
                        width="50"
@@ -449,10 +436,10 @@
                   </div>
                   <div class="publish-date">2 minutes ago</div>
                 </div>
-              </div>
-              <!--/notification-item-->
-              <!--notification-item-->
-              <div class="notification">
+              </div> -->
+        <!--/notification-item-->
+        <!--notification-item-->
+        <!-- <div class="notification">
                 <div class="thumb-box">
                   <img src="./assets/img/content/notifications/notif-thumb-1.png"
                        height="50"
@@ -475,10 +462,10 @@
                   </div>
                   <div class="publish-date">10 minutes ago</div>
                 </div>
-              </div>
-              <!--/notification-item-->
-              <!--notification-item-->
-              <div class="notification">
+              </div> -->
+        <!--/notification-item-->
+        <!--notification-item-->
+        <!-- <div class="notification">
                 <div class="thumb-box">
                   <img src="./assets/img/content/notifications/notif-thumb-2.png"
                        width="50"
@@ -498,10 +485,10 @@
                   </div>
                   <div class="publish-date">37 minutes ago</div>
                 </div>
-              </div>
-              <!--/notification-item-->
-              <!--notification-item-->
-              <div class="notification">
+              </div> -->
+        <!--/notification-item-->
+        <!--notification-item-->
+        <!-- <div class="notification">
                 <div class="thumb-box">
                   <img src="./assets/img/content/notifications/notif-thumb-1.png"
                        height="50"
@@ -524,13 +511,13 @@
                   </div>
                   <div class="publish-date">49 minutes ago</div>
                 </div>
-              </div>
-              <!--/notification-item-->
-            </div>
-            <a href="25-notifications.html"
+              </div> -->
+        <!--/notification-item-->
+        <!-- </div> -->
+        <!-- <a href="25-notifications.html"
                class="btn-small-fullwidth btn-dark btn-square">View all Notifications</a>
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
         <!--/notification dropdown-->
         <!--/NOTIFICATION BUTTON-->
       </div>
@@ -703,11 +690,6 @@
 
 
 
-      <li class="menu-item ">
-        <a class="menu-link"
-           href="12-blog-grid.html">Spotlight</a>
-
-      </li>
 
       <li class="menu-item">
         <a class="menu-link gift-finder"
@@ -716,7 +698,7 @@
         <span class="highlighted-item gradient-background">HOT</span>
       </li>
 
-      <li class="menu-item hidden-menu">
+      <!-- <li class="menu-item hidden-menu">
         <a class="menu-link"
            href="#"><svg class="crumina-icon">
             <use xlink:href="#dots-icon"></use>
@@ -743,10 +725,10 @@
                class="menu-link">Register</a>
           </li>
         </ul>
-      </li>
+      </li> -->
     </ul>
     <ul class="social-icons-list">
-      <li class="social-icon">
+      <!-- <li class="social-icon">
         <a href="#"><svg class="crumina-icon">
             <use xlink:href="#facebook-icon"></use>
           </svg></a>
@@ -755,29 +737,29 @@
         <a href="#"><svg class="crumina-icon">
             <use xlink:href="#twitter-icon"></use>
           </svg></a>
-      </li>
+      </li> -->
       <li class="social-icon">
-        <a href="#"><svg class="crumina-icon">
+        <a href="https://www.instagram.com/getcheerful"><svg class="crumina-icon">
             <use xlink:href="#instagram-icon"></use>
           </svg></a>
       </li>
-      <li class="social-icon">
+      <!-- <li class="social-icon">
         <a href="#"><svg class="crumina-icon">
             <use xlink:href="#twitch-icon"></use>
           </svg></a>
-      </li>
-      <li class="social-icon">
+      </li> -->
+      <!-- <li class="social-icon">
         <a href="#"><svg class="crumina-icon">
             <use xlink:href="#discord-icon"></use>
           </svg></a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
 <!--/NAVIGATION PANEL-->
 <!-- MAIN CONTENT AREA -->
-<router-outlet *ngIf="!loading"></router-outlet>
-<app-page-loading *ngIf="loading"></app-page-loading>
+<router-outlet></router-outlet>
+<app-page-loading></app-page-loading>
 <!-- MAIN CONTENT AREA -->
 
 <!-- FOOTER -->
@@ -787,10 +769,9 @@
       <div class="footer-column footer-column-large">
         <div class="footer-widget">
           <div class="logo">
-            <a class="logo-link"
-               href="cu-01-index.html">
-              <div class="logo-img">
-                <img src="assets/img/content/logo.png"
+            <a class="logo-link">
+              <div class="logo-img logo-img2">
+                <img src="assets/img/content/logo-min.png"
                      alt="
                      logo" />
               </div>
@@ -805,7 +786,7 @@
             </p>
           </div>
           <ul class="social-icons-list">
-            <li class="social-icon">
+            <!-- <li class="social-icon">
               <a href="#"><svg class="crumina-icon">
                   <use xlink:href="#facebook-icon"></use>
                 </svg></a>
@@ -814,13 +795,13 @@
               <a href="#"><svg class="crumina-icon">
                   <use xlink:href="#twitter-icon"></use>
                 </svg></a>
-            </li>
+            </li> -->
             <li class="social-icon">
-              <a href="#"><svg class="crumina-icon">
+              <a href="https://www.instagram.com/getcheerful/"><svg class="crumina-icon">
                   <use xlink:href="#instagram-icon"></use>
                 </svg></a>
             </li>
-            <li class="social-icon">
+            <!-- <li class="social-icon">
               <a href="#"><svg class="crumina-icon">
                   <use xlink:href="#twitch-icon"></use>
                 </svg></a>
@@ -829,9 +810,15 @@
               <a href="#"><svg class="crumina-icon">
                   <use xlink:href="#discord-icon"></use>
                 </svg></a>
-            </li>
+            </li> -->
           </ul>
-          <div class="subscribe-widget">
+          <div class="d-grid gap-2">
+
+            <div class="btn btn-wide gradient-background">
+              <a [routerLink]="['authentication', 'signup']">Register</a>
+            </div>
+          </div>
+          <!-- <div class="subscribe-widget">
             <form class="cryptoki-subscribe-form subscribe-form"
                   action="forms/submit.php">
               <div class="subscribe-form-content">
@@ -848,17 +835,16 @@
                 </button>
               </div>
             </form>
-          </div>
+          </div> -->
         </div>
       </div>
-      <div class="footer-column">
+      <div class="footer-column footer-column-large">
         <div class="footer-widget">
-          <div class="widget-title">Cardup Market</div>
+          <div class="widget-title">Cheerful</div>
           <div class="is-two-col-element">
             <ul class="footer-menu">
               <li class="menu-item">
-                <a class="menu-link"
-                   href="cu-01-index.html">Home</a>
+                <a class="menu-link">Home</a>
               </li>
               <li class="menu-item">
                 <a class="menu-link"
@@ -867,39 +853,19 @@
               </li>
               <li class="menu-item">
                 <a class="menu-link"
-                   href="10-creators.html">Creators</a>
+                   routerLink="explore">Stores</a>
               </li>
               <li class="menu-item">
                 <a class="menu-link"
-                   href="11-collectors.html">Collectors</a>
-              </li>
-              <li class="menu-item">
-                <a class="menu-link"
-                   href="16-spotlight.html">Spotlight</a>
+                   (click)="openModal(giftFinder)"
+                   routerLink="./">Gift finder</a>
               </li>
             </ul>
-            <ul class="footer-menu">
-              <li class="menu-item">
-                <a class="menu-link"
-                   href="08-profile-page.html">Profile Page</a>
-              </li>
-              <li class="menu-item">
-                <a class="menu-link"
-                   href="03-explore-v2.html">Artwork Page</a>
-              </li>
-              <li class="menu-item">
-                <a class="menu-link"
-                   href="17-activity.html">Activity</a>
-              </li>
-              <li class="menu-item">
-                <a class="menu-link"
-                   href="26-upload-artwork.html">Upload Art</a>
-              </li>
-            </ul>
+
           </div>
         </div>
       </div>
-      <div class="footer-column">
+      <!-- <div class="footer-column">
         <div class="footer-widget">
           <div class="widget-title">Explore</div>
           <ul class="footer-menu">
@@ -952,13 +918,13 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="footer-copyright flex-space-between">
       <span class="copyright-text">
-        Cryptoki 2021 - All Rights Reserved
+        Cheerful 2023 - All Rights Reserved
       </span>
-      <ul class="sub-footer-menu">
+      <!-- <ul class="sub-footer-menu">
         <li class="menu-item">
           <a class="menu-link"
              href="!#">Terms of Service</a>
@@ -967,7 +933,7 @@
           <a class="menu-link"
              href="!#">Privacy</a>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </footer>
@@ -987,7 +953,7 @@
             (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body py-4 px-5">
-    <app-gift-finder (done)="closeModal()"></app-gift-finder>
+    <app-gift-finder (done)="closeModal(giftFinder)"></app-gift-finder>
 
   </div>
 
