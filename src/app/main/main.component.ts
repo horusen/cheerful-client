@@ -22,17 +22,7 @@ export class MainComponent extends BaseComponent<any> implements OnInit {
     super();
   }
 
-  ngOnInit(): void {
-    // Watch when the url changes
-    this.router.events
-      .pipe(filter((event: any) => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        this.loading = true;
-        setTimeout(() => {
-          this.loading = false;
-        }, 500);
-      });
-  }
+  ngOnInit(): void {}
 
   override openModal(
     content: any,
