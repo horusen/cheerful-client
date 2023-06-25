@@ -3,7 +3,6 @@ import { AuthService } from './../auth.service';
 import { BaseCreateComponent } from './../../shared/base-component/base-create.component';
 import { Component } from '@angular/core';
 import { User } from 'src/app/users/users.model';
-import { AuthMockService } from '../auth-mock.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +10,7 @@ import { AuthMockService } from '../auth-mock.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent extends BaseCreateComponent<User> {
-  constructor(public authService: AuthMockService) {
+  constructor(public authService: AuthService) {
     super(authService);
   }
 

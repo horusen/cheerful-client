@@ -38,6 +38,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'products',
+        loadChildren: () =>
+          import('./store-product/store-product.module').then(
+            (m) => m.StoreProductModule
+          ),
+      },
+      {
         path: '',
         redirectTo: 'basic-information',
         pathMatch: 'full',
