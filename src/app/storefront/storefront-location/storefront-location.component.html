@@ -1,0 +1,42 @@
+<!-- <div class="bids-listing-section"> -->
+<div class="row address-list">
+  <div class="bids-list col-6"
+       *ngFor="let address of storeAddressService.data">
+    <div class="placed-bid">
+      <div class="bid-placer">
+        <div class="avatar box-42">
+          <span class=""><i class=" text-white fas fa-map-marker-alt"></i></span>
+        </div>
+        <div class="bid-info">
+          <div class="bid-title">{{ address.address }} <span class="gradient-text"> {{ address.city?.name }}
+            </span></div>
+          <div class="bid-date">{{ address.state?.name }}, {{ address.country?.name }}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- <div class="bids-list">
+    <div class="small-title">Payment Methods</div>
+    <div class="placed-bid"
+         *ngFor="let payment of single.payment_methods">
+      <div class="bid-placer">
+        <div class="avatar box-42">
+          <span class=""><i class=" text-white fas fa-industry"
+               *ngIf="payment.payment_method_provider?.type_payment_method_provider?.id == 1"></i></span>
+          <span class=""><i class=" text-white fas fa-mobile-android-alt"
+               *ngIf="payment.payment_method_provider?.type_payment_method_provider?.id == 2"></i></span>
+        </div>
+        <div class="bid-info">
+          <div class="bid-title">{{ payment.payment_method_provider?.name }} </div>
+          <div class="bid-date">{{ payment.account_number }}</div>
+        </div>
+      </div>
+      <div class="bid-box">
+        <div class="crypto-value">{{ payment.payment_method_provider?.type_payment_method_provider?.name }}</div>
+      </div>
+    </div>
+  </div> -->
+<!-- </div> -->

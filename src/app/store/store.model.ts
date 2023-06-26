@@ -3,6 +3,7 @@ import { CategoryStore } from './category-store/category-store.model';
 import { StoreCard } from './store-card/store-card.model';
 import { StorePaymentMethod } from './store-registration/store-payment-method/store-payment-method.model';
 import { StoreAddress } from './store-registration/store-registration-address/store-address.model';
+import { StoreSocialMedia } from './store-registration/store-social-media/store-social-media.model';
 import { TypeStore } from './type-store/type-store.model';
 
 export interface Store extends BaseModel {
@@ -26,5 +27,6 @@ export interface Store extends BaseModel {
   card_min_price?: number;
   card: StoreCard;
   addresses: StoreAddress[];
+  social_medias: StoreSocialMedia[];
   payment_methods: StorePaymentMethod[];
 }

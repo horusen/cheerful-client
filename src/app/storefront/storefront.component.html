@@ -1,0 +1,136 @@
+<ng-container *ngIf="store && !loading">
+  <!-- Header -->
+  <div class="profile-header-mobile">
+    <!-- Cover Image -->
+    <!-- TODO: add a default cover image -->
+    <!-- TODO: During the registration, ask the user to give an 1920x320 size image for the cover -->
+    <div class="cover-image">
+      <!-- Default cover image -->
+      <img *ngIf="!store.store_cover_image"
+           src="assets/img/content/profile/profile-cover-1.png"
+           alt="">
+      <!-- Store cover image -->
+      <img *ngIf="store.store_cover_image"
+           class="cover-image"
+           [src]="store.store_cover_image.url"
+           alt="">
+    </div>
+
+    <!-- Store information -->
+    <div class="about-author-section container">
+      <div class="profile-header-user-profile">
+        <!-- Image profile -->
+        <div class="avatar box-152 bordered">
+          <a routerLink="./">
+            <!-- TODO: Add a default user image -->
+            <!-- Default Image -->
+            <img src="img/avatar.png"
+                 *ngIf="!store.store_logo_image"
+                 alt="store-logo-image">
+            <!-- Store image -->
+            <img [src]="store.store_logo_image.url"
+                 *ngIf="store.store_logo_image"
+                 alt="store-logo-image">
+          </a>
+          <span class="verified"><svg class="crumina-icon">
+              <use xlink:href="#check-icon"></use>
+            </svg></span>
+        </div>
+
+        <!-- Basic information -->
+        <div class="profile-author-info">
+          <h5 class="author-name"><a routerLink="./">{{ store.name }}</a></h5>
+          <div class="author-meta gradient-text">@{{ store.store_online_link }}</div>
+          <!-- Rating system -->
+          <!-- <div class="item-rating">
+            <span class="filled"><svg class="crumina-icon">
+                <use xlink:href="#star2-icon"></use>
+              </svg></span>
+            <span class="filled"><svg class="crumina-icon">
+                <use xlink:href="#star2-icon"></use>
+              </svg></span>
+            <span class="filled"><svg class="crumina-icon">
+                <use xlink:href="#star2-icon"></use>
+              </svg></span>
+            <span class="filled"><svg class="crumina-icon">
+                <use xlink:href="#star2-icon"></use>
+              </svg></span>
+            <span><svg class="crumina-icon">
+                <use xlink:href="#star2-icon"></use>
+              </svg></span>
+          </div> -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Store social medias -->
+    <ul class="social-icons-list my-4 d-flex justify-content-center"
+        *ngIf="store.social_medias?.length">
+      <!-- Website -->
+      <li class="social-icon icon-border"
+          *ngFor="let sm of store.social_medias">
+        <a [href]="sm.link">
+          <svg class="crumina-icon">
+            <use xlink:href="#facebook-icon"
+                 *ngIf="sm.social_media!.name == 'facebook'"></use>
+            <use xlink:href="#twitter-icon"
+                 *ngIf="sm.social_media!.name == 'twitter'"></use>
+            <use xlink:href="#instagram-icon"
+                 *ngIf="sm.social_media!.name == 'instagram'"></use>
+            <use xlink:href="#pinterest-icon"
+                 *ngIf="sm.social_media!.name == 'pinterest'"></use>
+          </svg>
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+
+  <!--  profile page body -->
+  <div class="profile-page-container px-5">
+    <div class="tabs-block swiper-container">
+      <ul class="nav tabs-list justify-content-center swiper-wrapper ">
+        <!-- GIFt card -->
+        <li class="nav-item swiper-slide"
+            routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="giftcard">Gift card</a>
+        </li>
+
+        <!-- Catalogue -->
+        <li class="nav-item swiper-slide"
+            routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="catalogue">Catalogue</a>
+        </li>
+
+        <!-- LOcations -->
+        <li class="nav-item swiper-slide"
+            routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="location">Locations</a>
+        </li>
+
+        <!-- About -->
+        <li class="nav-item swiper-slide"
+            routerLinkActive="active">
+          <a class="nav-link"
+             routerLink="about">About</a>
+        </li>
+
+      </ul>
+      <div class="tab active">
+        <div class="tab-content">
+          <div class="product-description">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<app-page-loading *ngIf="loading"></app-page-loading>

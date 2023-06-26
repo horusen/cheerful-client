@@ -28,4 +28,15 @@ export class StoreService extends BaseService<Store> {
       })
     );
   }
+
+  getByStoreLink(storeLink: string) {
+    return this.factory.get(`${this.endPoint}/storefront/${storeLink}`).pipe(
+      tap({
+        next: (response) => {
+          this.singleData = response.data;
+        },
+        error: (error) => this.errorResponseHandler(error),
+      })
+    );
+  }
 }

@@ -166,12 +166,12 @@
           <div class="featured-item-content">
 
             <div class="featured-item-image">
-              <a [routerLink]="['/', 'products', store.id, 'details']"><img [src]="store.store_logo_image?.url"
+              <a [routerLink]="['/', 'store', store.store_online_link]"><img [src]="store.store_logo_image?.url"
                      alt=""></a>
             </div>
             <div class="featured-item-info">
 
-              <div class="title text-center"> <a [routerLink]="['/', 'products', store.id, 'details']">{{ store.name }}</a> </div>
+              <div class="title text-center"> <a [routerLink]="['/', 'store', store.store_online_link]">{{ store.name }}</a> </div>
               <!-- <div class="item-meta"><span class="avatar box-26"> <a href="08-profile-page.html"><img src="./assets/img/avatar.png"
                            alt=""></a><span class="verified"><svg class="crumina-icon">
                         <use xlink:href="#check-icon"></use>
