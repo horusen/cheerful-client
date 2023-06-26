@@ -11,6 +11,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileItemsComponent } from './profile-items/profile-items.component';
 import { GiftFinderModule } from '../gift-finder/gift-finder.module';
+import { StorefrontComponent } from '../storefront/storefront.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,13 @@ const routes: Routes = [
       {
         path: 'cart',
         component: CartComponent,
+      },
+      {
+        path: 'store',
+        loadChildren: () =>
+          import('../storefront/storefront.module').then(
+            (m) => m.StorefrontModule
+          ),
       },
       {
         path: 'checkout',

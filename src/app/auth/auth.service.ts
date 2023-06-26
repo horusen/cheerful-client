@@ -19,12 +19,10 @@ export class AuthService extends BaseService<any> {
   public store$ = new ReplaySubject<Store>(1);
   public user$ = new ReplaySubject<User>(1);
 
-  // TODO: revert this back to user
   get user(): User {
     return this.storage.get('user') as User;
   }
 
-  // TODO: revert this back to store
   get shop(): Store {
     return this.storage.get('store') as Store;
   }
