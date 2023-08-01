@@ -12,20 +12,20 @@
   <div class="row mb-5">
     <!-- Name -->
     <div class="col-4">
-      <div class="gradient-text title"> Name </div>
+      <div class="gradient-text title"> Store Name </div>
       <div class="content"> {{ store.name }} </div>
     </div>
 
     <!-- Type -->
     <div class="col-4">
-      <div class="gradient-text title"> Type </div>
+      <div class="gradient-text title"> Type  Store</div>
       <div class="content"> {{ store.type_store?.name }} </div>
     </div>
 
 
     <!-- Category -->
     <div class="col-4">
-      <div class="gradient-text title"> Category </div>
+      <div class="gradient-text title"> Category  Store </div>
       <div class="content"> {{ store.category_store?.name }} </div>
     </div>
 
@@ -40,14 +40,14 @@
 
     <!-- Phone number -->
     <div class="col-4">
-      <div class="gradient-text title"> Phone number </div>
+      <div class="gradient-text title">Store Phone number </div>
       <div class="content"> {{ store.phone_number }} </div>
     </div>
 
 
     <!-- Online link -->
     <div class="col-4">
-      <div class="gradient-text title"> Online link </div>
+      <div class="gradient-text title">Store Online link </div>
       <div class="content"> {{ store.store_online_link }} </div>
     </div>
 
@@ -65,7 +65,7 @@
      *ngIf="store && !authService.isStoreSetup"
      (click)="openModal(content)">
   <div class="col-12 text-center">
-    <button class="btn btn-wide btn-square btn-dark">Add your business information</button>
+    <button class="btn btn-wide btn-square btn-dark">Complete your store registration</button>
   </div>
 </div>
 
@@ -74,7 +74,7 @@
              let-d="dismiss"
              let-modal>
   <div class="modal-header">
-    <h4 class="modal-title text-center w-100"><span class="gradient-text">Add your </span> store information</h4>
+    <h4 class="modal-title text-center w-100"><span class="gradient-text">Complete your </span> store information</h4>
     <button type="button"
             class="btn-close"
             aria-label="Close"

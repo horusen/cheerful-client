@@ -12,6 +12,11 @@ import { GenderService } from 'src/app/users/gender/gender.service';
 import { Gender } from 'src/app/users/gender/gender.model';
 import { ActivatedRoute } from '@angular/router';
 import { CountryService } from 'src/app/common/country/country.service';
+import {
+  CountryISO,
+  PhoneNumberFormat,
+  SearchCountryField,
+} from 'ngx-intl-tel-input-gg';
 
 @Component({
   selector: 'app-signup',
@@ -27,6 +32,14 @@ export class SignupComponent
   countryList: Country[] = [];
   genderList: Gender[] = [];
   typeUsers: TypeUsers[] = [];
+  SearchCountryField = SearchCountryField;
+  CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+  preferredCountries: CountryISO[] = [
+    CountryISO.Ghana,
+    CountryISO.Nigeria,
+    CountryISO.Senegal,
+  ];
   constructor(
     public authService: AuthService,
     public typeUserService: TypeUsersService,
@@ -78,13 +91,15 @@ export class SignupComponent
       name: [null, Validators.required],
       email: [null, Validators.required],
       phone_number: [null, Validators.required],
-      gender_id: [null, Validators.required],
+      gender_id: [null],
       country_id: [this.countryList[0], Validators.required],
       password: [null, Validators.required],
       password_confirmation: [null, Validators.required],
     });
 
-    this.form.controls['gender_id'].valueChanges.subscribe((value) => {});
+    this.form.controls['country_id'].valueChanges.subscribe((value) => {
+      console.log(value);
+    });
   }
 
   signup(): void {
@@ -96,6 +111,7 @@ export class SignupComponent
     this.loading = true;
     const data = {
       ...this.form.value,
+      phone_number: this.form.value.phone_number.e164Number,
       country_id: parseInt(this.form.value.country_id),
       gender_id: parseInt(this.form.value.gender_id),
     };

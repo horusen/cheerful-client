@@ -33,6 +33,7 @@
               "src/assets/css/swiper-bundle.css",
               "src/assets/css/main.css",
               "src/assets/plugins/fontawesome/css/all.min.css",
+              "./node_modules/intl-tel-input/build/css/intlTelInput.css",
               "src/styles.scss"
             ],
             "scripts": [

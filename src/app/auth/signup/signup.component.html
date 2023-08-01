@@ -84,7 +84,8 @@
       <!-- Phone number, GEnder  location -->
       <div class="form-group">
         <!-- Gender -->
-        <div class="form-field">
+        <div class="form-field"
+             *ngIf="typeUserId == 1">
           <label for="subject">Gender</label>
           <select class="select-nice"
                   name="email_subject"
@@ -125,14 +126,24 @@
         <!-- Phone number -->
         <div class="form-field">
           <label for="name">Your Phone number</label>
-          <input type="tel"
-                 name="name"
-                 formControlName="phone_number"
-                 id="name"
-                 data-val="\S"
-                 data-val-msg="* This is a required field."
-                 data-val-msg-id="textMessage"
-                 required="">
+          <ngx-intl-tel-input [cssClass]="'custom'"
+                              [preferredCountries]="preferredCountries"
+                              [enableAutoCountrySelect]="true"
+                              [enablePlaceholder]="true"
+                              [searchCountryFlag]="true"
+                              [searchCountryField]="[
+                                SearchCountryField.Iso2,
+                                SearchCountryField.Name
+                              ]"
+                              [selectFirstCountry]="false"
+                              [selectedCountryISO]="CountryISO.Ghana"
+                              [maxLength]="15"
+                              [phoneValidation]="true"
+                              [separateDialCode]="false"
+                              [numberFormat]="PhoneNumberFormat.National"
+                              name="phone_number"
+                              formControlName="phone_number">
+          </ngx-intl-tel-input>
           <span class="input_error-message"
                 id="textMessage"></span>
         </div>
