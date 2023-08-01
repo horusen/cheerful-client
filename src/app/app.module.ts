@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { AppInjector } from './shared/services';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, NgbModule, BrowserAnimationsModule],
   providers: [{ provide: 'mockData', useValue: [] }],
   bootstrap: [AppComponent],
 })

@@ -20,7 +20,7 @@
   <div class="form-group mb-3">
     <!-- Name -->
     <div class="form-field">
-      <label for="name">Name</label>
+      <label for="name">Store Name</label>
       <input type="text"
              name="name"
              formControlName="name"
@@ -35,7 +35,7 @@
 
     <!-- Email -->
     <div class="form-field">
-      <label for="email">Business Email</label>
+      <label for="email">Store Email</label>
       <input type="email"
              name="email"
              id="email"
@@ -53,7 +53,7 @@
   <div class="form-group mb-3">
     <!-- Type -->
     <div class="form-field">
-      <label for="subject">Type business</label>
+      <label for="subject">Type Store</label>
       <select class="select-nice"
               name="email_subject"
               (change)="selectFormHandler('type_store_id', $event.target)"
@@ -73,7 +73,7 @@
 
     <!-- Category -->
     <div class="form-field">
-      <label for="subject">Category</label>
+      <label for="subject">Category Store</label>
       <select class="select-nice"
               name="email_subject"
               (change)="selectFormHandler('category_store_id', $event.target)"
@@ -96,7 +96,7 @@
   <div class="form-group mb-3">
     <!-- Phone number -->
     <div class="form-field">
-      <label for="name">Phone number</label>
+      <label for="name">Store Phone number</label>
       <input type="tel"
              name="name"
              formControlName="phone_number"
@@ -112,7 +112,7 @@
 
     <!-- Online link -->
     <div class="form-field">
-      <label for="name">Online link</label>
+      <label for="name">Store Online link</label>
       <input type="text"
              name="name"
              formControlName="store_online_link"
@@ -124,28 +124,11 @@
       <span class="input_error-message"
             id="textMessage"></span>
       <div class="onlineLink">
-        Your online link: <strong>https//app.cheerful.io/{{ onlineLink }}</strong>
+        Your online link: <strong>https//getcheerful.io/store/{{ onlineLink }}</strong>
       </div>
 
     </div>
 
-  </div>
-
-  <!-- Description -->
-  <div class="form-field comment-area">
-    <label for="message">Description</label>
-    <textarea id="message"
-              name="message"
-              formControlName="description"
-              class="comment-form message"
-              cols="30"
-              rows="10"
-              data-val="\S"
-              data-val-msg="* Please, type a message."
-              data-val-msg-id="textareaMessage"
-              required=""></textarea>
-    <span class="input_error-message"
-          id="textareaMessage"></span>
   </div>
 
   <div class="upload-photo-box w-100 my-5">
@@ -173,6 +156,25 @@
            #coverPic
            (change)="onFileChanged($event, 'store_cover_image')">
   </div>
+
+  <!-- Description -->
+  <div class="form-field comment-area">
+    <label for="message">Description</label>
+    <textarea id="message"
+              name="message"
+              formControlName="description"
+              class="comment-form message"
+              cols="30"
+              rows="10"
+              data-val="\S"
+              data-val-msg="* Please, type a message."
+              data-val-msg-id="textareaMessage"
+              required=""></textarea>
+    <span class="input_error-message"
+          id="textareaMessage"></span>
+  </div>
+
+
 
 
   <button type="submit"

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input-gg';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [SignupComponent, LoginComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    SharedModule,
+    NgxIntlTelInputModule,
+  ],
 })
 export class AuthModule {}
