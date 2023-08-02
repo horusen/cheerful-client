@@ -99,6 +99,16 @@ export class BaseCreateComponent<T>
     return this.form.get(field);
   }
 
+  logInvalidFields(form: FormGroup) {
+    for (const controlName in form.controls) {
+      const control = form.get(controlName);
+
+      if (control?.invalid) {
+        console.log(`Invalid field: ${controlName}`);
+      }
+    }
+  }
+
   selectFormHandler(target: string & keyof T, data: any): void {
     this.form.get(target)?.patchValue(data.value);
   }

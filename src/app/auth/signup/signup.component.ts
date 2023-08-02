@@ -3,9 +3,6 @@ import { BaseCreateComponent } from './../../shared/base-component/base-create.c
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { User } from 'src/app/users/users.model';
-import { Country } from 'src/app/mocks/country.model';
-import { countries } from 'src/app/mocks/countries.mock';
-import { AuthMockService } from '../auth-mock.service';
 import { TypeUsersService } from 'src/app/users/type-users/type-users.service';
 import { TypeUsers } from 'src/app/users/type-users/type-users.model';
 import { GenderService } from 'src/app/users/gender/gender.service';
@@ -17,6 +14,7 @@ import {
   PhoneNumberFormat,
   SearchCountryField,
 } from 'ngx-intl-tel-input-gg';
+import { Country } from 'src/app/common/country/country.model';
 
 @Component({
   selector: 'app-signup',
@@ -27,11 +25,10 @@ export class SignupComponent
   extends BaseCreateComponent<User>
   implements OnInit
 {
-  typeUser: 'Merchant' | 'Customer' | null = null;
+  typeUser: 'individual' | 'business-admin' | 'merchant' | null = null;
   typeUserId: number = 1;
   countryList: Country[] = [];
   genderList: Gender[] = [];
-  typeUsers: TypeUsers[] = [];
   SearchCountryField = SearchCountryField;
   CountryISO = CountryISO;
   PhoneNumberFormat = PhoneNumberFormat;
@@ -52,15 +49,21 @@ export class SignupComponent
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-      this.typeUserId =
-        params['type-user'] && params['type-user'] == 'customer' ? 1 : 2;
-      this.typeUser = this.typeUserId == 1 ? 'Customer' : 'Merchant';
+      this.typeUser = params['type-user'];
+
+      if (this.typeUser === 'individual') {
+        this.typeUserId = 1;
+      } else if (this.typeUser === 'business-admin') {
+        this.typeUserId = 2;
+      } else if (this.typeUser === 'merchant') {
+        this.typeUserId = 3;
+      }
+
+      if (this.typeUserId == 1) {
+        this.genderService.get().subscribe();
+      }
     });
 
-    this.countryList = countries;
-
-    this.typeUserService.get().subscribe();
-    this.genderService.get().subscribe();
     this.countryService.get().subscribe();
 
     this.subscriptions['country'] = this.countryService.data$.subscribe(
@@ -72,13 +75,6 @@ export class SignupComponent
     this.subscriptions['genders'] = this.genderService.data$.subscribe(
       (data) => {
         this.genderList = data;
-      }
-    );
-
-    this.subscriptions['typeUsers'] = this.typeUserService.data$.subscribe(
-      (data) => {
-        this.typeUsers = data;
-        console.log(this.typeUsers);
       }
     );
 
@@ -95,16 +91,14 @@ export class SignupComponent
       country_id: [this.countryList[0], Validators.required],
       password: [null, Validators.required],
       password_confirmation: [null, Validators.required],
-    });
-
-    this.form.controls['country_id'].valueChanges.subscribe((value) => {
-      console.log(value);
+      business_name: [null, Validators.required],
     });
   }
 
   signup(): void {
     if (this.form.invalid) {
       this.helper.notification.alertDanger('Invalid form');
+      this.logInvalidFields(this.form);
       return;
     }
 
@@ -124,7 +118,8 @@ export class SignupComponent
         this.initForm();
         this.created.emit();
         this.helper.notification.toastSuccess();
-        this.router.navigate(['/store/settings']);
+        console.log(response);
+        // this.router.navigate(['/store/settings']);
       });
   }
 }

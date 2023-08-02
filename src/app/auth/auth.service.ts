@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 import { Storage } from '../helpers/storage/storage';
 import { BaseService } from '../shared/services';
 import { User } from '../users/users.model';
-import { Store } from '../store/store.model';
 
 interface LoginInformation {
   user: User;
@@ -16,23 +15,23 @@ interface LoginInformation {
   providedIn: 'root',
 })
 export class AuthService extends BaseService<any> {
-  public store$ = new ReplaySubject<Store>(1);
+  // public store$ = new ReplaySubject<Store>(1);
   public user$ = new ReplaySubject<User>(1);
 
   get user(): User {
     return this.storage.get('user') as User;
   }
 
-  get shop(): Store {
-    return this.storage.get('store') as Store;
-  }
+  // get shop(): Store {
+  //   return this.storage.get('store') as Store;
+  // }
 
-  set shop(store: Store) {
-    if (store) {
-      this.storage.set('store', store);
-      this.store$.next(store);
-    }
-  }
+  // set shop(store: Store) {
+  //   if (store) {
+  //     this.storage.set('store', store);
+  //     this.store$.next(store);
+  //   }
+  // }
 
   set user(user: User) {
     if (user) {
@@ -41,25 +40,25 @@ export class AuthService extends BaseService<any> {
     }
   }
 
-  get isStoreSetup() {
-    // Return false if one field of shop is empty
-    let isShopSetup = true;
-    Object.keys(this.shop).forEach((key) => {
-      if (
-        key != 'deleted_at' &&
-        key != 'store_logo_image' &&
-        // @ts-expect-error
-        this.shop[key] == null
-      ) {
-        isShopSetup = false;
-      }
-    });
-    return isShopSetup;
-  }
+  // get isStoreSetup() {
+  //   // Return false if one field of shop is empty
+  //   let isShopSetup = true;
+  //   Object.keys(this.shop).forEach((key) => {
+  //     if (
+  //       key != 'deleted_at' &&
+  //       key != 'store_logo_image' &&
+  //       // @ts-expect-error
+  //       this.shop[key] == null
+  //     ) {
+  //       isShopSetup = false;
+  //     }
+  //   });
+  //   return isShopSetup;
+  // }
 
-  updateStore(store: Store) {
-    this.storage.set('store', store);
-  }
+  // updateStore(store: Store) {
+  //   this.storage.set('store', store);
+  // }
 
   constructor(public storage: Storage) {
     super('auth');

@@ -10,11 +10,10 @@ import { RouterModule } from '@angular/router';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AuthorizationInterceptor } from './interceptors/authorization.interceptor';
 import { MissingDataModule } from '../helpers/missing-data/missing-data.module';
-import { AddRecipientDetailsComponent } from '../add-recipient-details/add-recipient-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [ReadMoreComponent, AddRecipientDetailsComponent],
+  declarations: [ReadMoreComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -48,7 +47,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoadingModule,
     ReadMoreComponent,
     MissingDataModule,
-    AddRecipientDetailsComponent,
     NgbModule,
   ],
 })

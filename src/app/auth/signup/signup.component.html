@@ -1,7 +1,10 @@
 <div class="primary-content-area container content-padding">
   <div class="section-small">
     <div class="page-title text-center">
-      <h2><span class="gradient-text">Become a</span> {{ typeUser }}</h2>
+      <h2>
+        <span *ngIf="typeUserId == 2"><span class="gradient-text">Register </span> your business</span>
+
+      </h2>
     </div>
     <form class="cryptoki-form validation"
           id="contact-form"
@@ -15,6 +18,23 @@
       <input type="hidden"
              name="recaptcha_token"
              value="">
+
+      <!-- Business name -->
+      <div class="form-field">
+        <label for="name">Your Business name</label>
+        <input type="text"
+               name="business_name"
+               formControlName="business_name"
+               id="business_name"
+               data-val="\S"
+               data-val-msg="* This is a required field."
+               data-val-msg-id="textMessage"
+               required="">
+        <span class="input_error-message"
+              id="textMessage"></span>
+      </div>
+
+
       <!-- Name and email -->
       <div class="form-group">
         <!-- Name -->

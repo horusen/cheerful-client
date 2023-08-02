@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cardup-client": {
+    "cheerful-client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cardup-client",
+            "outputPath": "dist/cheerful-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -85,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "cardup-client:build:production"
+              "browserTarget": "cheerful-client:build:production"
             },
             "development": {
-              "browserTarget": "cardup-client:build:development"
+              "browserTarget": "cheerful-client:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cardup-client:build"
+            "browserTarget": "cheerful-client:build"
           }
         },
         "test": {
