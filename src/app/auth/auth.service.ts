@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 import { Storage } from '../helpers/storage/storage';
 import { BaseService } from '../shared/services';
 import { User } from '../users/users.model';
+import { Business } from '../section-business/business/business.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 interface LoginInformation {
   user: User;
@@ -17,21 +19,22 @@ interface LoginInformation {
 export class AuthService extends BaseService<any> {
   // public store$ = new ReplaySubject<Store>(1);
   public user$ = new ReplaySubject<User>(1);
+  public business$ = new ReplaySubject<Business>(1);
 
   get user(): User {
     return this.storage.get('user') as User;
   }
 
-  // get shop(): Store {
-  //   return this.storage.get('store') as Store;
-  // }
+  get business(): Business {
+    return this.storage.get('business') as Business;
+  }
 
-  // set shop(store: Store) {
-  //   if (store) {
-  //     this.storage.set('store', store);
-  //     this.store$.next(store);
-  //   }
-  // }
+  set business(business: Business) {
+    if (business) {
+      this.storage.set('business', business);
+      this.business$.next(business);
+    }
+  }
 
   set user(user: User) {
     if (user) {
@@ -67,10 +70,10 @@ export class AuthService extends BaseService<any> {
   public signup(elements: User) {
     return this.factory.post(`auth/signup/`, elements).pipe(
       tap({
-        next: (response) => {
+        next: (response: { data: any }) => {
           this.storeLoginInformation(response.data);
         },
-        error: (error) => this.errorResponseHandler(error),
+        error: (error: HttpErrorResponse) => this.errorResponseHandler(error),
       })
     );
   }
@@ -82,9 +85,9 @@ export class AuthService extends BaseService<any> {
         next: ({ data }: any) => {
           this.storeLoginInformation(data);
         },
-        error: (error) => this.errorResponseHandler(error),
+        error: (error: HttpErrorResponse) => this.errorResponseHandler(error),
       }),
-      map((response) => response.user)
+      map((response: any) => response.user)
     );
   }
 
@@ -92,7 +95,7 @@ export class AuthService extends BaseService<any> {
     this.storage.clear();
     this.storage.set('accessToken', data.accessToken);
     this.storage.set('user', data.user);
-    this.storage.set('store', data.store);
+    this.storage.set('business', data.business);
   }
 
   isLoggedIn() {

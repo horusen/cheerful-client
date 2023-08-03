@@ -1,0 +1,72 @@
+<div class="primary-content-area container content-padding grid-left-sidebar">
+  <aside>
+    <div class="user-db-menu">
+      <div class="user-db-header">
+        <div class="user-db-cover-image profile-cover-image"></div>
+        <div class="user-header-user-profile">
+          <!-- Logo -->
+          <div class="avatar box-64">
+            <a href="08-profile-page.html">
+              <img src="assets/img/avatar.png"
+                   alt="avatar"
+                   *ngIf="!authService.business.business_logo">
+              <img [src]="authService.business.business_logo.url"
+                   alt="avatar"
+                   *ngIf="authService.business.business_logo">
+              <span class="verified"><svg class="crumina-icon">
+                  <use xlink:href="#check-icon"></use>
+                </svg></span></a>
+          </div>
+          <div class="title"><a href="08-profile-page.html">{{ authService.user.name }}</a></div>
+          <div class="item-meta"
+               *ngIf="authService.business.name"><span class="gradient-text">@{{ authService.business.name }}</span></div>
+        </div>
+      </div>
+      <div class="user-db-body">
+        <ul class="profile-menu">
+          <li class="profile">
+            <a [routerLink]="['profile-info']"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: true}">
+              <span class="me-2"><i class="far fa-industry"
+                   routerLinkActive="fas"
+                   [routerLinkActiveOptions]="{exact: true}"></i></span> Profile Info</a>
+          </li>
+          <li class="profile">
+            <a [routerLink]="['business-information']"
+               routerLinkActive="active">
+              <span class="me-2"><i class="far fa-industry"
+                   routerLinkActive="fas"></i></span>
+              Business Info</a>
+          </li>
+          <li class="profile">
+            <a [routerLink]="['rewards']"
+               routerLinkActive="active">
+              <span class="me-2"><i class="far fa-gift"
+                   routerLinkActive="fas"></i></span>
+              Rewards</a>
+          </li>
+          <li class="profile">
+            <a [routerLink]="['automation']"
+               routerLinkActive="active">
+              <span class="me-2"><i class="far fa-user-robot"
+                   routerLinkActive="fas"></i></span>
+              Automation</a>
+          </li>
+
+
+          <li class="logout">
+            <a href="!#"><svg class="crumina-icon">
+                <use xlink:href="#logout-icon"></use>
+              </svg>Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+  <div class="main-content-area ">
+    <div class=" overflow-hidden">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
