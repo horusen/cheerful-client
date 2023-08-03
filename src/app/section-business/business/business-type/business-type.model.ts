@@ -1,6 +1,6 @@
 import { BaseModel } from 'src/app/shared/models/BaseModel';
 
-export interface State extends BaseModel {
+export interface BusinessType extends BaseModel {
   name: string;
-  country_id: number;
+  description: string;
 }

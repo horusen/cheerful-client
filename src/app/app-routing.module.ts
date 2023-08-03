@@ -6,6 +6,13 @@ const routes: Routes = [
     path: 'authentication',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./section-business/section-business.module').then(
+        (m) => m.SectionBusinessModule
+      ),
+  },
 ];
 
 @NgModule({

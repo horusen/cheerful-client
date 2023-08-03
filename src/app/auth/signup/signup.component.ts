@@ -4,7 +4,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { User } from 'src/app/users/users.model';
 import { TypeUsersService } from 'src/app/users/type-users/type-users.service';
-import { TypeUsers } from 'src/app/users/type-users/type-users.model';
 import { GenderService } from 'src/app/users/gender/gender.service';
 import { Gender } from 'src/app/users/gender/gender.model';
 import { ActivatedRoute } from '@angular/router';
@@ -48,7 +47,7 @@ export class SignupComponent
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params) => {
+    this.route.queryParams.subscribe((params: any) => {
       this.typeUser = params['type-user'];
 
       if (this.typeUser === 'individual') {
@@ -67,13 +66,13 @@ export class SignupComponent
     this.countryService.get().subscribe();
 
     this.subscriptions['country'] = this.countryService.data$.subscribe(
-      (data) => {
+      (data: Country[]) => {
         this.countryList = data;
       }
     );
 
     this.subscriptions['genders'] = this.genderService.data$.subscribe(
-      (data) => {
+      (data: Gender[]) => {
         this.genderList = data;
       }
     );
@@ -113,13 +112,12 @@ export class SignupComponent
       .signup({
         ...data,
       })
-      .subscribe((response) => {
+      .subscribe(() => {
         this.loading = false;
         this.initForm();
         this.created.emit();
         this.helper.notification.toastSuccess();
-        console.log(response);
-        // this.router.navigate(['/store/settings']);
+        this.router.navigate(['/dashboard']);
       });
   }
 }
