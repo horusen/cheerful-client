@@ -1,0 +1,58 @@
+<div class="statement-list">
+  <!-- Filters -->
+  <div class="filterable-bar">
+    <form id="creators-filter-form">
+      <div class="filter-options">
+
+        <!-- Sort -->
+        <select class="select-nice">
+          <option value=""
+                  selected>All time</option>
+          <option value="july-2023">July 2023</option>
+          <option value="august-2023">August 2023</option>
+          <option value="september-2023">September 2023</option>
+        </select>
+
+
+
+
+      </div>
+
+      <!-- CTAs -->
+      <div class="filter-button">
+        <button class="btn btn-normal btn-dark"
+                (click)="openModal(loadPoints, 'lg')">
+          <span><i class="far fa-plus"></i></span>
+          Load points
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- List of individuals -->
+  <div class="statement">
+    <app-point-history></app-point-history>
+  </div>
+
+
+
+
+</div>
+
+
+
+<ng-template #loadPoints
+             let-d="dismiss"
+             let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-center w-100"><span class="gradient-text">Load </span> Points</h4>
+    <button type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body p-5">
+    <app-load-points (created)="closeModal(loadPoints)"></app-load-points>
+  </div>
+
+</ng-template>

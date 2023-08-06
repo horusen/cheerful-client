@@ -26,6 +26,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'rewards',
+        loadChildren: () =>
+          import('./reward-menu/reward-menu.module').then(
+            (m) => m.RewardMenuModule
+          ),
+      },
+      {
         path: '',
         component: BusinessDashboardComponent,
         pathMatch: 'full',

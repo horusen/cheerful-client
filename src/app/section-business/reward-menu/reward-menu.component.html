@@ -1,0 +1,94 @@
+<div class="primary-content-area container content-padding grid-left-sidebar">
+  <!-- Side menu -->
+  <aside>
+    <!-- Menu -->
+    <div class="user-db-menu">
+      <!-- Menu Header -->
+      <div class="user-db-header">
+        <!-- Cover -->
+        <div class="user-db-cover-image profile-cover-image"></div>
+        <!-- Logo -->
+        <div class="user-header-user-profile">
+          <!-- Logo Image -->
+          <div class="avatar box-64">
+            <a href="08-profile-page.html">
+              <img src="assets/img/avatar.png"
+                   alt="avatar"
+                   *ngIf="!authService.business.business_logo">
+              <img [src]="authService.business.business_logo.url"
+                   alt="avatar"
+                   *ngIf="authService.business.business_logo">
+              <span class="verified"><svg class="crumina-icon">
+                  <use xlink:href="#check-icon"></use>
+                </svg></span></a>
+          </div>
+
+          <!-- Default logo -->
+          <div class="title"><a href="08-profile-page.html">{{ authService.user.name }}</a></div>
+          <div class="item-meta"
+               *ngIf="authService.business.name"><span class="gradient-text">@{{ authService.business.name }}</span></div>
+        </div>
+      </div>
+
+
+      <!-- Menu body -->
+      <div class="user-db-body">
+        <!-- Menu items -->
+        <ul class="profile-menu">
+
+
+          <!-- Rewards -->
+          <li class="profile">
+            <a [routerLink]="['']"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: true}">
+              <!-- Icon -->
+              <span class="me-2">
+                <i class="far fa-gift"
+                   routerLinkActive="fas"
+                   [routerLinkActiveOptions]="{exact: true}">
+                </i>
+              </span>
+              Rewards
+            </a>
+          </li>
+
+          <!-- Points -->
+          <li class="profile">
+            <a [routerLink]="['points']"
+               routerLinkActive="active">
+              <span class="me-2">
+                <i class="far fa-badge-dollar"
+                   routerLinkActive="fas"
+                   [routerLinkActiveOptions]="{exact: true}">
+                </i>
+              </span>
+              Points
+            </a>
+          </li>
+
+
+
+
+        </ul>
+        <!-- Menu Items -->
+      </div>
+    </div>
+  </aside>
+  <!-- Side menu -->
+
+
+  <!-- Main content -->
+  <div class="main-content-area sales-statement">
+    <!-- Page Heading -->
+    <div class="page-title-section">
+      <h2><span class="gradient-text">Rewards</span> </h2>
+    </div>
+
+    <!-- Page Content -->
+    <div class="dashboard-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
