@@ -11,10 +11,9 @@ export class Storage {
       : null;
   }
 
-  get<T extends any>(key: string): T | null {
-    return localStorage.getItem(key) && localStorage.getItem(key) != 'undefined'
-      ? (JSON.parse(localStorage.getItem(key)!) as T)
-      : null;
+  get<T>(key: string): T | null {
+    const item = localStorage.getItem(key);
+    return item && item !== 'undefined' ? JSON.parse(item) : null;
   }
 
   set<T extends any>(key: string, element: T): void {

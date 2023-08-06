@@ -12,10 +12,18 @@ export class MainComponent implements OnInit {
   constructor(public authService: AuthService, public router: Router) {}
 
   ngOnInit(): void {
-    if (this.authService.typeUser === TypeUserEnum.BusinessAdmin) {
-      this.router.navigate(['/business']);
-    } else if (this.authService.typeUser === TypeUserEnum.Individual) {
-      this.router.navigate(['/personal']);
+    const isRootUrl = this.router.url === '/';
+    const isAdminUser =
+      this.authService.typeUser === TypeUserEnum.BusinessAdmin;
+    const isIndividualUser =
+      this.authService.typeUser === TypeUserEnum.Individual;
+
+    if (isRootUrl) {
+      if (isAdminUser) {
+        this.router.navigate(['/business']);
+      } else if (isIndividualUser) {
+        this.router.navigate(['/personal']);
+      }
     }
   }
 }

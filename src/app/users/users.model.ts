@@ -1,3 +1,4 @@
+import { File } from '../common/file/file.model';
 import { BaseModel } from '../shared/models/BaseModel';
 
 export interface User extends BaseModel {
@@ -8,4 +9,5 @@ export interface User extends BaseModel {
   phone_number: string;
   email: string;
   password?: string;
+  profile_pic?: File;
 }
