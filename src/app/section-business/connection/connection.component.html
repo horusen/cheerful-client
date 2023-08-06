@@ -29,85 +29,93 @@
                *ngIf="authService.business.name"><span class="gradient-text">@{{ authService.business.name }}</span></div>
         </div>
       </div>
-      <!-- Menu Header -->
 
 
       <!-- Menu body -->
       <div class="user-db-body">
         <!-- Menu items -->
         <ul class="profile-menu">
-          <!-- Profile info -->
+
+
+          <!-- Individuals -->
           <li class="profile">
-            <a [routerLink]="['profile-info']"
+            <a [routerLink]="['individual']"
                routerLinkActive="active"
                [routerLinkActiveOptions]="{exact: true}">
               <!-- Icon -->
               <span class="me-2">
-                <i class="far fa-industry"
+                <i class="far fa-user"
                    routerLinkActive="fas"
                    [routerLinkActiveOptions]="{exact: true}">
                 </i>
               </span>
-              Profile Info
+              Individuals
             </a>
           </li>
 
-          <!-- Business Info -->
+          <!-- Invitations -->
           <li class="profile">
-            <a [routerLink]="['business-information']"
+            <a [routerLink]="['invitation']"
                routerLinkActive="active">
               <span class="me-2">
-                <i class="far fa-industry"
-                   routerLinkActive="fas">
+                <i class="far fa-envelope"
+                   routerLinkActive="fas"
+                   [routerLinkActiveOptions]="{exact: true}">
                 </i>
               </span>
-              Business Info
+              Invitations
             </a>
           </li>
 
-          <!-- Rewards -->
+          <!-- Groups -->
           <li class="profile">
-            <a [routerLink]="['rewards']"
+            <a [routerLink]="['groups']"
                routerLinkActive="active">
               <span class="me-2">
-                <i class="far fa-gift"
-                   routerLinkActive="fas"></i>
-              </span>
-              Rewards
-            </a>
-          </li>
-
-          <!-- Automation -->
-          <li class="profile">
-            <a [routerLink]="['automation']"
-               routerLinkActive="active">
-              <span class="me-2">
-                <i class="far fa-user-robot"
-                   routerLinkActive="fas">
+                <i class="far fa-users"
+                   routerLinkActive="fas"
+                   [routerLinkActiveOptions]="{exact: true}">
                 </i>
               </span>
-              Automation
+              Groups
+            </a>
+          </li>
+
+          <!-- Favorite -->
+          <li class="profile">
+            <a [routerLink]="['favorite']"
+               routerLinkActive="active">
+              <span class="me-2">
+                <i class="far fa-star"
+                   routerLinkActive="fas"
+                   [routerLinkActiveOptions]="{exact: true}">
+                </i>
+              </span>
+              Favorites
             </a>
           </li>
 
 
-          <!-- Logout -->
-          <li class="logout">
-            <a href="!#"><svg class="crumina-icon">
-                <use xlink:href="#logout-icon"></use>
-              </svg>Log Out</a>
-          </li>
-          <!-- Logout -->
+
         </ul>
         <!-- Menu Items -->
       </div>
     </div>
   </aside>
+  <!-- Side menu -->
+
 
   <!-- Main content -->
-  <div class="main-content-area ">
-    <div class=" overflow-hidden">
+  <div class="main-content-area sales-statement">
+    <!-- Page Heading -->
+    <div class="page-title-section">
+      <h2><span class="gradient-text">Connections</span> </h2>
+    </div>
+
+    <!-- Page Content -->
+    <div class="dashboard-wrapper">
       <router-outlet></router-outlet>
     </div>
   </div>
+
 </div>

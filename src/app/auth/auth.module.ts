@@ -5,8 +5,13 @@ import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input-gg';
+import { JoinComponent } from './join/join.component';
 
 const routes: Routes = [
+  {
+    path: 'join',
+    component: JoinComponent,
+  },
   {
     path: 'signup',
     component: SignupComponent,
@@ -23,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [SignupComponent, LoginComponent],
+  declarations: [SignupComponent, LoginComponent, JoinComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

@@ -19,6 +19,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'connections',
+        loadChildren: () =>
+          import('./connection/connection.module').then(
+            (m) => m.ConnectionModule
+          ),
+      },
+      {
         path: '',
         component: BusinessDashboardComponent,
         pathMatch: 'full',

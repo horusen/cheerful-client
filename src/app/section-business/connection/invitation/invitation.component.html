@@ -1,0 +1,45 @@
+<div class="tabs-block swiper-container">
+  <ul class="nav tabs-list swiper-wrapper ">
+
+
+    <!-- Pending -->
+    <li class="nav-item swiper-slide"
+        routerLinkActive="active">
+      <a class="nav-link"
+         routerLink="./"
+         [queryParams]="{type:'pending'}">
+        Pending
+      </a>
+    </li>
+
+    <!-- Accepted -->
+    <li class="nav-item swiper-slide"
+        routerLinkActive="active">
+      <a class="nav-link"
+         routerLink="./"
+         [queryParams]="{type:'accepted'}">
+        Accepted
+      </a>
+    </li>
+
+    <!-- Received -->
+    <li class="nav-item swiper-slide"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+      <a class="nav-link"
+         routerLink="./"
+         [queryParams]="{type:'received'}">
+        Received
+      </a>
+    </li>
+
+
+  </ul>
+  <div class="tab active">
+    <div class="tab-content">
+      <div class="product-description">
+        <app-invitation-list></app-invitation-list>
+      </div>
+    </div>
+  </div>
+</div>
