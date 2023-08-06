@@ -103,6 +103,20 @@ export class AuthService extends BaseService<any> {
     );
   }
 
+  public updatePointBalance(amount: number) {
+    if (this.typeUser == TypeUserEnum.Individual) {
+      this.user = {
+        ...this.user,
+        point_balance: this.user?.point_balance! + amount,
+      };
+    } else if (this.typeUser == TypeUserEnum.BusinessAdmin) {
+      this.business = {
+        ...this.business,
+        point_balance: this.business?.point_balance! + amount,
+      };
+    }
+  }
+
   private storeLoginInformation(data: any) {
     this.storage.clear();
     this.storage.set('accessToken', data.accessToken);

@@ -44,11 +44,8 @@ export class LoadPointsComponent
 
     this.form = this.fb.group({
       entity_type_id: [typeEntityId, [Validators.required]],
-      amount: [0, { validators: [Validators.required], updateOn: 'blur' }],
-      point_amount: [
-        0,
-        { validators: [Validators.required], updateOn: 'blur' },
-      ],
+      amount: [0, { validators: [Validators.required] }],
+      point_amount: [0, { validators: [Validators.required] }],
       entity_user_id: [entityUserId],
       entity_business_id: [entityBusinessId],
     });

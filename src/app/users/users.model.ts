@@ -10,4 +10,5 @@ export interface User extends BaseModel {
   email: string;
   password?: string;
   profile_pic?: File;
+  point_balance?: number;
 }
