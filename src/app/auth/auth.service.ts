@@ -10,6 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { TypeUserEnum } from '../users/type-users/type-user.enum';
 import { Router } from '@angular/router';
 import { InvitationService } from '../section-business/connection/invitation/invitation.service';
+import { Store } from '../section-merchant/store/store.model';
 
 interface LoginInformation {
   user: User;
@@ -23,13 +24,18 @@ export class AuthService extends BaseService<any> {
   // public store$ = new ReplaySubject<Store>(1);
   private _registrationUserType: TypeUserEnum = TypeUserEnum.BusinessAdmin;
 
-  public user$ = new ReplaySubject<User>(1);
   public registrationUserType$ = new ReplaySubject<TypeUserEnum>(1);
+  public user$ = new ReplaySubject<User>(1);
+  public shop$ = new ReplaySubject<Store>(1);
   public business$ = new ReplaySubject<Business>(1);
   public typeUser$ = new ReplaySubject<TypeUserEnum>(1);
 
   get user(): User {
     return this.storage.get('user') as User;
+  }
+
+  get shop(): Store {
+    return this.storage.get('store') as Store;
   }
 
   get registrationUserType(): TypeUserEnum {
@@ -43,6 +49,11 @@ export class AuthService extends BaseService<any> {
   set registrationUserType(typeUser: TypeUserEnum) {
     this._registrationUserType = typeUser;
     this.registrationUserType$.next(typeUser);
+  }
+
+  set shop(shop: Store) {
+    this.storage.set('store', shop);
+    this.shop$.next(shop);
   }
 
   set typeUser(typeUser: TypeUserEnum) {
@@ -123,6 +134,7 @@ export class AuthService extends BaseService<any> {
     this.user = data.user;
     this.typeUser = data.type_user;
     this.business = data.business;
+    this.shop = data.store;
   }
 
   isLoggedIn() {

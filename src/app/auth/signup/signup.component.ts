@@ -75,9 +75,11 @@ export class SignupComponent
         this.registrationUserType = TypeUserEnum.Individual;
       } else if (typeUserParam === TypeUserEnum.BusinessAdmin) {
         this.registrationUserType = TypeUserEnum.BusinessAdmin;
-      } else if (typeUserParam === TypeUserEnum.Merchant) {
+      } else if (typeUserParam === 'merchant') {
         this.registrationUserType = TypeUserEnum.Merchant;
       }
+
+      this.router.navigate(['/authentication/signup']);
     });
   }
 
@@ -158,6 +160,7 @@ export class SignupComponent
       password: [null, Validators.required],
       password_confirmation: [null, Validators.required],
       business_name: [null],
+      store_name: [null],
       invitation_id: [null],
     });
 

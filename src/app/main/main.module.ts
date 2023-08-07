@@ -23,6 +23,13 @@ const routes: Routes = [
             (m) => m.SectionIndividualModule
           ),
       },
+      {
+        path: 'merchant',
+        loadChildren: () =>
+          import('../section-merchant/section-merchant.module').then(
+            (m) => m.SectionMerchantModule
+          ),
+      },
     ],
   },
 ];

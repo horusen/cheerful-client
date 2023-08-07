@@ -1,0 +1,66 @@
+<!-- <app-store-registration-address-create></app-store-registration-address-create> -->
+<div class="row"
+     *ngIf="!loading && data.length">
+  <div class="row">
+    <div class="col-12 mb-2 text-end">
+      <button class="btn btn-black"
+              (click)="openModal(content, 'lg')"> <span><i class="fal fa-plus"></i></span> Add </button>
+    </div>
+  </div>
+  <div class="col-4"
+       *ngFor="let hangle of data">
+    <div class="placed-bid">
+      <div class="bid-placer">
+        <div class="avatar box-42">
+          <span class=""
+                *ngIf="hangle.social_media!.name.toLowerCase() == 'facebook'"><i class=" text-white fab fa-facebook"></i></span>
+          <span class=""
+                *ngIf="hangle.social_media!.name.toLowerCase() == 'pinterest'"><i class=" text-white fab fa-pinterest"></i></span>
+          <span class=""
+                *ngIf="hangle.social_media!.name.toLowerCase() == 'twitter'"><i class=" text-white fab fa-twitter"></i></span>
+          <span class=""
+                *ngIf="hangle.social_media!.name.toLowerCase() == 'tiktok'"><i class=" text-white fab fa-tiktok"></i></span>
+          <!-- <span class="" *ngIf="hangle.social_media!.name.toLowerCase() == 'pinterest'"><i class=" text-white fab fa-pinterest"></i></span> -->
+          <!-- <span class=""><i class=" text-white fas fa-map-marker-alt"></i></span>
+          <span class=""><i class=" text-white fas fa-map-marker-alt"></i></span>
+          <span class=""><i class=" text-white fas fa-map-marker-alt"></i></span> -->
+        </div>
+        <div class="bid-info">
+          <div class="bid-title">{{ hangle.social_media!.name }} </div>
+          <div class="bid-date">{{ hangle.link }}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</div>
+
+<div class="row mt-5"
+     *ngIf="!loading && !data.length"
+     (click)="openModal(content, 'lg')">
+  <div class="col-12 text-center">
+    <button class="btn btn-wide btn-square btn-dark">Add your store social media</button>
+  </div>
+</div>
+
+<app-page-loading *ngIf="loading"></app-page-loading>
+
+<ng-template #content
+             let-d="dismiss"
+             let-modal>
+  <div class="modal-header p-4">
+    <h4 class="modal-title text-center w-100">Add your store <span class="gradient-text"> social media handle</span></h4>
+    <button type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body p-5">
+    <app-store-social-media-create></app-store-social-media-create>
+
+  </div>
+
+</ng-template>

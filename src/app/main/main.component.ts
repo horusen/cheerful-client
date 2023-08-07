@@ -15,14 +15,19 @@ export class MainComponent implements OnInit {
     const isRootUrl = this.router.url === '/';
     const isAdminUser =
       this.authService.typeUser === TypeUserEnum.BusinessAdmin;
+
     const isIndividualUser =
       this.authService.typeUser === TypeUserEnum.Individual;
+
+    const isMerchant = this.authService.typeUser === TypeUserEnum.Merchant;
 
     if (isRootUrl) {
       if (isAdminUser) {
         this.router.navigate(['/business']);
       } else if (isIndividualUser) {
         this.router.navigate(['/personal']);
+      } else if (isMerchant) {
+        this.router.navigate(['/merchant']);
       }
     }
   }
