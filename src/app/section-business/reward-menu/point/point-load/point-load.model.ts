@@ -1,4 +1,4 @@
-export interface PointHistory {
+export interface PointLoad {
   id?: number;
   type_entity?: number;
   entity_user_id?: number;

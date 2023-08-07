@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PointHistoryService } from './point-history.service';
+import { PointTransferService } from './point-transfer.service';
 
-describe('PointHistoryService', () => {
-  let service: PointHistoryService;
+describe('PointTransferService', () => {
+  let service: PointTransferService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PointHistoryService);
+    service = TestBed.inject(PointTransferService);
   });
 
   it('should be created', () => {

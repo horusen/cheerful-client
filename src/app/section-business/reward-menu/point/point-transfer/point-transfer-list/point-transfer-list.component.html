@@ -1,0 +1,104 @@
+<table class="content-table"
+       *ngIf="!loading && pointService.data.length">
+  <!-- Header -->
+  <thead>
+    <tr>
+      <!-- Select -->
+      <th scope="col"
+          class="heading-label text-center">
+      </th>
+
+
+
+      <!-- Name -->
+      <th scope="col"
+          class="heading-label text-center">
+        Name
+      </th>
+
+      <!-- Points sent -->
+      <th scope="col"
+          class="heading-label text-center">
+        Amount of points
+      </th>
+
+      <!-- Email address -->
+      <th scope="col"
+          class="heading-label text-center">
+        Sent by
+      </th>
+
+
+
+
+      <!-- Action -->
+      <th scope="col"
+          class="heading-label text-center">
+        Action
+      </th>
+
+    </tr>
+  </thead>
+
+  <!-- Data -->
+  <tbody>
+    <tr *ngFor="let pointTransfer of pointService.data">
+
+
+      <!-- Profile pic -->
+      <td data-label="Item details">
+        <div class="product-info">
+          <div class="avatar-meta ">
+            <a>
+
+              <img style="height: 50px; width: 50px;"
+                   *ngIf="!pointTransfer.receiver?.profile_pic"
+                   src="assets/img/avatar.png"
+                   alt="">
+
+              <img style="height: 50px; width: 50px;"
+                   *ngIf="pointTransfer.receiver?.profile_pic"
+                   [src]="pointTransfer.receiver?.profile_pic?.url"
+                   alt="">
+
+            </a>
+          </div>
+        </div>
+      </td>
+
+      <!-- Name -->
+      <td data-label="type"
+          class="stat-value text-center">
+        {{ pointTransfer.receiver?.name }}
+      </td>
+
+
+      <!-- Points sent -->
+      <td data-label="fee"
+          class="stat-value green text-center">
+        {{ pointTransfer.amount}}
+      </td>
+
+      <!-- Sent By -->
+      <td data-label="price"
+          class="stat-value text-center">
+        <span *ngIf="pointTransfer.sender_entity_type_id == EntityTypeEnum.User">{{ pointTransfer.sender_user?.name }}</span>
+        <span *ngIf="pointTransfer.sender_entity_type_id == EntityTypeEnum.Business">{{ pointTransfer.sender_business?.name }}</span>
+
+      </td>
+
+
+
+
+      <td class="text-center">
+        <button class="btn btn-danger"><i class="far fa-trash me-1"></i> Delete</button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+<app-page-loading *ngIf="loading"></app-page-loading>
+
+<app-missing-data *ngIf="!loading && !pointService.data.length"></app-missing-data>

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseCreateComponent } from 'src/app/shared/base-component';
-import { PointHistory } from '../../point/point-history.model';
-import { PointHistoryService } from '../../point/point-history.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Validators } from '@angular/forms';
 import { TypeUserEnum } from 'src/app/users/type-users/type-user.enum';
 import { TypeEntityEnum } from '../../point/type-entity.enum';
 import { environment } from 'src/environments/environment';
+import { PointLoad } from '../../point/point-load/point-load.model';
+import { PointLoadService } from '../../point/point-load/point-load.service';
 
 @Component({
   selector: 'app-load-points',
@@ -14,14 +14,14 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./load-points.component.scss'],
 })
 export class LoadPointsComponent
-  extends BaseCreateComponent<PointHistory>
+  extends BaseCreateComponent<PointLoad>
   implements OnInit
 {
   constructor(
-    public pointService: PointHistoryService,
+    public pointLoadService: PointLoadService,
     public authService: AuthService
   ) {
-    super(pointService);
+    super(pointLoadService);
   }
 
   ngOnInit() {
@@ -76,7 +76,7 @@ export class LoadPointsComponent
     };
 
     this.loading = true;
-    this.pointService
+    this.pointLoadService
       .store(this.helper.object.omitNullValue(data))
       .subscribe(() => {
         this.loading = false;

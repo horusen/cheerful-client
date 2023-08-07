@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PointHistoryComponent } from './point-history.component';
+import { TransferPointsComponent } from './transfer-points.component';
 
-describe('PointHistoryComponent', () => {
-  let component: PointHistoryComponent;
-  let fixture: ComponentFixture<PointHistoryComponent>;
+describe('TransferPointsComponent', () => {
+  let component: TransferPointsComponent;
+  let fixture: ComponentFixture<TransferPointsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PointHistoryComponent ]
+      declarations: [ TransferPointsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PointHistoryComponent);
+    fixture = TestBed.createComponent(TransferPointsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

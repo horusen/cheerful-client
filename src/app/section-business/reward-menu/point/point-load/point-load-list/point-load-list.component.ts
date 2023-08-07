@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/shared/base-component';
-import { PointHistory } from '../point-history.model';
-import { PointHistoryService } from '../point-history.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { TypeUserEnum } from 'src/app/users/type-users/type-user.enum';
+import { PointLoad } from '../point-load.model';
+import { PointLoadService } from '../point-load.service';
 
 @Component({
-  selector: 'app-point-history',
-  templateUrl: './point-history.component.html',
-  styleUrls: ['./point-history.component.scss'],
+  selector: 'app-point-load-list',
+  templateUrl: './point-load-list.component.html',
+  styleUrls: ['./point-load-list.component.scss'],
 })
-export class PointHistoryComponent
-  extends BaseComponent<PointHistory>
+export class PointLoadListComponent
+  extends BaseComponent<PointLoad>
   implements OnInit
 {
   constructor(
-    public pointService: PointHistoryService,
+    public pointLoadService: PointLoadService,
     public authService: AuthService
   ) {
     super();
@@ -29,11 +29,11 @@ export class PointHistoryComponent
     this.loading = true;
 
     if (this.authService.typeUser == TypeUserEnum.BusinessAdmin) {
-      this.pointService.getByBusiness().subscribe(() => {
+      this.pointLoadService.getByBusiness().subscribe(() => {
         this.loading = false;
       });
     } else {
-      this.pointService.getByUser().subscribe(() => {
+      this.pointLoadService.getByUser().subscribe(() => {
         this.loading = false;
       });
     }

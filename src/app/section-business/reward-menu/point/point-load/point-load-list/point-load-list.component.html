@@ -1,5 +1,5 @@
 <table class="content-table"
-       *ngIf="!loading && pointService.data.length">
+       *ngIf="!loading && pointLoadService.data.length">
   <!-- Header -->
   <thead>
     <tr>
@@ -34,7 +34,7 @@
 
   <!-- Data -->
   <tbody>
-    <tr *ngFor="let history of pointService.data">
+    <tr *ngFor="let history of pointLoadService.data">
 
 
 
@@ -74,4 +74,4 @@
 
 <app-page-loading *ngIf="loading"></app-page-loading>
 
-<app-missing-data *ngIf="!loading && !pointService.data.length"></app-missing-data>
+<app-missing-data *ngIf="!loading && !pointLoadService.data.length"></app-missing-data>

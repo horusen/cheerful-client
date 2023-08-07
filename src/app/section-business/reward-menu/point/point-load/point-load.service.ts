@@ -1,19 +1,19 @@
 import { tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { BaseService } from 'src/app/shared/services';
-import { PointHistory } from './point-history.model';
 import { AuthService } from 'src/app/auth/auth.service';
+import { PointLoad } from './point-load.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PointHistoryService extends BaseService<PointHistory> {
+export class PointLoadService extends BaseService<PointLoad> {
   constructor(public authService: AuthService) {
-    super('points');
+    super('points/load');
   }
 
   override store(elements: object) {
-    return this.factory.post(`${this.endPoint}/load`, elements).pipe(
+    return this.factory.post(`${this.endPoint}`, elements).pipe(
       tap({
         next: (response) => {
           this.lastItemCreated = response.data;

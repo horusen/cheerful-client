@@ -10,7 +10,7 @@ const routes: Routes = [
     component: RewardMenuComponent,
     children: [
       {
-        path: 'points',
+        path: '',
         loadChildren: () =>
           import('./point/point.module').then((m) => m.PointModule),
       },
