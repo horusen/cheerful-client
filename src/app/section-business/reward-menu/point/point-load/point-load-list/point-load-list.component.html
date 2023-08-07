@@ -1,0 +1,77 @@
+<table class="content-table"
+       *ngIf="!loading && pointLoadService.data.length">
+  <!-- Header -->
+  <thead>
+    <tr>
+
+      <!-- Date -->
+      <th scope="col"
+          class="heading-label text-center">
+        <span class="me-2"><i class="far fa-calendar"></i></span> Date
+      </th>
+
+      <!-- Amount of money -->
+      <th scope="col"
+          class="heading-label text-center">
+        <span class="me-2"><i class="far fa-dollar-sign"></i></span> Amount of money
+      </th>
+
+      <!-- Amount of points -->
+      <th scope="col"
+          class="heading-label text-center">
+        <span class="me-2"><i class="far fa-dollar-badge"></i></span> Amount of points
+      </th>
+
+
+      <!-- Action -->
+      <th scope="col"
+          class="heading-label text-center">
+        <span class="me-2"><i class="far fa-plus"></i></span> Action
+      </th>
+
+    </tr>
+  </thead>
+
+  <!-- Data -->
+  <tbody>
+    <tr *ngFor="let history of pointLoadService.data">
+
+
+
+
+      <!-- Date -->
+      <td data-label="price"
+          class="stat-value text-center">
+        {{ history.date | date: 'dd MMM, yyyy' }}
+      </td>
+
+      <!-- Amount -->
+      <td data-label="fee"
+          class="stat-value green text-center">
+        ${{ history.amount! / 0.9 | number: '1.2-2' }}
+
+      </td>
+
+      <td data-label="fee"
+          class="stat-value green text-center">
+        {{ history.amount }}
+
+      </td>
+
+
+      <!-- Action -->
+      <td data-label="earnings"
+          class=" stat-value text-center">
+        <button class="btn btn-danger "> <i class="far fa-trash me-1"></i> Delete</button>
+
+      </td>
+
+
+    </tr>
+  </tbody>
+</table>
+
+
+<app-page-loading *ngIf="loading"></app-page-loading>
+
+<app-missing-data *ngIf="!loading && !pointLoadService.data.length"></app-missing-data>

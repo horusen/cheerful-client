@@ -1,0 +1,70 @@
+<div class="statement-list">
+  <!-- Filters -->
+  <div class="filterable-bar">
+    <form id="creators-filter-form">
+      <div class="filter-options">
+        <!-- Search -->
+        <span class="cryptoki-form">
+          <input type="text"
+                 placeholder="Olamide">
+        </span>
+
+        <!-- Sort -->
+        <select class="select-nice">
+          <option value="july-2021">July 2021</option>
+          <option value="august-2021"
+                  selected>August 2021</option>
+          <option value="september-2021">September 2021</option>
+        </select>
+
+        <!-- Group filter -->
+        <select class="select-nice">
+          <option value="all-items"
+                  selected>All Items</option>
+          <option value="regular-license">Regular license</option>
+          <option value="commercial-license">Commercial license</option>
+          <option value="extended-license">Extended license</option>
+        </select>
+
+
+      </div>
+
+      <!-- CTAs -->
+      <div class="filter-button">
+        <button class="btn btn-normal btn-dark"
+                (click)="openModal(sendInvitation, 'lg')">
+          <span><i class="far fa-plus"></i></span>
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- List of individuals -->
+  <div class="statement">
+    <app-connection-individual-list></app-connection-individual-list>
+  </div>
+
+
+
+
+</div>
+
+
+
+<ng-template #sendInvitation
+             let-d="dismiss"
+             let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-center w-100"><span class="gradient-text">Send Invite </span> to a new connection</h4>
+    <button type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body p-5">
+    <app-send-invitation (created)="closeModal(sendInvitation)"></app-send-invitation>
+
+  </div>
+
+</ng-template>

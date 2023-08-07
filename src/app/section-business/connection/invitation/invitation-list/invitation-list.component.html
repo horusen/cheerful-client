@@ -1,0 +1,89 @@
+<table class="content-table"
+       *ngIf="!loading && data.length">
+  <!-- Header -->
+  <thead>
+    <tr>
+
+      <!-- Status -->
+      <th scope="col"
+          class="heading-label text-center">
+        <span class="me-2"><i class="far fa-info-circle"></i></span>Status
+      </th>
+
+      <!-- Date -->
+      <th scope="col"
+          class="heading-label text-center">
+        <span class="me-2"><i class="far fa-calendar"></i></span> Date
+      </th>
+
+      <!-- Sent by -->
+      <th scope="col"
+          class="heading-label text-center">
+        <span class="me-2"><i class="far fa-user"></i></span> Sent by
+      </th>
+
+      <!-- Action -->
+      <th scope="col"
+          class="heading-label text-center">
+        <span class="me-2"><i class="far fa-plus"></i></span> Action
+      </th>
+
+    </tr>
+  </thead>
+
+  <!-- Data -->
+  <tbody>
+    <tr *ngFor="let invitation of data">
+
+
+      <!-- Status -->
+      <td data-label="type"
+          class="stat-value text-center">
+        <span class="text-secondary fw-bold">{{ invitation.status }}</span>
+      </td>
+
+      <!-- Date -->
+      <td data-label="price"
+          class="stat-value text-center">
+        {{ invitation.date | date: 'dd MMM, yyyy' }}
+      </td>
+
+      <!-- Sent by -->
+      <td data-label="fee"
+          *ngIf="typeInvitation == 'received'"
+          class="stat-value text-center">
+        <span *ngIf="invitation.connection_type_id == ConnectionTypeEnum.BusinessToUser">{{ invitation.sender_business!.name }}</span>
+        <span *ngIf="invitation.connection_type_id == ConnectionTypeEnum.UserToUser">{{ invitation.sender_user!.name }}</span>
+
+      </td>
+
+      <!-- Sent to -->
+      <td data-label="fee"
+          *ngIf="typeInvitation != 'received'"
+          class="stat-value text-center">
+        {{ invitation.receiver!.name }}
+      </td>
+
+      <!-- Action -->
+      <td data-label="earnings"
+          class=" stat-value text-center">
+        <ng-container *ngIf="typeInvitation == 'received'">
+          <button class="btn btn-success me-1">Accept</button>
+          <button class="btn btn-danger">Decline</button>
+        </ng-container>
+
+        <ng-container *ngIf="typeInvitation == 'pending'">
+          <button class="btn btn-danger">Abort</button>
+        </ng-container>
+
+      </td>
+
+
+    </tr>
+  </tbody>
+</table>
+
+
+<app-page-loading *ngIf="loading"></app-page-loading>
+
+<app-missing-data *ngIf="!loading && !data.length"></app-missing-data>

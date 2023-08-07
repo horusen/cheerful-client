@@ -7,6 +7,9 @@ import { BaseService } from '../shared/services';
 import { User } from '../users/users.model';
 import { Business } from '../section-business/business/business.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { TypeUserEnum } from '../users/type-users/type-user.enum';
+import { Router } from '@angular/router';
+import { InvitationService } from '../section-business/connection/invitation/invitation.service';
 
 interface LoginInformation {
   user: User;
@@ -18,11 +21,33 @@ interface LoginInformation {
 })
 export class AuthService extends BaseService<any> {
   // public store$ = new ReplaySubject<Store>(1);
+  private _registrationUserType: TypeUserEnum = TypeUserEnum.BusinessAdmin;
+
   public user$ = new ReplaySubject<User>(1);
+  public registrationUserType$ = new ReplaySubject<TypeUserEnum>(1);
   public business$ = new ReplaySubject<Business>(1);
+  public typeUser$ = new ReplaySubject<TypeUserEnum>(1);
 
   get user(): User {
     return this.storage.get('user') as User;
+  }
+
+  get registrationUserType(): TypeUserEnum {
+    return this._registrationUserType;
+  }
+
+  get typeUser(): TypeUserEnum {
+    return this.storage.get('typeUser') as TypeUserEnum;
+  }
+
+  set registrationUserType(typeUser: TypeUserEnum) {
+    this._registrationUserType = typeUser;
+    this.registrationUserType$.next(typeUser);
+  }
+
+  set typeUser(typeUser: TypeUserEnum) {
+    this.storage.set('typeUser', typeUser);
+    this.typeUser$.next(typeUser);
   }
 
   get business(): Business {
@@ -43,27 +68,11 @@ export class AuthService extends BaseService<any> {
     }
   }
 
-  // get isStoreSetup() {
-  //   // Return false if one field of shop is empty
-  //   let isShopSetup = true;
-  //   Object.keys(this.shop).forEach((key) => {
-  //     if (
-  //       key != 'deleted_at' &&
-  //       key != 'store_logo_image' &&
-  //       // @ts-expect-error
-  //       this.shop[key] == null
-  //     ) {
-  //       isShopSetup = false;
-  //     }
-  //   });
-  //   return isShopSetup;
-  // }
-
-  // updateStore(store: Store) {
-  //   this.storage.set('store', store);
-  // }
-
-  constructor(public storage: Storage) {
+  constructor(
+    public storage: Storage,
+    public router: Router,
+    public invitationService: InvitationService
+  ) {
     super('auth');
   }
 
@@ -72,6 +81,9 @@ export class AuthService extends BaseService<any> {
       tap({
         next: (response: { data: any }) => {
           this.storeLoginInformation(response.data);
+          if (response.data.typeUser == TypeUserEnum.Individual) {
+            this.storage.delete('temp_user_info');
+          }
         },
         error: (error: HttpErrorResponse) => this.errorResponseHandler(error),
       })
@@ -91,14 +103,34 @@ export class AuthService extends BaseService<any> {
     );
   }
 
+  public updatePointBalance(amount: number) {
+    if (this.typeUser == TypeUserEnum.Individual) {
+      this.user = {
+        ...this.user,
+        point_balance: this.user?.point_balance! + amount,
+      };
+    } else if (this.typeUser == TypeUserEnum.BusinessAdmin) {
+      this.business = {
+        ...this.business,
+        point_balance: this.business?.point_balance! + amount,
+      };
+    }
+  }
+
   private storeLoginInformation(data: any) {
     this.storage.clear();
     this.storage.set('accessToken', data.accessToken);
-    this.storage.set('user', data.user);
-    this.storage.set('business', data.business);
+    this.user = data.user;
+    this.typeUser = data.type_user;
+    this.business = data.business;
   }
 
   isLoggedIn() {
     return this.storage.getAccessToken() && this.storage.getUser();
+  }
+
+  public logout() {
+    this.storage.clear();
+    this.router.navigate(['/authentication/login']);
   }
 }
