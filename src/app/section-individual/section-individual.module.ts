@@ -3,17 +3,44 @@ import { CommonModule } from '@angular/common';
 import { SectionIndividualComponent } from './section-individual.component';
 import { SharedModule } from '../shared/shared.module';
 import { Router, RouterModule, Routes } from '@angular/router';
+import { SectionIndividualHeaderComponent } from './section-individual-header/section-individual-header.component';
+import { SectionIndividualDashboardComponent } from './section-individual-dashboard/section-individual-dashboard.component';
+import { DashboardModule } from '../dashboard/dashboard.module';
 
 const routes: Routes = [
   {
     path: '',
     component: SectionIndividualComponent,
+    children: [
+      {
+        path: 'marketplace',
+        loadChildren: () =>
+          import('../marketplace/marketplace.module').then(
+            (m) => m.MarketplaceModule
+          ),
+      },
+
+      {
+        path: '',
+        component: SectionIndividualDashboardComponent,
+        pathMatch: 'full',
+      },
+    ],
   },
 ];
 
 @NgModule({
-  declarations: [SectionIndividualComponent],
-  imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  declarations: [
+    SectionIndividualComponent,
+    SectionIndividualHeaderComponent,
+    SectionIndividualDashboardComponent,
+  ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule.forChild(routes),
+    DashboardModule,
+  ],
+  exports: [RouterModule],
 })
 export class SectionIndividualModule {}

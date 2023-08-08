@@ -1,11 +1,3 @@
-<div class="alert alert-success text-center"
-     *ngIf="authService.business.registration_completed == false"
-     role="alert">
-  Please, kindly complete your business registration
-  <button class="btn  btn-success ms-2">Here</button>
-</div>
-<!-- Navigation -->
-
 <nav class="border-bottom nav-ds sticky-header">
   <div class="navigation-wrapper container flex-space-between align-items-center">
     <div class="nav-left-hand-part">
@@ -193,7 +185,7 @@
            data-target="profile-dropdown">
         <div class="user-meta">
           <div class="user_name">{{ authService.user.name }}</div>
-          <div class="user_score">{{ authService.business.name }}</div>
+          <div class="user_score">{{ 320 }} points</div>
         </div>
         <div class="avatar box-42">
           <img src="assets/img/avatar.png"

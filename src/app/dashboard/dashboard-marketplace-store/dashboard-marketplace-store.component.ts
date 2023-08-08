@@ -4,13 +4,13 @@ import { StoreService } from 'src/app/section-merchant/store/store.service';
 import { BaseComponent } from 'src/app/shared/base-component';
 
 @Component({
-  selector: 'app-dashboard-marketplace-store-list',
-  templateUrl: './marketplace-store-list.component.html',
-  styleUrls: ['./marketplace-store-list.component.scss'],
+  selector: 'app-dashboard-marketplace-store',
+  templateUrl: './dashboard-marketplace-store.component.html',
+  styleUrls: ['./dashboard-marketplace-store.component.scss'],
 })
-export class MarketplaceStoreListComponent extends BaseComponent<Store> {
+export class DashboardMarketplaceStoreComponent extends BaseComponent<Store> {
   constructor(public storeService: StoreService) {
-    super();
+    super(storeService);
   }
 
   ngOnInit(): void {

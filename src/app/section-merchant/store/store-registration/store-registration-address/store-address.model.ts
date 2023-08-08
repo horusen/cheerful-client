@@ -6,7 +6,6 @@ export interface StoreAddress extends BaseModel {
   store_id: number;
   country_id: number;
   state_id: number;
-  city_id: number;
   address: string;
   google_maps_link: string;
   country?: Country;
