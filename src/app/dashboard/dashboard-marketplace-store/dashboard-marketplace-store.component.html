@@ -1,0 +1,72 @@
+<div class="purchases-list">
+
+  <div style="">
+    <h5> <span class="gradient-text"><span><i class="far fa-store me-1"></i></span> New store</span> in the marketplace</h5>
+  </div>
+
+  <table class="content-table">
+    <!-- Table header -->
+    <thead>
+      <tr>
+        <th scope="col"
+            class="heading-label">Store Name</th>
+        <th scope="col"
+            class="heading-label">Category</th>
+        <th scope="col"
+            class="heading-label">Location</th>
+        <th scope="col"
+            class="heading-label">Min. card price</th>
+        <th scope="col"
+            class="heading-label"></th>
+      </tr>
+    </thead>
+    <!-- Table body -->
+    <tbody>
+      <tr *ngFor="let store of storeService.data.slice(0, 2)">
+        <!-- Store name -->
+        <td data-label="Item details">
+          <div class="product-info">
+            <div class="product-thumb"><a href="05-product.html">
+                <img [src]="store.logo?.url"
+                     alt=""></a>
+            </div>
+            <div class="product-details">
+              <div class="product-name"><a href="05-product.html">{{ store.name }}</a></div>
+              <div class="product-meta">
+                <div class="item-category ui-templates">{{ store.category_store?.name }}</div>
+                <!-- <div class="product-seller">
+                  @HR<span class="verified"><svg class="crumina-icon">
+                      <use xlink:href="#check-icon"></use>
+                    </svg></span>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </td>
+
+        <!-- Store category -->
+        <td data-label="Date">Jun 5, 2021</td>
+
+        <!-- Store location -->
+        <td data-label="License">
+          Accra
+        </td>
+
+        <!-- Min. card price -->
+        <td data-label="Price"
+            class="price">GHC {{ store.card_min_price }}</td>
+
+        <td>
+          <div class="filter-button">
+            <button class="btn btn-normal btn-dark">Visit</button>
+          </div>
+        </td>
+
+      </tr>
+
+
+    </tbody>
+  </table>
+
+  <p class="gradient-text text-end">See all</p>
+</div>

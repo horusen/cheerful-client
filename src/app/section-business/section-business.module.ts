@@ -5,6 +5,7 @@ import { SectionBusinessHeaderComponent } from './section-business-header/sectio
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { SectionBusinessComponent } from './section-business.component';
+import { DashboardModule } from '../dashboard/dashboard.module';
 
 const routes: Routes = [
   {
@@ -33,6 +34,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'marketplace',
+        loadChildren: () =>
+          import('../marketplace/marketplace.module').then(
+            (m) => m.MarketplaceModule
+          ),
+      },
+      {
         path: '',
         component: BusinessDashboardComponent,
         pathMatch: 'full',
@@ -47,6 +55,11 @@ const routes: Routes = [
     SectionBusinessHeaderComponent,
     SectionBusinessComponent,
   ],
-  imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule.forChild(routes),
+    DashboardModule,
+  ],
 })
 export class SectionBusinessModule {}

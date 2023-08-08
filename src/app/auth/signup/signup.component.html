@@ -3,6 +3,7 @@
     <div class="page-title text-center">
       <h2>
         <span *ngIf="registrationUserType== TypeUserEnum.BusinessAdmin"><span class="gradient-text">Register </span> your business</span>
+        <span *ngIf="registrationUserType== TypeUserEnum.Merchant"><span class="gradient-text">Register </span> your store</span>
         <span *ngIf="registrationUserType== TypeUserEnum.Individual"><span class="gradient-text">Complete </span> your registration</span>
 
       </h2>
@@ -28,6 +29,22 @@
                name="business_name"
                formControlName="business_name"
                id="business_name"
+               data-val="\S"
+               data-val-msg="* This is a required field."
+               data-val-msg-id="textMessage"
+               required="">
+        <span class="input_error-message"
+              id="textMessage"></span>
+      </div>
+
+      <!-- Store name -->
+      <div class="form-field"
+           *ngIf="registrationUserType== TypeUserEnum.Merchant">
+        <label for="name">Your store name</label>
+        <input type="text"
+               name="store_name"
+               formControlName="store_name"
+               id="store_name"
                data-val="\S"
                data-val-msg="* This is a required field."
                data-val-msg-id="textMessage"

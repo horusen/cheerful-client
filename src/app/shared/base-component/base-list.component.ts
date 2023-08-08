@@ -39,13 +39,13 @@ export abstract class BaseListComponent<T>
     // });
   }
 
-  async supprimer(item: T & { id?: number }) {
-    this.helper.notification.confirm(async () => {
-      this.loading = true;
+  // async supprimer(item: T & { id?: number }) {
+  //   this.helper.notification.confirm('Are you sure?', async () => {
+  //     this.loading = true;
 
-      await this.service.delete(item.id!);
-      this.loading = false;
-      this.helper.notification.alertSuccess();
-    });
-  }
+  //     await this.service.delete(item.id!);
+  //     this.loading = false;
+  //     this.helper.notification.alertSuccess();
+  //   });
+  // }
 }
