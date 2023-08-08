@@ -29,16 +29,16 @@ export class HelperNotification {
     });
   }
 
-  confirm(callback: Function) {
+  confirm(title: string, message: string, callback: Function) {
     const options = {
-      title: 'Êtes vous sûre?',
-      // text: "You won't be able to revert this!",
+      title: title || 'Êtes vous sûre?',
+      text: message || "You won't be able to revert this!",
       type: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Oui',
-      cancelButtonText: 'Non, quitter',
+      confirmButtonColor: '#c23fff',
+      cancelButtonColor: '#ef1f7e',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No, exit',
     };
 
     Swal.fire({ ...options }).then((result) => {

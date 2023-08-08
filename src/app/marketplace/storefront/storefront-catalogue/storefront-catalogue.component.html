@@ -1,0 +1,35 @@
+<div class="row catalogue"
+     *ngIf="!loading && storeProductService.data.length">
+
+  <div class="featured-item col-3 mb-3"
+       *ngFor="let product of storeProductService.data">
+    <div class="featured-item-wrapper">
+      <div class="featured-item-content ">
+
+        <!-- Price -->
+        <div class="fav-counter"><svg class="crumina-icon">
+            <use xlink:href="#dollar-icon"></use>
+          </svg><span class="count">{{ product.price }}</span>
+        </div>
+        <!-- Imae -->
+        <div class="featured-item-image">
+          <!-- TODO: Set a default image in case the product doesnt have image -->
+          <a routerLink="./"
+             *ngIf="product.image"><img [src]="product.image.url"
+                 alt=""></a>
+        </div>
+
+        <!-- Name -->
+        <div class="featured-item-info">
+
+          <div class="title"> <a routerLink="./">{{ product.name }}</a></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<app-page-loading *ngIf="loading"></app-page-loading>

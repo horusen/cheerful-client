@@ -16,11 +16,11 @@ export interface Store extends BaseModel {
   email?: string;
   logo_id?: string;
   cover_id: string;
-  logo_image?: {
+  logo?: {
     id: string;
     url: string;
   };
-  cover_image?: {
+  cover?: {
     id: string;
     url: string;
   };

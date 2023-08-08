@@ -51,23 +51,17 @@ export class StoreRegistrationBasicInformationCreateComponent extends BaseCreate
     });
   }
 
-  displayImage(
-    image: File,
-    element: 'store_logo_image' | 'store_cover_image'
-  ): void {
+  displayImage(image: File, element: 'logo' | 'cover'): void {
     let reader = new FileReader();
     reader.readAsDataURL(image);
     reader.onload = () => {
-      element === 'store_logo_image'
+      element === 'logo'
         ? (this.logoImage = reader.result as string)
         : (this.coverImage = reader.result as string);
     };
   }
 
-  override onFileChanged(
-    event: any,
-    name: 'store_logo_image' | 'store_cover_image' = 'store_logo_image'
-  ) {
+  override onFileChanged(event: any, name: 'logo' | 'cover' = 'logo') {
     let fichier: File = event.target.files[0];
     // if (fichier.type !== 'application/pdf') {
     //   return this.helper.alertDanger('Format Invalide');

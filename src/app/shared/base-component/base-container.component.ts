@@ -71,14 +71,14 @@ export class BaseContainerComponent<T>
     // });
   }
 
-  async supprimer(item: T & { id?: number }) {
-    this.helper.notification.confirm(async () => {
-      this.loading = true;
+  // async supprimer(item: T & { id?: number }) {
+  //   this.helper.notification.confirm('Are you sure?', async () => {
+  //     this.loading = true;
 
-      await this.service.delete(item.id!);
+  //     await this.service.delete(item.id!);
 
-      this.loading = false;
-      this.helper.notification.alertSuccess();
-    });
-  }
+  //     this.loading = false;
+  //     this.helper.notification.alertSuccess();
+  //   });
+  // }
 }

@@ -9,10 +9,10 @@
             <a href="08-profile-page.html">
               <img src="assets/img/avatar.png"
                    alt="avatar"
-                   *ngIf="!store.logo_id">
-              <img [src]="store.logo_id"
+                   *ngIf="!store.logo">
+              <img [src]="store.logo.url"
                    alt="avatar"
-                   *ngIf="store.logo_image">
+                   *ngIf="store.logo">
               <span class="verified"><svg class="crumina-icon">
                   <use xlink:href="#check-icon"></use>
                 </svg></span></a>
