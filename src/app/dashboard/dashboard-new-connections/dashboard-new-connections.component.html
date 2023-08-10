@@ -1,0 +1,136 @@
+<div class="best-sellers-section">
+
+  <div class="best-sellers">
+    <div>
+      <h5><span class="gradient-text"><span><i class="far fa-users me-1"></i></span>Last</span> connection</h5>
+    </div>
+    <table class="content-table"
+           *ngIf="!loading && connectionService.data.length">
+      <!-- Header -->
+      <thead>
+        <tr>
+          <!-- Select -->
+          <th scope="col"
+              class="heading-label text-center">
+          </th>
+
+          <!-- Profile pic -->
+          <th scope="col"
+              class="heading-label text-center">
+          </th>
+
+          <!-- Name -->
+          <th scope="col"
+              class="heading-label text-center">
+            Name
+          </th>
+
+          <!-- Email address -->
+          <th scope="col"
+              class="heading-label text-center">
+            Email address
+          </th>
+
+          <!-- Points sent -->
+          <th scope="col"
+              class="heading-label text-center">
+            Points sent
+          </th>
+
+          <!-- Group -->
+          <th scope="col"
+              class="heading-label text-center">
+            Group
+          </th>
+
+          <!-- Action -->
+          <th scope="col"
+              class="heading-label text-center">
+            Action
+          </th>
+
+        </tr>
+      </thead>
+
+      <!-- Data -->
+      <tbody>
+        <tr *ngFor="let connection of connectionService.data.slice(0, 3)">
+          <!-- Select -->
+          <td>
+            <div class="action-buttons">
+
+              <form class="cryptoki-form checkbox">
+                <input type="checkbox"
+                       (change)="toggleSelection(connection)"
+                       name="notif-select"
+                       [checked]="isSelected(connection)"
+                       [id]="connection.id"
+                       class="cryptoki-checkbox">
+                <label for="6"></label>
+              </form>
+            </div>
+          </td>
+
+          <!-- Profile pic -->
+          <td data-label="Item details">
+            <div class="product-info">
+              <div class="avatar-meta ">
+                <a>
+
+                  <img style="height: 50px; width: 50px;"
+                       *ngIf="!connection.user1?.profile_pic"
+                       src="assets/img/avatar.png"
+                       alt="">
+
+                  <img style="height: 50px; width: 50px;"
+                       *ngIf="connection.user1?.profile_pic"
+                       [src]="connection.user1?.profile_pic?.url"
+                       alt="">
+
+                </a>
+              </div>
+            </div>
+          </td>
+
+          <!-- Name -->
+          <td data-label="type"
+              (click)="toggleSelection(connection)"
+              class="stat-value text-center">
+            {{ connection.user1?.name }}
+          </td>
+
+          <!-- Email address -->
+          <td data-label="price"
+              class="stat-value text-center">
+            {{ connection.user1?.email }}
+          </td>
+
+          <!-- Points sent -->
+          <td data-label="fee"
+              class="stat-value green text-center">
+            0
+          </td>
+
+          <!-- Group -->
+          <td data-label="earnings"
+              class=" stat-value text-center">
+            None
+          </td>
+          <td class="text-center">
+            <button class="download"
+                    data-bs-target="#exampleModalToggle"
+                    data-bs-toggle="modal"><svg class="crumina-icon">
+                <use xlink:href="#send-icon"></use>
+              </svg></button>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+
+    <app-page-loading *ngIf="loading"></app-page-loading>
+
+    <app-missing-data *ngIf="!loading && !connectionService.data.length"></app-missing-data>
+  </div>
+</div>

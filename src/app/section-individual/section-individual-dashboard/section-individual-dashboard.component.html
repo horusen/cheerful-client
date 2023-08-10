@@ -4,46 +4,72 @@
     <div class="page-title-section">
       <h2> <span class="gradient-text">Dashboard</span></h2>
     </div>
-    <h6>Hello, {{ authService.user.name }}</h6>
+
 
 
 
     <div class="dashboard-wrapper">
-      <!--   user stats -->
-      <div class="user-stats-section">
-        <!-- Point amount -->
-        <div class="stat-item blue-gradient-diagonal">
-          <div class="stat-icon"><svg class="crumina-icon">
-              <use xlink:href="#face-id-icon"></use>
-            </svg></div>
-          <div class="stat-info">
-            <div class="stat-number">500</div>
-            <div class="stat-description">Point Wallet</div>
+      <div class="row">
+        <div class="col-4">
+          <div class="card rounded rounded-2 shadow-sm">
+            <div class="custom-card-body">
+
+              <div class="d-flex flex-column align-items-center">
+                <div class="user-image">
+                  <img src="assets/img/avatar.png"
+                       alt="avatar">
+                </div>
+                <h4>{{ authService.user.name }}</h4>
+                <p>@{{ authService.user.name.replace(' ', '') }}</p>
+
+
+              </div>
+            </div>
           </div>
         </div>
+        <div class="col-8 d-flex flex-column justify-content-end">
+          <h5>Hello, {{ authService.user.name }}</h5>
+          <div class="user-stats-section mt-5">
+            <!-- Point amount -->
+            <div class="stat-item  blue-gradient-diagonal p-3">
+              <div class="stat-icon"><svg class="crumina-icon">
+                  <use xlink:href="#face-id-icon"></use>
+                </svg></div>
+              <div class="stat-info">
+                <div class="stat-number">{{ authService.user.point_balance }}</div>
+                <div class="stat-description">Point Wallet</div>
+              </div>
+            </div>
 
-        <!-- Point send this month -->
-        <div class="stat-item fuchsia-gradient-diagonal">
-          <div class="stat-icon"><svg class="crumina-icon">
-              <use xlink:href="#heart-icon"></use>
-            </svg></div>
-          <div class="stat-info">
-            <div class="stat-number">107</div>
-            <div class="stat-description">Points sent this month</div>
-          </div>
-        </div>
+            <!-- Point send this month -->
+            <div class="stat-item fuchsia-gradient-diagonal p-3">
+              <div class="stat-icon"><svg class="crumina-icon">
+                  <use xlink:href="#heart-icon"></use>
+                </svg></div>
+              <div class="stat-info">
+                <div class="stat-number">107</div>
+                <div class="stat-description">Points sent this month</div>
+              </div>
+            </div>
 
-        <!-- Coverage -->
-        <div class="stat-item yellow-gradient-diagonal">
-          <div class="stat-icon"><svg class="crumina-icon">
-              <use xlink:href="#dollar-icon"></use>
-            </svg></div>
-          <div class="stat-info">
-            <div class="stat-number">70%</div>
-            <div class="stat-description">% of connection rewarded</div>
+            <!-- Coverage -->
+            <!-- <div class="stat-item yellow-gradient-diagonal p-3">
+              <div class="stat-icon"><svg class="crumina-icon">
+                  <use xlink:href="#dollar-icon"></use>
+                </svg></div>
+              <div class="stat-info">
+                <div class="stat-number">70%</div>
+                <div class="stat-description">% of connection rewarded</div>
+              </div>
+            </div> -->
           </div>
         </div>
       </div>
+
+
+
+      <!--   user stats -->
+
 
       <div class="upload-row">
         <div class="upload-column">

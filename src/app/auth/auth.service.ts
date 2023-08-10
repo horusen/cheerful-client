@@ -114,16 +114,20 @@ export class AuthService extends BaseService<any> {
     );
   }
 
-  public updatePointBalance(amount: number) {
+  public updatePointBalance(amount: number, increment: boolean = true) {
     if (this.typeUser == TypeUserEnum.Individual) {
       this.user = {
         ...this.user,
-        point_balance: this.user?.point_balance! + amount,
+        point_balance: increment
+          ? this.user?.point_balance! + amount
+          : this.user?.point_balance! - amount,
       };
     } else if (this.typeUser == TypeUserEnum.BusinessAdmin) {
       this.business = {
         ...this.business,
-        point_balance: this.business?.point_balance! + amount,
+        point_balance: increment
+          ? this.business?.point_balance! + amount
+          : this.business?.point_balance! - amount,
       };
     }
   }
