@@ -40,9 +40,11 @@ export class StorefrontGiftcardComponent extends BaseSingleComponent<Store> {
   addToCart() {
     this.helper.notification.confirm(
       'Are you sure?',
-      `Are you sure you want to exchange ${(this.selectedAmount / 0.9).toFixed(
-        2
-      )} points for this a GHC ${this.selectedAmount} ${
+      `Are you sure you want to exchange ${(
+        this.selectedAmount /
+        0.9 /
+        12
+      ).toFixed(2)} points for this a GHC ${this.selectedAmount} ${
         this.single?.name
       } gift card`,
       () => {
