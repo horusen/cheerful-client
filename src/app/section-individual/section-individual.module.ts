@@ -19,6 +19,13 @@ const routes: Routes = [
             (m) => m.MarketplaceModule
           ),
       },
+      {
+        path: 'connections',
+        loadChildren: () =>
+          import('../section-business/connection/connection.module').then(
+            (m) => m.ConnectionModule
+          ),
+      },
 
       {
         path: '',

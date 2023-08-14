@@ -14,10 +14,10 @@
             <a href="08-profile-page.html">
               <img src="assets/img/avatar.png"
                    alt="avatar"
-                   *ngIf="!authService.business.business_logo">
-              <img [src]="authService.business.business_logo.url"
+                   *ngIf="!authService.business?.business_logo">
+              <img [src]="authService.business.business_logo?.url"
                    alt="avatar"
-                   *ngIf="authService.business.business_logo">
+                   *ngIf="authService.business?.business_logo">
               <span class="verified"><svg class="crumina-icon">
                   <use xlink:href="#check-icon"></use>
                 </svg></span></a>
@@ -26,7 +26,7 @@
           <!-- Default logo -->
           <div class="title"><a href="08-profile-page.html">{{ authService.user.name }}</a></div>
           <div class="item-meta"
-               *ngIf="authService.business.name"><span class="gradient-text">@{{ authService.business.name }}</span></div>
+               *ngIf="authService.business?.name"><span class="gradient-text">@{{ authService.business.name }}</span></div>
         </div>
       </div>
 
