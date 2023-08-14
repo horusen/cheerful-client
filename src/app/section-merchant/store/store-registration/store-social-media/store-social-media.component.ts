@@ -23,7 +23,6 @@ export class StoreSocialMediaComponent extends BaseContainerComponent<StoreSocia
     this.subscriptions['data'] = this.storeSocialMediaService.data$.subscribe(
       (data) => {
         this.data = data;
-        console.log(this.data);
       }
     );
     this.getByStoreId();

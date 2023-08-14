@@ -28,6 +28,8 @@ export class MainComponent implements OnInit {
         this.router.navigate(['/personal']);
       } else if (isMerchant) {
         this.router.navigate(['/merchant']);
+      } else {
+        this.router.navigate(['/authentication/signup']);
       }
     }
   }

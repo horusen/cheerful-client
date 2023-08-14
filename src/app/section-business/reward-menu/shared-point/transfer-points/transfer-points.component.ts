@@ -34,8 +34,6 @@ export class TransferPointsComponent
   }
 
   updateReceivers(connections: Connection[]) {
-    console.log(connections);
-
     const isSenderBusiness =
       this.authService.typeUser === TypeUserEnum.BusinessAdmin;
     const isSenderUser = this.authService.typeUser === TypeUserEnum.Individual;

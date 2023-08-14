@@ -72,8 +72,6 @@ export class StoreRegistrationBasicInformationCreateComponent extends BaseCreate
   }
 
   ngOnInit(): void {
-    console.log(this.authService.shop.registration_completed);
-
     this.typeStoreService.get().subscribe();
     this.categoryStoreService.get().subscribe();
 
@@ -94,8 +92,7 @@ export class StoreRegistrationBasicInformationCreateComponent extends BaseCreate
   override create() {
     if (this.form.invalid) {
       this.helper.notification.alertDanger('Invalid form');
-      console.log(this.form.value);
-
+      this.logInvalidFields(this.form);
       return;
     }
 

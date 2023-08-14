@@ -82,6 +82,12 @@ export class LoadPointsComponent
         this.loading = false;
         this.initForm();
         this.helper.notification.alertSuccess('Information added successfully');
+        // redirect to dashboard based on the user type
+        if (this.authService.typeUser == TypeUserEnum.BusinessAdmin) {
+          this.router.navigate(['/business']);
+        } else if (this.authService.typeUser == TypeUserEnum.Individual) {
+          this.router.navigate(['/individual']);
+        }
         this.created.emit();
       });
   }
