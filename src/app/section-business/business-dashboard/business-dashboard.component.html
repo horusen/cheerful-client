@@ -13,7 +13,7 @@
       <div class="user-stats-section">
         <a [routerLink]="['/business/rewards/points']"
            class="stat-item  dashboard-widget-pb">
-          <div class="stat-number ">{{ authService.business.point_balance }}</div>
+          <div class="stat-number ">{{ authService.business.point_balance | number }}</div>
           <div class="stat-description">Point balance</div>
         </a>
         <a routerLink="./"
@@ -28,7 +28,7 @@
         </a>
         <a routerLink="./"
            class="stat-item dashboard-widget-aomstm">
-          <div class="stat-number text-primary">₵12,422.00</div>
+          <div class="stat-number text-primary">₵{{ (authService.business.point_balance || 0) * 0.9 * 12 }}</div>
           <div class="stat-description">Amount of money spent this month</div>
         </a>
       </div>

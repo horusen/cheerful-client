@@ -14,6 +14,10 @@ import { ConnectionTypeEnum } from '../../connection-type/connection-type.enum';
 export class ConnectionIndividualListComponent extends BaseListComponent<Connection> {
   selectedConnections: Connection[] = [];
 
+  get TypeUserEnum() {
+    return TypeUserEnum;
+  }
+
   constructor(
     public connectionService: ConnectionService,
     public authService: AuthService
