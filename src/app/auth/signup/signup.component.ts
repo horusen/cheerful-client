@@ -140,9 +140,9 @@ export class SignupComponent
    */
   private checkUserInfo(): void {
     this.userInfo = this.storage.get('temp_user_info');
-    // if (!this.userInfo) {
-    //   this.router.navigate(['/authentication/login']);
-    // }
+    if (!this.userInfo) {
+      this.router.navigate(['/authentication/login']);
+    }
   }
 
   /**
