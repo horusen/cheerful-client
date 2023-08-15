@@ -16,7 +16,7 @@
 
   <div class="form-group">
 
-    <!-- Name -->
+    <!-- Amount -->
     <div class="form-field">
       <label for="name">Amount of point <i class="far fa-dollar-badge ms-2"></i></label>
       <input type="number"
@@ -31,7 +31,7 @@
             id="textMessage"></span>
     </div>
 
-    <!-- Name -->
+    <!-- Search -->
     <div class="form-field">
       <label for="name">Search connection <i class="far fa-search ms-2"></i></label>
       <input type="text"
@@ -43,6 +43,38 @@
     </div>
 
   </div>
+
+  <p class="w-100 overflow-auto mb-0">
+    <button type="button"
+            class="btn btn-outline-primary"
+            (click)="collapse.toggle()"
+            [attr.aria-expanded]="!isMessageCollapsed"
+            aria-controls="collapseExample">
+      Add a message
+    </button>
+  </p>
+  <div #collapse="ngbCollapse"
+       [(ngbCollapse)]="isMessageCollapsed">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-field comment-area">
+          <!-- <label for="message">Your message (optional)</label> -->
+          <textarea id="message"
+                    name="message"
+                    class="comment-form message"
+                    cols="30"
+                    rows="5"
+                    formControlName="message"
+                    data-val="\S"
+                    data-val-msg="* Please, type a message."
+                    data-val-msg-id="textareaMessage"></textarea>
+          <span class="input_error-message"
+                id="textareaMessage"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div class="w-100">
     <app-transfer-point-connection-list [searchName$]="searchName$"

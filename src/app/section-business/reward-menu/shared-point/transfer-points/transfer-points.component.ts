@@ -21,6 +21,7 @@ export class TransferPointsComponent
 {
   searchName$ = new Subject<string>();
   resetData$ = new Subject<true>();
+  public isMessageCollapsed = true;
   constructor(
     public pointTransferService: PointTransferService,
     public connectionService: ConnectionService,
@@ -77,6 +78,7 @@ export class TransferPointsComponent
       amount: [null, { validators: [Validators.required] }],
       sender_user_id: [entityUserId],
       sender_business_id: [entityBusinessId],
+      message: [null],
       receiver_ids: [[], Validators.required],
     });
 
