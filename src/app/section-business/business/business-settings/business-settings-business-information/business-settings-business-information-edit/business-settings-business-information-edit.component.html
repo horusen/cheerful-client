@@ -59,7 +59,7 @@
         <option value="">Select an Option</option>
         <option [value]="type.id"
                 [selected]="formValue('type_business_id') == type.id"
-                *ngFor="let type of businessTypes">{{ type.name }}</option>
+                *ngFor="let type of businessTypes">{{ type?.name }}</option>
       </select>
       <span class="input_error-message"
             id="selectMessage"></span>
@@ -79,7 +79,7 @@
         <option value="">Select an Option</option>
         <option [value]="industry.id"
                 [selected]="formValue('industry_id') == industry.id"
-                *ngFor="let industry of industries">{{ industry.name }}</option>
+                *ngFor="let industry of industries">{{ industry?.name }}</option>
       </select>
       <span class="input_error-message"
             id="selectMessage"></span>
@@ -135,7 +135,7 @@
         <option value="">Select an Option</option>
         <option [value]="country.id"
                 [selected]="formValue('country_id') == country.id"
-                *ngFor="let country of countries">{{ country.name }}</option>
+                *ngFor="let country of countries">{{ country?.name }}</option>
       </select>
       <span class="input_error-message"
             id="selectMessage"></span>
@@ -155,7 +155,7 @@
         <option value="">Select an Option</option>
         <option [value]="currency.id"
                 [selected]="formValue('currency_id') == currency.id"
-                *ngFor="let currency of currencies">{{ currency.name }}</option>
+                *ngFor="let currency of currencies">{{ currency?.name }}</option>
       </select>
       <span class="input_error-message"
             id="selectMessage"></span>

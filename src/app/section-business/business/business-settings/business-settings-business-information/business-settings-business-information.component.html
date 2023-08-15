@@ -17,20 +17,20 @@
     <!-- Name -->
     <div class="col-4">
       <div class="gradient-text title"> Business Name </div>
-      <div class="content"> {{ authService.business.name }} </div>
+      <div class="content"> {{ authService.business?.name }} </div>
     </div>
 
     <!-- Type -->
     <div class="col-4">
       <div class="gradient-text title"> Type business</div>
-      <div class="content"> {{ authService.business.type_business?.name }} </div>
+      <div class="content"> {{ authService.business.type_business??.name }} </div>
     </div>
 
 
     <!-- Industry -->
     <div class="col-4">
       <div class="gradient-text title"> Industry </div>
-      <div class="content"> {{ authService.business.industry?.name }} </div>
+      <div class="content"> {{ authService.business.industry??.name }} </div>
     </div>
 
   </div>
@@ -45,14 +45,14 @@
     <!-- Country -->
     <div class="col-4">
       <div class="gradient-text title">Country </div>
-      <div class="content"> {{ authService.business.country?.name }} </div>
+      <div class="content"> {{ authService.business.country??.name }} </div>
     </div>
 
 
     <!-- Currency -->
     <div class="col-4">
       <div class="gradient-text title">Currency </div>
-      <div class="content"> {{ authService.business.currency?.name }} ({{ authService.business.currency?.symbol }})</div>
+      <div class="content"> {{ authService.business.currency??.name }} ({{ authService.business.currency?.symbol }})</div>
     </div>
 
   </div>

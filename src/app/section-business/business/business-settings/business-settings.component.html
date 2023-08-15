@@ -24,9 +24,9 @@
           </div>
 
           <!-- Default logo -->
-          <div class="title"><a href="08-profile-page.html">{{ authService.user.name }}</a></div>
+          <div class="title"><a href="08-profile-page.html">{{ authService.user?.name }}</a></div>
           <div class="item-meta"
-               *ngIf="authService.business.name"><span class="gradient-text">@{{ authService.business.name }}</span></div>
+               *ngIf="authService.business?.name"><span class="gradient-text">@{{ authService.business?.name }}</span></div>
         </div>
       </div>
       <!-- Menu Header -->

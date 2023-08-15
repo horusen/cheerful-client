@@ -42,7 +42,7 @@ export class BusinessSettingsBusinessInformationEditComponent extends BaseCreate
 
   initForm() {
     this.form = this.fb.group({
-      name: [this.business.name, [Validators.required]],
+      name: [this.business?.name, [Validators.required]],
       email_address: [this.business.email_address, [Validators.required]],
       type_business_id: [
         this.business.type_business?.id,
