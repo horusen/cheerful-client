@@ -4,7 +4,7 @@
     <div class="page-title-section">
       <h2> <span class="gradient-text">Dashboard</span></h2>
     </div>
-    <h6>Hello, {{ authService.user.name }}</h6>
+    <h6>Hello, {{ authService.user ? authService.user.name : null }}</h6>
 
 
 
