@@ -1,27 +1,86 @@
-# cheerfulClient
+<h1 align="center">Cheerful</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+<p align="center">
+  <strong>Recognition and Rewards Platform</strong>
+</p>
 
-## Development server
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT">
+  </a>
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<p align="center">
+  Cheerful is a web platform enabling easy recognition and rewards for outstanding contributions through a point-system which can be exchanged for goods or services from local merchants.
+</p>
 
-## Code scaffolding
+## :rocket: Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Frontend**: Angular 2, SCSS, Bootstrap 5, Fontawesome
+- **Backend**: NestJS
+- **Database**: MySQL, TypeORM - <a href="https://dbdiagram.io/d/64bfbd7602bd1c4a5ea98a93">_See the database modeling here_</a>
+- **Email**: Nodemailer
+- **SMS**: Twilio
+- **Caching**: Redis
+- **Cloud Storage**: Amazon S3
+- **Deployment**: Heroku
 
-## Build
+## :sparkles: Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Point Management**: Load, send, and track points.
+- **Digital Gift Cards**: Exchange points for digital gift cards.
+- **Merchant Integration**: Local merchants offer gift cards.
+- **Secure Authentication**: User data protected with JWT authentication.
+- **Real-time Updates**: Stay updated with real-time point changes using Redis.
+- **Admin Interface**: Manage business admin and merchant activities.
+- **Email Invitations**: Invite individuals via email to register.
+- **CSV Bulk Import**: Add connections in bulk via CSV.
+- **Product Catalog**: Merchants can upload and manage their products.
+- **Gift Card Generation**: Secure and unique gift card codes.
+- **Redemption Tracking**: Merchants validate gift card redemptions.
 
-## Running unit tests
+## :zap: Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone this repository.
+2. Clone also the backend repo called **cheerful-server** and follow the instructions
+3. Install dependencies with `npm install`.
+5. Run backend: `ng serve`.
 
-## Running end-to-end tests
+## :bulb: Usage
+_<a href="https://drive.google.com/file/d/1JX0rWeyOa7qeihalBay5sjX0dEsou3y_/view">:movie_camera: See how it works</a>_
+### Business Admin
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Register as a business admin from the landing page.
+2. Complete registration and provide business information.
+3. Invite individuals via email or username.
+4. Load points and transfer them to individuals.
+5. Access the dashboard and manage redemptions.
 
-## Further help
+### Individuals
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Register using an invitation via email.
+2. Load points securely using Stripe or Paystack.
+3. Send and receive points from connections.
+4. Explore the marketplace and exchange points for gift cards.
+
+### Merchant
+
+1. Register as a merchant from the landing page.
+2. Complete registration and set up your store.
+3. Upload your product catalog to the platform.
+4. Validate and track gift card redemptions.
+
+## :octocat: Contributing
+
+Contributions are welcome! Open issues and pull requests.
+
+## :scroll: License
+
+This project is licensed under the MIT License.
+
+## :lock: Security
+
+- Authentication: JWT ensures secure user authentication.
+- Authorization: NEST JS guards handle access control.
+- Gift Card Codes: SHA256 algorithm and secret key ensure code uniqueness.
+- Security Scans: Regular AWS CodeWhisperer scans ensure code integrity.
