@@ -3316,8 +3316,6 @@ nav {
   right: 0;
   width: 100%;
   height: auto;
-  background: url(../img/content/backgrounds/call-to-action-bg-2.png) no-repeat
-    0 0;
   background-size: cover;
   border-radius: 25px;
 }
@@ -5755,9 +5753,6 @@ body.dark-mode #filter-form input[type="submit"] {
   right: 0;
   width: 100%;
   height: auto;
-  background: url(../img/content/backgrounds/call-to-action-bg.png) no-repeat 0
-    0;
-  background-size: cover;
   border-radius: 25px;
 }
 
