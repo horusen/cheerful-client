@@ -1,0 +1,47 @@
+<div class="mt-2 d-flex justify-content-center align-items-center">
+  <div class="border shadow-sm text-center p-5">
+    <h2 class="page-title">
+      Email <span class="gradient-text">Verification</span>
+    </h2>
+    <p>We've just sent a one-time verification code to the email address: <br /> <strong>babacarkane97@gmail.com</strong></p>
+    <p>To complete your registration, please enter the 6-digit code below:</p>
+    <div class="form-group mb-3">
+      <!-- Name -->
+      <form class="cryptoki-form validation"
+            id="contact-form"
+            [formGroup]="form"
+            *ngIf="form"
+            (submit)="verify()"
+            novalidate="">
+        <div class="form-field">
+          <input type="text"
+                 name="name"
+                 class="mb-0"
+                 formControlName="code"
+                 id="name"
+                 data-val="\S"
+                 data-val-msg="* This is a required field."
+                 data-val-msg-id="textMessage"
+                 required="">
+          <span class="input_error-message"
+                id="textMessage"></span>
+        </div>
+
+        <button type="submit"
+                style="display: block"
+                [disabled]="!form.valid || loading"
+                class="btn mb-3 mt-0 btn-fullwidth btn-submit"
+                data-badge="inline">
+          Verify <app-loading *ngIf="loading"></app-loading>
+        </button>
+
+
+      </form>
+
+      <a class="text-center fw-light"
+         [routerLink]="['./']"
+         (click)="resendOtp()">Resend the code</a>
+
+    </div>
+  </div>
+</div>

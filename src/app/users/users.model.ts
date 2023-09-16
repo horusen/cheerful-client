@@ -11,4 +11,5 @@ export interface User extends BaseModel {
   password?: string;
   profile_pic?: File;
   point_balance?: number;
+  verified?: boolean;
 }

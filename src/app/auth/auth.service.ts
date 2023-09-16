@@ -11,6 +11,7 @@ import { TypeUserEnum } from '../users/type-users/type-user.enum';
 import { Router } from '@angular/router';
 import { InvitationService } from '../section-business/connection/invitation/invitation.service';
 import { Store } from '../section-merchant/store/store.model';
+import { Otp } from './otp/otp.model';
 
 interface LoginInformation {
   user: User;
@@ -148,5 +149,27 @@ export class AuthService extends BaseService<any> {
   public logout() {
     this.storage.clear();
     this.router.navigate(['/authentication/login']);
+  }
+
+  verifyOtp(data: Otp) {
+    return this.factory.post(`auth/otp/verify`, data).pipe(
+      tap({
+        next: (response: { data: any }) => {
+          this.user = {
+            ...this.user,
+            verified: true,
+          };
+        },
+        error: (error: HttpErrorResponse) => this.errorResponseHandler(error),
+      })
+    );
+  }
+
+  resendOtp(userId: number) {
+    return this.factory.post(`auth/otp/send`, { userId }).pipe(
+      tap({
+        error: (error: HttpErrorResponse) => this.errorResponseHandler(error),
+      })
+    );
   }
 }

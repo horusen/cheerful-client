@@ -1,0 +1,13 @@
+p {
+  font-size: 16px;
+}
+
+.btn-submit {
+  color: var(--contrast-text-color);
+  background: var(--primary-accent-color);
+
+  &:hover {
+    background-color: var(--main-font-color);
+    color: var(--contrast-text-color);
+  }
+}
