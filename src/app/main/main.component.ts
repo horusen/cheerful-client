@@ -12,6 +12,12 @@ export class MainComponent implements OnInit {
   constructor(public authService: AuthService, public router: Router) {}
 
   ngOnInit(): void {
+    const isUserVerified = this.authService.user.verified;
+    if (!isUserVerified) {
+      this.router.navigate(['/authentication/otp-verification']);
+      return;
+    }
+
     const isRootUrl = this.router.url === '/';
     const isAdminUser =
       this.authService.typeUser === TypeUserEnum.BusinessAdmin;
