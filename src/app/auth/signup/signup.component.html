@@ -2,7 +2,9 @@
   <div class="section-small">
     <div class="page-title text-center">
       <h2>
-        <span *ngIf="typeUserId == 2"><span class="gradient-text">Register </span> your business</span>
+        <span *ngIf="registrationUserType== TypeUserEnum.BusinessAdmin"><span class="gradient-text">Register </span> your business</span>
+        <span *ngIf="registrationUserType== TypeUserEnum.Merchant"><span class="gradient-text">Register </span> your store</span>
+        <span *ngIf="registrationUserType== TypeUserEnum.Individual"><span class="gradient-text">Complete </span> your registration</span>
 
       </h2>
     </div>
@@ -20,7 +22,8 @@
              value="">
 
       <!-- Business name -->
-      <div class="form-field">
+      <div class="form-field"
+           *ngIf="registrationUserType== TypeUserEnum.BusinessAdmin">
         <label for="name">Your Business name</label>
         <input type="text"
                name="business_name"
@@ -34,8 +37,24 @@
               id="textMessage"></span>
       </div>
 
+      <!-- Store name -->
+      <div class="form-field"
+           *ngIf="registrationUserType== TypeUserEnum.Merchant">
+        <label for="name">Your store name</label>
+        <input type="text"
+               name="store_name"
+               formControlName="store_name"
+               id="store_name"
+               data-val="\S"
+               data-val-msg="* This is a required field."
+               data-val-msg-id="textMessage"
+               required="">
+        <span class="input_error-message"
+              id="textMessage"></span>
+      </div>
 
-      <!-- Name and email -->
+
+      <!-- Name, email  -->
       <div class="form-group">
         <!-- Name -->
         <div class="form-field">
@@ -51,6 +70,8 @@
           <span class="input_error-message"
                 id="textMessage"></span>
         </div>
+
+
 
         <!-- Email -->
         <div class="form-field">
@@ -105,7 +126,7 @@
       <div class="form-group">
         <!-- Gender -->
         <div class="form-field"
-             *ngIf="typeUserId == 1">
+             *ngIf="registrationUserType== TypeUserEnum.Individual">
           <label for="subject">Gender</label>
           <select class="select-nice"
                   name="email_subject"

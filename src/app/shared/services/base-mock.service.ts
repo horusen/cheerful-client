@@ -20,7 +20,6 @@ export class BaseMockService<T = any> extends BaseService<T> {
 
   override store(elements: object) {
     this.data.push(elements as T);
-    console.log(this.data);
     return of(this.data);
   }
 

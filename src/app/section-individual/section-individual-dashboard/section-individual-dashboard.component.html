@@ -1,0 +1,243 @@
+<div class="primary-content-area container content-padding padding-150">
+
+  <div class="main-content-area">
+    <div class="page-title-section">
+      <h2> <span class="gradient-text">Dashboard</span></h2>
+    </div>
+
+
+
+
+    <div class="dashboard-wrapper">
+      <div class="row">
+        <div class="col-4">
+          <div class="card rounded rounded-2 shadow-sm">
+            <div class="custom-card-body">
+
+              <div class="d-flex flex-column align-items-center">
+                <div class="user-image">
+                  <img src="assets/img/avatar.png"
+                       alt="avatar">
+                </div>
+                <h4>{{ authService.user.name }}</h4>
+                <p>@{{ authService.user.name.replace(' ', '') }}</p>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-8 d-flex flex-column justify-content-end">
+          <h5>Hello, {{ authService.user.name }}</h5>
+          <div class="user-stats-section mt-5">
+            <!-- Point amount -->
+            <div class="stat-item  blue-gradient-diagonal p-3">
+              <div class="stat-icon"><svg class="crumina-icon">
+                  <use xlink:href="#face-id-icon"></use>
+                </svg></div>
+              <div class="stat-info">
+                <div class="stat-number">{{ authService.user.point_balance }}</div>
+                <div class="stat-description">Point Wallet</div>
+              </div>
+            </div>
+
+            <!-- Point send this month -->
+            <div class="stat-item fuchsia-gradient-diagonal p-3">
+              <div class="stat-icon"><svg class="crumina-icon">
+                  <use xlink:href="#heart-icon"></use>
+                </svg></div>
+              <div class="stat-info">
+                <div class="stat-number">107</div>
+                <div class="stat-description">Points sent this month</div>
+              </div>
+            </div>
+
+            <!-- Coverage -->
+            <!-- <div class="stat-item yellow-gradient-diagonal p-3">
+              <div class="stat-icon"><svg class="crumina-icon">
+                  <use xlink:href="#dollar-icon"></use>
+                </svg></div>
+              <div class="stat-info">
+                <div class="stat-number">70%</div>
+                <div class="stat-description">% of connection rewarded</div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+
+
+      <!--   user stats -->
+
+
+      <div class="upload-row">
+        <div class="upload-column">
+
+          <app-dashboard-marketplace-store></app-dashboard-marketplace-store>
+
+          <!--     best selling items -->
+          <div class="best-sellers-section">
+
+            <div class="best-sellers">
+              <div style="padding-top: 100px;">
+                <h5><span class="gradient-text"><span><i class="far fa-gift me-1"></i></span>Last reward</span> sent</h5>
+              </div>
+              <table class="content-table">
+                <thead>
+                  <tr>
+                    <th scope="col"
+                        class="heading-label">Item details</th>
+                    <th scope="col"
+                        class="heading-label">Sales</th>
+                    <th scope="col"
+                        class="heading-label">Views</th>
+                    <th scope="col"
+                        class="heading-label">Comments</th>
+                    <th scope="col"
+                        class="heading-label">Rating</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Item details">
+                      <div class="product-info">
+                        <div class="item-number">01</div>
+                        <div class="product-thumb"><a href="05-product.html">
+                            <img src="img/content/previews/project-thumb-37.png"
+                                 alt=""></a>
+                        </div>
+                        <div class="product-details">
+                          <div class="product-name"><a href="05-product.html">Cryptoki NFT and
+                              DIgital Market PSD Template</a></div>
+                          <div class="product-meta">
+                            <div class="item-category ui-templates">UI TEMPLATES</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td data-label="Sales"
+                        class="stats-item colored">158</td>
+                    <td data-label="Views"
+                        class="stats-item">5.360</td>
+                    <td data-label="Comments"
+                        class="stats-item">24</td>
+                    <td data-label="Rating"
+                        class="stats-item">
+                      <div class="item-rating">
+                        <span class="filled"><svg class="crumina-icon">
+                            <use xlink:href="#star2-icon"></use>
+                          </svg></span>
+                        <span class="filled"><svg class="crumina-icon">
+                            <use xlink:href="#star2-icon"></use>
+                          </svg></span>
+                        <span class="filled"><svg class="crumina-icon">
+                            <use xlink:href="#star2-icon"></use>
+                          </svg></span>
+                        <span class="filled"><svg class="crumina-icon">
+                            <use xlink:href="#star2-icon"></use>
+                          </svg></span>
+                        <span><svg class="crumina-icon">
+                            <use xlink:href="#star2-icon"></use>
+                          </svg></span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td data-label="Item details">
+                      <div class="product-info">
+                        <div class="item-number">02</div>
+                        <div class="product-thumb"><a href="05-product.html">
+                            <img src="img/content/previews/project-thumb-38.png"
+                                 alt=""></a>
+                        </div>
+                        <div class="product-details">
+                          <div class="product-name"><a href="05-product.html">Twitter Gaming
+                              Headers Pack 04</a></div>
+                          <div class="product-meta">
+                            <div class="item-category social-graphics">Social graphics</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td data-label="Sales"
+                        class="stats-item colored">97</td>
+                    <td data-label="Views"
+                        class="stats-item">6.012</td>
+                    <td data-label="Comments"
+                        class="stats-item">18</td>
+                    <td data-label="Rating"
+                        class="stats-item">
+                      <div class="item-rating">
+                        <span class="filled"><svg class="crumina-icon">
+                            <use xlink:href="#star2-icon"></use>
+                          </svg></span>
+                        <span class="filled"><svg class="crumina-icon">
+                            <use xlink:href="#star2-icon"></use>
+                          </svg></span>
+                        <span class="filled"><svg class="crumina-icon">
+                            <use xlink:href="#star2-icon"></use>
+                          </svg></span>
+                        <span class="filled"><svg class="crumina-icon">
+                            <use xlink:href="#star2-icon"></use>
+                          </svg></span>
+                        <span><svg class="crumina-icon">
+                            <use xlink:href="#star2-icon"></use>
+                          </svg></span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td data-label="Item details">
+                      <div class="product-info">
+                        <div class="item-number">03</div>
+                        <div class="product-thumb"><a href="05-product.html">
+                            <img src="img/content/previews/project-thumb-39.png"
+                                 alt=""></a>
+                        </div>
+                        <div class="product-details">
+                          <div class="product-name"><a href="05-product.html">Twitter Gaming
+                              Headers Pack 03</a></div>
+                          <div class="product-meta">
+                            <div class="item-category social-graphics">Social graphics</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td data-label="Sales"
+                        class="stats-item colored">84</td>
+                    <td data-label="Views"
+                        class="stats-item">1.258</td>
+                    <td data-label="Comments"
+                        class="stats-item">33</td>
+                    <td data-label="Rating"
+                        class="stats-item">
+                      <div class="action-buttons">
+
+                        <form class="cryptoki-form checkbox">
+                          <input type="checkbox"
+                                 name="notif-select"
+                                 id="6"
+                                 class="cryptoki-checkbox"><label for="6"></label>
+                        </form>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="upload-column">
+          <app-dashboard-activity-list></app-dashboard-activity-list>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

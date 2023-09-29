@@ -1,0 +1,211 @@
+<!-- <div class="page-title text-center">
+  <h2><span class="gradient-text">Add your </span> store information</h2>
+</div> -->
+<form class="cryptoki-form validation"
+      id="contact-form"
+      [formGroup]="form"
+      *ngIf="form"
+      (submit)="create()"
+      novalidate="">
+  <input type="hidden"
+         name="recaptcha_site_key"
+         value="">
+  <input type="hidden"
+         name="recaptcha_token"
+         value="">
+
+
+  <div class="user-db-title">Business information</div>
+  <!-- Name and email -->
+  <div class="form-group mb-3">
+    <!-- Name -->
+    <div class="form-field">
+      <label for="name">Store Name</label>
+      <input type="text"
+             name="name"
+             formControlName="name"
+             id="name"
+             data-val="\S"
+             data-val-msg="* This is a required field."
+             data-val-msg-id="textMessage"
+             required="">
+      <span class="input_error-message"
+            id="textMessage"></span>
+    </div>
+
+    <!-- Email -->
+    <div class="form-field">
+      <label for="email">Store Email</label>
+      <input type="email"
+             name="email"
+             id="email"
+             formControlName="email"
+             data-val="\b[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}\b"
+             data-val-msg="* Please enter a valid email address."
+             data-val-msg-id="emailMessage"
+             required="">
+      <span class="input_error-message"
+            id="emailMessage"></span>
+    </div>
+  </div>
+
+  <!-- Type and Category -->
+  <div class="form-group mb-3">
+    <!-- Type -->
+    <div class="form-field">
+      <label for="subject">Type Store</label>
+      <select class="select-nice"
+              name="email_subject"
+              (change)="selectFormHandler('type_store_id', $event.target)"
+              id="subject"
+              data-val="\S"
+              data-val-msg="* Please, select an option."
+              data-val-msg-id="selectMessage"
+              required="">
+        <option value="">Select an Option</option>
+        <option [value]="type.id"
+                [selected]="formValue('type_store_id') == type.id"
+                *ngFor="let type of types">{{ type.name }}</option>
+      </select>
+      <span class="input_error-message"
+            id="selectMessage"></span>
+    </div>
+
+    <!-- Category -->
+    <div class="form-field">
+      <label for="subject">Category Store</label>
+      <select class="select-nice"
+              name="email_subject"
+              (change)="selectFormHandler('category_store_id', $event.target)"
+              id="subject"
+              data-val="\S"
+              data-val-msg="* Please, select an option."
+              data-val-msg-id="selectMessage"
+              required="">
+        <option value="">Select an Option</option>
+        <option [value]="category.id"
+                [selected]="formValue('category_store_id') == category.id"
+                *ngFor="let category of categories">{{ category.name }}</option>
+      </select>
+      <span class="input_error-message"
+            id="selectMessage"></span>
+    </div>
+  </div>
+
+  <!-- Phone number and online link -->
+  <div class="form-group mb-3">
+    <!-- Phone number -->
+    <div class="form-field">
+      <label for="name">Store Phone number</label>
+      <input type="tel"
+             name="name"
+             formControlName="phone_number"
+             id="name"
+             data-val="\S"
+             data-val-msg="* This is a required field."
+             data-val-msg-id="textMessage"
+             required="">
+      <span class="input_error-message"
+            id="textMessage"></span>
+    </div>
+
+
+    <!-- Online link -->
+    <div class="form-field">
+      <label for="name">Store Online link</label>
+      <input type="text"
+             name="name"
+             formControlName="online_link"
+             id="name"
+             data-val="\S"
+             data-val-msg="* This is a required field."
+             data-val-msg-id="textMessage"
+             required="">
+      <span class="input_error-message"
+            id="textMessage"></span>
+      <div class="onlineLink">
+        Your online link: <strong>https//getcheerful.io/store/{{ onlineLink }}</strong>
+      </div>
+
+    </div>
+
+
+    <!-- Card min price -->
+    <div class="form-field">
+      <label for="name">Card Minimum price</label>
+      <input type="number"
+             name="name"
+             formControlName="card_min_price"
+             id="name"
+             data-val="\S"
+             data-val-msg="* This is a required field."
+             data-val-msg-id="textMessage"
+             required="">
+      <span class="input_error-message"
+            id="textMessage"></span>
+    </div>
+
+
+  </div>
+
+  <div class="upload-photo-box w-100 my-5">
+    <div class="user-db-title">Logo and Cover</div>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="user-avatar"
+           (click)="logoPic.click()"><img [src]="logoImage"
+             alt=""></div>
+      <div class="user-cover-image"
+           (click)="coverPic.click()"><img [src]="coverImage"
+             alt=""></div>
+    </div>
+    <div class="upload-notice">Images must be .png or .jpg format. Min size 100x100px (avatar) and
+      1920x320px (cover) </div>
+
+    <input type="file"
+           [accept]="'image/*'"
+           hidden
+           #logoPic
+           (change)="onFileChanged($event, 'logo')">
+
+    <input type="file"
+           [accept]="'image/*'"
+           hidden
+           #coverPic
+           (change)="onFileChanged($event, 'cover')">
+  </div>
+
+  <!-- Description -->
+  <div class="form-field comment-area">
+    <label for="message">Description</label>
+    <textarea id="message"
+              name="message"
+              formControlName="description"
+              class="comment-form message"
+              cols="30"
+              rows="10"
+              data-val="\S"
+              data-val-msg="* Please, type a message."
+              data-val-msg-id="textareaMessage"
+              required=""></textarea>
+    <span class="input_error-message"
+          id="textareaMessage"></span>
+  </div>
+
+
+
+
+  <button type="submit"
+          style="display: block"
+          [disabled]="!form.valid || loading"
+          class="btn  btn-fullwidth btn-dark"
+          data-badge="inline">Validate <app-loading *ngIf="loading"></app-loading></button>
+
+  <!-- <button type="submit"
+              style="display: block"
+              class="btn  btn-fullwidth btn-dark"
+              data-badge="inline">Send</button> -->
+  <!-- </form> -->
+  <!-- <div class="register-notice">
+      You’ll receive a confirmation email in your inbox with a link to activate your account.
+    </div> -->
+</form>

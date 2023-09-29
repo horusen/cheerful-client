@@ -1,0 +1,32 @@
+<div *ngIf="single"
+     class="d-flex flex-column align-items-center">
+  <p style="font-size: 24px;">You've just gotten a GHC <strong>{{single.amount}}</strong> gift card from <strong>{{ single.store.name }}</strong></p>
+  <p class="gradient-text"><a href="#">How to redeem?</a></p>
+  <div class="product-media gradient-border_white-bg border-2 "
+       style="width: 480px">
+    <a class="expand-icon"
+       data-fslightbox="gallery"
+       [routerLink]="['/', single.logo?.url]">
+      <svg class="crumina-icon">
+        <use xlink:href="#maximize-icon"></use>
+      </svg>
+    </a>
+    <div class="product-img">
+      <img [src]="single.store.logo?.url"
+           alt="">
+    </div>
+
+
+  </div>
+
+
+  <div class="border rounded-pill mt-2 px-5 py-1">
+    <span class="clickable "
+          (click)="toggleDisplayCode()">
+      <i class="far fa-2x fa-eye me-3"
+         [ngbTooltip]="'Show code'"></i>
+    </span>
+    <span class="code"
+          [ngClass]="{ 'blured': !showCode }">{{single.code}}</span>
+  </div>
+</div>

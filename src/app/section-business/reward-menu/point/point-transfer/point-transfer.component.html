@@ -1,0 +1,73 @@
+<div class="statement-list">
+  <!-- Filters -->
+  <div class="filterable-bar">
+    <form id="creators-filter-form">
+      <div class="filter-options">
+        <!-- Search -->
+        <span class="cryptoki-form">
+          <input type="text"
+                 disabled
+                 placeholder="Search">
+        </span>
+
+        <!-- Sort -->
+        <select class="select-nice"
+                disabled>
+          <option value="july-2021"
+                  selected>All dates</option>
+          <option value="august-2021">August 2021</option>
+          <option value="september-2021">September 2021</option>
+        </select>
+
+        <!-- Group filter -->
+        <select class="select-nice"
+                disabled>
+          <option value="all-items"
+                  selected>All groups</option>
+          <option value="regular-license">Regular license</option>
+          <option value="commercial-license">Commercial license</option>
+          <option value="extended-license">Extended license</option>
+        </select>
+
+
+      </div>
+
+      <!-- CTAs -->
+      <div class="filter-button">
+        <button class="btn btn-normal btn-dark"
+                (click)="openModal(transferPoints, 'lg')">
+          <span><i class="far fa-paper-plane me-1"></i></span>
+          Send rewards
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- List of individuals -->
+  <div class="statement">
+    <app-point-transfer-list></app-point-transfer-list>
+  </div>
+
+
+
+
+</div>
+
+
+
+<ng-template #transferPoints
+             let-d="dismiss"
+             let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-center w-100"><span class="gradient-text"> <i class="far fa-gift me-2"></i> Send </span> rewards</h4>
+    <button type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body p-5">
+    <app-transfer-points (created)="closeModal(transferPoints)"></app-transfer-points>
+
+  </div>
+
+</ng-template>

@@ -60,7 +60,7 @@ export abstract class BaseComponent<T> implements OnDestroy {
 
   closeModal(content: any) {
     if (content) {
-      content.close();
+      this.modalService.dismissAll();
     }
   }
 }

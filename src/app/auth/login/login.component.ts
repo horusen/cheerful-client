@@ -27,9 +27,15 @@ export class LoginComponent extends BaseCreateComponent<User> {
 
   login(): void {
     this.loading = true;
-    this.authService.login(this.form.value).subscribe((response) => {
-      this.router.navigate(['/']);
-      this.helper.notification.alertSuccess();
+    this.authService.login(this.form.value).subscribe({
+      next: () => {
+        this.router.navigate(['']);
+        this.helper.notification.alertSuccess();
+        this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
+      },
     });
   }
 }

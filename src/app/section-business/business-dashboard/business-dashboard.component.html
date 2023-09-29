@@ -1,0 +1,60 @@
+<div class="primary-content-area container content-padding padding-150">
+
+  <div class="main-content-area">
+    <div class="page-title-section">
+      <h2> <span class="gradient-text">Dashboard</span></h2>
+    </div>
+    <h6>Hello, {{ authService.user ? authService.user.name : null }}</h6>
+
+
+
+    <div class="dashboard-wrapper">
+      <!--   user stats -->
+      <div class="user-stats-section">
+        <a [routerLink]="['/business/rewards/points']"
+           class="stat-item  dashboard-widget-pb">
+          <div class="stat-number ">{{ authService.business.point_balance | number }}</div>
+          <div class="stat-description">Point balance</div>
+        </a>
+        <a routerLink="./"
+           class="stat-item dashboard-widget-pdtm">
+          <div class="stat-number green">230</div>
+          <div class="stat-description">Point disbursed this month</div>
+        </a>
+        <a routerLink="./"
+           class="stat-item dashboard-widget-ec">
+          <div class="stat-number red">%75</div>
+          <div class="stat-description">Employee coverage</div>
+        </a>
+        <a routerLink="./"
+           class="stat-item dashboard-widget-aomstm">
+          <div class="stat-number text-primary">₵{{ (authService.business.point_balance || 0) * 0.9 * 12 | number }}</div>
+          <div class="stat-description">Amount of money spent this month</div>
+        </a>
+      </div>
+
+      <div class="upload-row">
+        <div class="upload-column">
+
+
+
+          <!--     best selling items -->
+          <app-dashboard-new-connections></app-dashboard-new-connections>
+
+          <app-dashboard-marketplace-store></app-dashboard-marketplace-store>
+
+
+
+        </div>
+
+        <div class="upload-column">
+          <app-dashboard-activity-list></app-dashboard-activity-list>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

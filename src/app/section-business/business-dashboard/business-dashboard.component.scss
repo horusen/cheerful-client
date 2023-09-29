@@ -1,0 +1,47 @@
+.padding-150 {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.stat-item {
+  display: block;
+  color: var(--main-font-color);
+}
+
+.dashboard-widget-pb {
+  color: var(--main-font-color);
+  &:hover {
+    background-color: #252831;
+    color: white;
+  }
+}
+
+.dashboard-widget-pdtm {
+  color: var(--main-font-color);
+  &:hover {
+    background-color: #00bf8b;
+    & div {
+      color: white !important;
+    }
+  }
+}
+
+.dashboard-widget-ec {
+  color: var(--main-font-color);
+  &:hover {
+    background-color: #f32a63;
+    & div {
+      color: white !important;
+    }
+  }
+}
+
+.dashboard-widget-aomstm {
+  color: var(--main-font-color);
+  &:hover {
+    background-color: #0275d8;
+    & div {
+      color: white !important;
+    }
+  }
+}

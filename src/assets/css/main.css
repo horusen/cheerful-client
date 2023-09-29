@@ -642,7 +642,7 @@ ol {
 .grid-left-sidebar {
   display: grid;
   grid-template-columns: 340px 3fr;
-  grid-column-gap: clamp(1rem, 8vw, 140px);
+  grid-column-gap: clamp(1rem, 5vw, 140px);
 }
 
 .grid-right-sidebar {
@@ -2633,8 +2633,13 @@ ol li::marker {
   fill: var(--main-font-color);
 }
 
-.profile-menu li:hover {
-  background-color: var(--extra-light-gray);
+.profile-menu li a:hover,
+.profile-menu li a.active {
+  background-image: var(--cryptoki-gradient);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .profile-menu li:hover svg {
@@ -2848,12 +2853,8 @@ nav {
 }
 
 .navigation-menu .menu-item .menu-link:hover,
-.navigation-menu
-  .menu-item
-  .menu-link:active
-  .navigation-menu
-  .menu-item
-  .menu-link.active {
+.navigation-menu .menu-item .menu-link:active,
+.navigation-menu .menu-item .menu-link.active {
   background-color: var(--main-font-color);
   background-image: var(--cryptoki-gradient);
   background-size: 100%;

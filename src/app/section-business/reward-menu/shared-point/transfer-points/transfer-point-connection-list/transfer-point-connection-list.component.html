@@ -1,0 +1,97 @@
+<table class="content-table"
+       *ngIf="!loading && connectionService.data.length">
+  <!-- Header -->
+  <thead>
+    <tr>
+      <!-- Select -->
+      <th scope="col"
+          class="heading-label text-center">
+      </th>
+
+      <!-- Profile pic -->
+      <th scope="col"
+          class="heading-label text-center">
+      </th>
+
+      <!-- Name -->
+      <th scope="col"
+          class="heading-label text-center">
+        Name
+      </th>
+
+      <!-- Email address -->
+      <th scope="col"
+          class="heading-label text-center">
+        Email address
+      </th>
+
+
+
+
+    </tr>
+  </thead>
+
+  <!-- Data -->
+  <tbody>
+    <tr *ngFor="let connection of temp_data">
+      <!-- Select -->
+      <td>
+        <div class="action-buttons">
+
+          <form class="cryptoki-form checkbox">
+            <input type="checkbox"
+                   (change)="toggleConnectionSelectionFromCheckbox($event)"
+                   name="notif-select"
+                   [checked]="isSelected(connection)"
+                   [value]="connection.id"
+                   [id]="connection.id"
+                   class="cryptoki-checkbox">
+            <label [for]="connection.id"></label>
+          </form>
+        </div>
+      </td>
+
+      <!-- Profile pic -->
+      <td data-label="Item details">
+        <div class="product-info">
+          <div class="avatar-meta ">
+            <a>
+
+              <img style="height: 50px; width: 50px;"
+                   *ngIf="!connection.user1?.profile_pic"
+                   src="assets/img/avatar.png"
+                   alt="">
+
+              <img style="height: 50px; width: 50px;"
+                   *ngIf="connection.user1?.profile_pic"
+                   [src]="connection.user1?.profile_pic?.url"
+                   alt="">
+
+            </a>
+          </div>
+        </div>
+      </td>
+
+      <!-- Name -->
+      <td data-label="type"
+          (click)="toggleConnectionSelection(connection)"
+          class="stat-value text-center">
+        {{ connection.user1?.name }}
+      </td>
+
+      <!-- Email address -->
+      <td data-label="price"
+          class="stat-value text-center">
+        {{ connection.user1?.email }}
+      </td>
+
+
+
+    </tr>
+  </tbody>
+</table>
+
+
+<app-page-loading *ngIf="loading"></app-page-loading>
+
+<app-missing-data *ngIf="!loading && !connectionService.data.length"></app-missing-data>
